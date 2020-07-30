@@ -8,14 +8,9 @@
     <meta data-n-head="ssr" data-hid="description" name="description" content="My posh Nuxt.js project">
     <link data-n-head="ssr" rel="icon" type="image/x-icon" href="">  <!--  放网页标题左边的小logo -->
     <link data-n-head="ssr" rel="stylesheet" href="/css/font_1093673_uzfktmycabn.css">
-    <link rel="preload" href="/js/dae1c6f8c04998d117ee.js" as="script">
-    <link rel="preload" href="/js/d9f7b676c200deb3918c.js" as="script">
     <link rel="preload" href="/css/727154f338258645adfd.css" as="style">
-    <link rel="preload" href="/js/e5fb1aaa6d0c882bae9b.js" as="script">
     <link rel="preload" href="/css/8acdd3b37630b5fb5f73.css" as="style">
-    <link rel="preload" href="/js/fc6fe16b79b4e76fbd49.js" as="script">
     <link rel="preload" href="/css/6c294d84b2002efaefa7.css" as="style">
-    <link rel="preload" href="/js/47766912148d1808e7ac.js" as="script">
     <link rel="stylesheet" href="/css/727154f338258645adfd.css">
     <link rel="stylesheet" href="/css/8acdd3b37630b5fb5f73.css">
     <link rel="stylesheet" href="/css/6c294d84b2002efaefa7.css">
@@ -1529,9 +1524,130 @@
 
     body.swal2-toast-column .swal2-toast .swal2-validation-message {
         font-size: 1em
-    }</style>
-    <script src="/js/hm.js"></script>
-   <!-- <script src="./创意社区_files/hm.js(1)"></script>-->
+    }
+
+
+
+    input[type=text], input[type=password] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+
+    /* Set a style for all buttons */
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    button:hover {
+        opacity: 0.8;
+    }
+
+    /* Extra styles for the cancel button */
+    .cancelbtn {
+        width: auto;
+        padding: 10px 18px;
+        background-color: #f44336;
+    }
+
+    /* Center the image and position the close button */
+    .imgcontainer {
+        text-align: center;
+        margin: 24px 0 12px 0;
+        position: relative;
+    }
+
+    img.avatar {
+        width: 40%;
+        border-radius: 50%;
+    }
+
+    .container {
+        padding: 16px;
+    }
+
+    span.psw {
+        float: right;
+        padding-top: 16px;
+    }
+
+    /* The Modal (background) */
+    .modal {
+        position: fixed; /* Stay in place */
+        display: none; /* Hidden by default */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        padding-top: 60px;
+    }
+
+    /* Modal Content/Box */
+    .modal-content {
+        background-color: #fefefe;
+        margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+        border: 1px solid #888;
+        width: 20%; /* Could be more or less, depending on screen size */
+    }
+
+    /* The Close Button (x) */
+    .close {
+        position: absolute;
+        right: 16px;
+        top: -13px;
+        color: #000;
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: red;
+        cursor: pointer;
+    }
+
+    /* Add Zoom Animation */
+    .animate {
+        -webkit-animation: animatezoom 0.6s;
+        animation: animatezoom 0.6s
+    }
+
+    @-webkit-keyframes animatezoom {
+        from {-webkit-transform: scale(0)}
+        to {-webkit-transform: scale(1)}
+    }
+
+    @keyframes animatezoom {
+        from {transform: scale(0)}
+        to {transform: scale(1)}
+    }
+
+    /* Change styles for span and cancel button on extra small screens */
+    @media screen and (max-width: 300px) {
+        span.psw {
+            display: block;
+            float: none;
+        }
+        .cancelbtn {
+            width: 100%;
+        }
+    }
+
+    </style>
+    <!--<script src="/js/hm.js"></script>-->
 </head>
 
 <body>
@@ -1541,7 +1657,7 @@
             <div id="header-wrap" data-v-6fccbc50="">
 
 
-                <script src="./js/jquery-1.11.1.js"></script>
+                <script src="/js/jquery-1.11.1.js"></script>
                 <link rel="icon" type="image/x-icon" href="/image/favicon_93ec135.ico">
                 <link rel="stylesheet" href="/css/base_5f7afde.css">
 
@@ -1563,11 +1679,7 @@
 
                 <div style="height: 60px;"></div>
 
-                <script src="./js/layui.js"></script>
-                <!--<script src=js/common_9a402a5.js"></script>
-
-
-                <script src="js/index_7d477ce.js"></script>-->
+                <script src="/js/layui.js"></script>
 
             </div>
             <div id="content-wrap" data-v-6fccbc50="" >
@@ -1584,7 +1696,7 @@
                                                                                                target="_blank"
                                                                                                href="#"><img
                                             data-v-15ad7817=""
-                                            src="/image/ddbdf78f-f724-4a3c-bbc3-24cff5158f41.jpg"
+                                            src="/image/Cp8l5V4EddGAPyonAAG280i4HsY169.jpg"
                                             class="swiper-lazy swiper-lazy-loaded"></a></div>
                                     <div data-v-15ad7817=""
                                          class="swiper-slide swiper-slide-prev swiper-slide-duplicate-next"
@@ -1598,7 +1710,7 @@
                                                                                                target="_blank"
                                                                                                href="#"><img
                                             data-v-15ad7817=""
-                                            src="/image/ddbdf78f-f724-4a3c-bbc3-24cff5158f41.jpg"
+                                            src="/image/Cp8l5V4EddGAPyonAAG280i4HsY169.jpg"
                                             class="swiper-lazy swiper-lazy-loaded"></a></div>
                                     <div data-v-15ad7817=""
                                          class="swiper-slide swiper-slide-duplicate swiper-slide-next swiper-slide-duplicate-prev"
@@ -1608,12 +1720,6 @@
                                             data-v-15ad7817="" src="/image/Cp8l5V6pDhCACgZZAAsTiqZ__8I496.png"
                                             class="swiper-lazy swiper-lazy-loaded"></a></div>
                                 </div>
-                                <!--
-                                <div data-v-15ad7817="" slot="pagination" class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets">
-                                    <span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 1"></span>
-                                    <span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 2"></span>
-                                </div>
-                                -->
                                 <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
                             </div>
                         </div>
@@ -1626,11 +1732,22 @@
                         我们的在线定制社区包含了家电产品需求征集、产品分享等多种话题，我们希望您在浏览相关话题后积极参与话题讨论，留下您对产品需求、生活体验等方面的见解，您的见解将为我们进一步开发定制产品提供宝贵的信息。
                         </h3>
                     </div>
-                    <div>
-                        <button style="width: auto;font-size: 52px;background: #1b99e8;
-                                    border-bottom-left-radius:12px;
-                                    border-bottom-right-radius:12px;
-                                   ">开始</button>
+                    <div style=" align-content: center">
+                        <button style="width:auto;"  onclick="document.getElementById('begin').style.display='block'">开始</button>
+                    </div>
+                    <div id="begin" class="modal" >
+                        <form class="modal-content animate"  action="/oneTest/begin" METHOD="post">
+                                <div class="imgcontainer">
+                                    <!-- 点击×号，隐藏模态框-->
+                                    <span onclick="document.getElementById('begin').style.display='none'" class="close" title="关闭">&times;</span>
+                                </div>
+
+                                <div class="container" style="width: 80% ">
+                                    <input type="text" placeholder="请输入您的编号" name="userNumber" required>
+
+                                    <button type="submit">开始任务</button>
+                                </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -1641,74 +1758,20 @@
                 <div id="footer">
                     <p class="footer-copyright"> | Me家电定制社区</p>
                 </div>
-
-
-               <!-- <script>
-                    var _hmt = _hmt || [];
-                    (function () {
-                        var hm = document.createElement("script");
-                        hm.src = "https://hm.baidu.com/hm.js?4cd340d6e6b4b90aa962c65dc8ae6f40";
-                        var s = document.getElementsByTagName("script")[0];
-                        s.parentNode.insertBefore(hm, s);
-                    })();
-                </script>
-                <script>
-                    var _hmt = _hmt || [];
-                    (function () {
-                        var hm = document.createElement("script");
-                        hm.src = "https://hm.baidu.com/hm.js?2b46d3714ee5eaa339fd09c5c6df8353";
-                        var s = document.getElementsByTagName("script")[0];
-                        s.parentNode.insertBefore(hm, s);
-                    })();
-
-
-                </script>-->
             </div>
         </div>
     </div>
 </div>
-
-<!--<script>window.__NUXT__ = function (e, t, o) {
-    return {
-        layout: "container",
-        data: [{}],
-        error: null,
-        state: {
-            common: {loginUrl: e},
-            group: {groupUserNum: e, group: {}},
-            grouplist: {groupLists: {}, groupListTotle: 0},
-            homePage: {
-                checkInNumber: 0,
-                isUserAttendanceToday: !1,
-                banners: [],
-                topicSelection: [],
-                hotGroup: [],
-                recommendList: [],
-                hotTopic: [],
-                topicRanking: []
-            },
-            member: {
-                userInfo: {},
-                groupList: {pageItems: []},
-                collectionList: {pageItems: []},
-                threadList: {pageItems: []},
-                replyList: {pageItems: []},
-                voteList: {pageItems: []}
-            },
-            newtopic: {
-                topicform: {type: o, subject: e, message: e, voteTitle: e, activeEndDate: e},
-                voteform: {choose: []},
-                topicType: o
-            }
-        },
-        serverRendered: !0
-    }
-}("", 0, "tuwen")</script>-->
-
-<!--<script src="./创意社区_files/dae1c6f8c04998d117ee.js" defer=""></script>
-<scriptsrc="js/47766912148d1808e7ac.js" defer=""></script>
-<script src="js/d9f7b676c200deb3918c.js" defer=""></script>
-<script src="js/e5fb1aaa6d0c882bae9b.js" defer=""></script>
-<script src="js/fc6fe16b79b4e76fbd49.js" defer=""></script>-->
 </body>
 </html>
+<script>
+    // 获取模型
+    var modal = document.getElementById('begin');
+
+    // 鼠标点击模型外区域关闭登录框
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>

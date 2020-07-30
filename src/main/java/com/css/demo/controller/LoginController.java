@@ -1,11 +1,17 @@
 package com.css.demo.controller;
 
-import com.css.demo.bean.UserBean;
+import com.css.demo.common.UUidUtil;
+import com.css.demo.service.AccountService;
 import com.css.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.annotation.Resource;
+import java.util.Date;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/oneTest")
@@ -13,6 +19,9 @@ public class LoginController {
 
     @Autowired
     UserService userService ;
+
+    @Resource
+    private AccountService accountService;
 
     //首页
     @RequestMapping("/index")
@@ -32,13 +41,11 @@ public class LoginController {
 
 
 
-    @RequestMapping(value = "/loginIn",method = RequestMethod.POST)
-    public String login(String name , String password){
-        UserBean userBean = userService.loginIn(name,password);
-        if(userBean!=null)
-            return "success";
-        else
-            return "error";
+    @RequestMapping(value = "/begin",method = RequestMethod.POST)
+    public String begin(@RequestParam("userNumber") String userNumber){
+        String uuid = UUidUtil.getUUid();
+        Date lastLoginTime = new Date();
+        return accountService.insert(uuid,userNumber,lastLoginTime);
     }
 
 }
