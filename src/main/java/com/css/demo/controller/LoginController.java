@@ -20,7 +20,7 @@ public class LoginController {
     @Autowired
     UserService userService ;
 
-    @Resource
+    @Autowired
     private AccountService accountService;
 
     //首页
@@ -42,7 +42,7 @@ public class LoginController {
 
 
     @RequestMapping(value = "/begin",method = RequestMethod.POST)
-    public String begin(@RequestParam("userNumber") String userNumber){
+    public int begin(@RequestParam("userNumber") String userNumber){
         String uuid = UUidUtil.getUUid();
         Date lastLoginTime = new Date();
         return accountService.insert(uuid,userNumber,lastLoginTime);
