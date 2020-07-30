@@ -16,7 +16,7 @@ public class LoginController {
 
     @RequestMapping("/index")
     public String show(){
-        return "login";
+        return "console";
     }
 
     @RequestMapping(value = "/loginIn",method = RequestMethod.POST)

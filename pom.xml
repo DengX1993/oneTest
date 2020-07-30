@@ -54,6 +54,7 @@
 
     </dependencies>
 
+    <!--可以将项目打成可执行的jar-->
     <build>
         <plugins>
             <plugin>
