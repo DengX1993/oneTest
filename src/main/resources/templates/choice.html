@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<!-- saved from url=(0031)http://diy.haier.com/community/ -->
-<html>
+
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>问卷调研</title>
@@ -1694,6 +1694,7 @@
             <input type="hidden" id="O5" value="">
             <input type="hidden" id="Y6" value="">
             <input type="hidden" id="O6" value="">
+            <input type="hidden" id = "userNumber" th:value="${userNumber}">
 
             <div id = "table1">
                 <div align="center">
@@ -1974,7 +1975,7 @@
 
                 </table>
                 <div align="center">
-                    <input type="button" onclick="commit()" align="center" style="background-color: #4CAF50" value="提交">
+                    <input type="button" onclick="next(6)" align="center" style="background-color: #4CAF50" value="提交">
                 </div>
             </div>
 
@@ -2002,10 +2003,45 @@
         }
     }
     function commit() {
-        alert("提交成功！");
-      $.ajax(
+        debugger;
+        var Y1 = $("#Y1").val();
+        var O1 = $("#O1").val();
+        var Y2 = $("#Y2").val();
+        var O2 = $("#O2").val();
+        var Y3 = $("#Y3").val();
+        var O3 = $("#O3").val();
+        var Y4 = $("#Y4").val();
+        var O4 = $("#O4").val();
+        var Y5 = $("#Y5").val();
+        var O5 = $("#O5").val();
+        var Y6 = $("#Y6").val();
+        var O6 = $("#O6").val();
+        var userNumber = $("#userNumber").val();
+        var sence = (Math.floor(Math.random()*4+ 1)) ;
+        $.ajax({
+            url:"/oneTest/chushihuaceping",
+            method:'post',
+            data:{"y1":Y1,"o1":O1,"y2":Y2,"o2":O2,"y3":Y3,"o3":O3,"y4":Y4,"o4":O4,"y5":Y5,"o5":O5,"y6":Y6,"o6":O6,"userNumber":userNumber},
+            dataType:JSON,
+            async:false,
+            success : function (data) {
+                debugger;
+                /*$.ajax({
+                    url:"/oneTest/xuqiushequmain",
+                    method:'post',
+                    data:{"scene":sence,"userId":userNumber},
+                    dataType:JSON,
+                    async:false,
+                    success : function (data) {
 
-      )
+                    }
+
+                })*/
+
+            }
+
+        })
+        window.location.href='/oneTest/xuqiushequmain?scene='+sence+'&userId='+userNumber;
 
     }
     function next(n) {
@@ -2026,8 +2062,13 @@
             var other =document.getElementById("tdw"+n+col).innerText;
             $("#Y"+n).val(you);
             $("#O"+n).val(other);
-            $('#table'+n).css('display','none');
-            $('#table'+(n+1)).css('display','inline');
+            if(n==6){
+                commit();
+
+            }else{
+                $('#table'+n).css('display','none');
+                $('#table'+(n+1)).css('display','inline');
+            }
         }
 
     }

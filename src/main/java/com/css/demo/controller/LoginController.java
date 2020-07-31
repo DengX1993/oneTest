@@ -5,10 +5,7 @@ import com.css.demo.bean.ContentDesignBean;
 import com.css.demo.bean.LogsBean;
 import com.css.demo.common.UUidUtil;
 import com.css.demo.mapper.LogsBeanMapper;
-import com.css.demo.service.AccountService;
-import com.css.demo.service.ContentDesignService;
-import com.css.demo.service.LogsBeanService;
-import com.css.demo.service.UserService;
+import com.css.demo.service.*;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -33,6 +30,9 @@ public class LoginController {
     @Autowired
     private AccountService accountService;
 
+    @Autowired
+    CePingService cePingService;
+
     //首页
     @RequestMapping("/index")
     public String show(){
@@ -41,14 +41,32 @@ public class LoginController {
 
     //填写用户code弹窗
     @RequestMapping(value = "/begin",method = RequestMethod.POST)
-    public String begin(@RequestParam("userNumber") String userNumber){
+    public ModelAndView begin(@RequestParam("userNumber") String userNumber){
+        ModelAndView view = new ModelAndView("choice");
         String uuid = UUidUtil.getUUid();
         Date lastLoginTime = new Date();
         accountService.insert(uuid,userNumber,lastLoginTime);
-        return "choice";
+        view.getModel().put("userNumber",userNumber);
+
+        return view;
     }
 
     //初始化测评页面
+    @RequestMapping(value = "/chushihuaceping",method = RequestMethod.POST)
+    public String chushihuaceping(
+            @RequestParam("y1") String y1,@RequestParam("o1") String o1,@RequestParam("y2") String y2,@RequestParam("o2") String o2,
+            @RequestParam("y3") String y3,@RequestParam("o3") String o3,@RequestParam("y4") String y4,@RequestParam("o4") String o4,
+            @RequestParam("y5") String y5,@RequestParam("o5") String o5,@RequestParam("y6") String y6,@RequestParam("o6") String o6,
+            @RequestParam("userNumber") String userNumber){
+
+
+        System.out.println("y1"+y1+"o1"+o1+"y2"+y2+"o2"+o2+"y3"+y3+"o3"+o3+"y4"+y4+"o4"+o4+"y5"+y5+"o5"+o5+"y6"+y6+"o6"+o6);
+        String uuid = UUidUtil.getUUid();
+        cePingService.insert(uuid,userNumber,y1,o1,y2,o2,y3,o3,y4,o4,y5,o5,y6,o6);
+        int x = (int)Math.random() * 4 + 1;
+        //return  "redirect:xuqiushequmain?scene="+x+"&userId="+userNumber;
+        return  "index";
+    }
 
     @Autowired
     ContentDesignService contentDesign;
