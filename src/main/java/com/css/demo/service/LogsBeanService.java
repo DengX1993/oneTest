@@ -10,4 +10,5 @@ public interface LogsBeanService {
     int insert (LogsBean logsBean);
     List<LogsBean> selectLogsByUserId( String userUuid);
 
+    List<LogsBean> selectLogsByUserIdAndCheckContentId(String userId, String invitationId);
 }

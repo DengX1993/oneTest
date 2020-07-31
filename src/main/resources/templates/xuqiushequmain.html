@@ -14,8 +14,129 @@
     <link rel="stylesheet" href="/js/xuqiushequmain_files/727154f338258645adfd.css">
     <link rel="stylesheet" href="/js/xuqiushequmain_files/8acdd3b37630b5fb5f73.css">
     <link rel="stylesheet" href="/js/xuqiushequmain_files/6c294d84b2002efaefa7.css">
-    <style>@charset "UTF-8";
-    .swal2-popup.swal2-toast {
+    <style>
+
+
+
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        /* Set a style for all buttons */
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        /* Extra styles for the cancel button */
+        .cancelbtn {
+            width: auto;
+            padding: 10px 18px;
+            background-color: #f44336;
+        }
+
+        /* Center the image and position the close button */
+        .imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+            position: relative;
+        }
+
+        img.avatar {
+            width: 40%;
+            border-radius: 50%;
+        }
+
+        .container {
+            padding: 16px;
+        }
+
+        span.psw {
+            float: right;
+            padding-top: 16px;
+        }
+
+        /* The Modal (background) */
+        .modal {
+            position: fixed; /* Stay in place */
+            display: none; /* Hidden by default */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            padding-top: 60px;
+        }
+
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+            border: 1px solid #888;
+            width: 20%; /* Could be more or less, depending on screen size */
+        }
+
+        /* The Close Button (x) */
+        .close {
+            position: absolute;
+            right: 16px;
+            top: -13px;
+            color: #000;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: red;
+            cursor: pointer;
+        }
+
+        /* Add Zoom Animation */
+        .animate {
+            -webkit-animation: animatezoom 0.6s;
+            animation: animatezoom 0.6s
+        }
+
+        @-webkit-keyframes animatezoom {
+            from {-webkit-transform: scale(0)}
+            to {-webkit-transform: scale(1)}
+        }
+
+        @keyframes animatezoom {
+            from {transform: scale(0)}
+            to {transform: scale(1)}
+        }
+
+        /* Change styles for span and cancel button on extra small screens */
+        @media screen and (max-width: 300px) {
+            span.psw {
+                display: block;
+                float: none;
+            }
+            .cancelbtn {
+                width: 100%;
+            }
+        }
+
+        .swal2-popup.swal2-toast {
         flex-direction: row;
         align-items: center;
         width: auto;
@@ -1551,7 +1672,26 @@
                             <li><a href="#">需求社区</a></li>
                         </ul>
                         <div class="topNav-right" id="headerInfoPage">
-                            <a href="" class="topNav-signIn">结束浏览</a>
+                            <input type="hidden" id="commentFlag" th:value="${commentFlag}"/>
+                            <a onclick="endCheck()" class="topNav-signIn">结束浏览</a>
+                        </div>
+
+
+
+                        <div id="begin" class="modal" >
+                            <form class="modal-content animate"  action="/oneTest/questionnaire" METHOD="post">
+                                <div class="imgcontainer">
+                                    <!-- 点击×号，隐藏模态框-->
+                                    <span onclick="document.getElementById('begin').style.display='none'" class="close" title="关闭">&times;</span>
+                                </div>
+                                <input type="hidden" name="userNumber" />
+                                <div class="container" style="width: 80% ">
+                                    <h2 style="color: #2B2E37">您还没有参与讨论，您确定结束吗？</h2>
+                                    <button   type="button" onclick="document.getElementById('begin').style.display='none'">继续浏览</button>
+                                    <p>-</p>
+                                    <button  type="submit" id="button">确定</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -1584,14 +1724,14 @@
                                         <div data-v-15ad7817="" class="info">
                                             <!--上面内容-->
                                             <a data-v-15ad7817=""
-                                               href="#"
+                                               th:href="'/oneTest/checkinvItation?invitationId='+${invitation.getUuid()}+'&userId='+${userId}"
                                                th:title="${invitation.getTitle()}"
                                                target="_blank" class="info-title link"
                                                 th:text="${invitation.getTitle()}"
                                             >
                                             </a>
 
-                                            <a data-v-15ad7817="" href="#"
+                                            <a data-v-15ad7817="" th:href="'/oneTest/checkinvItation?invitationId='+${invitation.getUuid()}+'&userId='+${userId}"
                                                 target="_blank" class="desc link" th:title="${invitation.getTitle()}"
                                                             th:text="${invitation.getContents().substring(0,30)}+'.......'">
                                             </a>
@@ -1627,7 +1767,16 @@
         </div>
     </div>
 </div>
-
+<script>
+    function endCheck() {
+        var commentFlag = document.getElementById("commentFlag").value;
+        if(1 == commentFlag)
+            window.location.href='/oneTest/questionnaire';
+        else{
+            document.getElementById("begin").style.display = "block";
+        }
+    }
+</script>
 
 </body>
 </html>

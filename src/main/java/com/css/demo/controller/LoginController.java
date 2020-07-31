@@ -105,8 +105,15 @@ public class LoginController {
         ModelAndView view = new ModelAndView("xuqiushequmain");
         List<ContentDesignBean> contentDesignList = contentDesign.selectAllInvitationByScene(scene);
         view.getModel().put("invitationList",contentDesignList);
-        view.getModel().put("userId","userId");
+        view.getModel().put("userId",userId);
         view.getModel().put("nextUrl","/oneTest/checkinvItation");
+        view.getModel().put("commentFlag","0");
+        List<LogsBean> logsBeans = logsBeanService.selectLogsByUserId(userId);
+        for (LogsBean logsBean : logsBeans) {
+            //根据日志，查出是否评论
+            if(1 == logsBean.getCommentFlag())
+                view.getModel().put("commentFlag","1");
+        }
         return view;
     }
 
@@ -130,7 +137,7 @@ public class LoginController {
         List<ContentDesignBean> commentList = new ArrayList<>();
         if(userId != null){
             AccountBean accountBean = accountService.selectBeanByUuid(userId);
-            List<LogsBean> logsBeans = logsBeanService.selectLogsByUserId(userId);
+            List<LogsBean> logsBeans = logsBeanService.selectLogsByUserIdAndCheckContentId(userId,invitationId);
             for (LogsBean logsBean : logsBeans) {
                 //根据日志，查出是否评论
                 if(1 == logsBean.getCommentFlag()){
@@ -143,6 +150,7 @@ public class LoginController {
                 }
             }
         }
+        view.getModel().put("userId",userId);
         view.getModel().put("contentList",contentList);
         view.getModel().put("commentList",commentList);
         view.getModel().put("backUrl","/oneTest/xuqiushequmain?scene="+contentDesignBean.getScene()+"&userId="+userId);
@@ -159,9 +167,14 @@ public class LoginController {
         logsBeanService.insert(logsBean);
     }
 
-
-
     //问卷页
+    @RequestMapping("/questionnaire")
+    public ModelAndView questionnaire(){
+        ModelAndView view = new ModelAndView("questionnaire");
+
+        return view;
+    }
+
     //结束页
 
 

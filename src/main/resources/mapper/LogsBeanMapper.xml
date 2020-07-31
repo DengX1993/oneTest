@@ -9,5 +9,9 @@
         select * from logs where user_Uuid = #{userUuid} order by create_time desc
     </select>
 
+    <select id="selectLogsByUserIdAndCheckContentId" parameterType="String" resultType="com.css.demo.bean.LogsBean">
+        select * from logs where user_Uuid = #{userUuid} and CHECK_CONTENT_ID = #{checkContentId} order by create_time desc
+    </select>
+
 
 </mapper>

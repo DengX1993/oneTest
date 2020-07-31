@@ -26,4 +26,9 @@ public class LogsBeanServiceImpl implements LogsBeanService {
         return logsBeanMapper.selectLogsByUserId(userUuid);
     }
 
+    @Override
+    public List<LogsBean> selectLogsByUserIdAndCheckContentId(String userId, String invitationId) {
+        return logsBeanMapper.selectLogsByUserIdAndCheckContentId(userId,invitationId);
+    }
+
 }

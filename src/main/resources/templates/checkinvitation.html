@@ -1777,29 +1777,36 @@
                 <div id="footer">
                     <p class="footer-copyright"> | Me家电定制社区</p>
                 </div>
+                <input type="hidden" id="checkContentId" th:value="${contentDesignBean.getUuid()}">
+                <input type="hidden" id="userId" th:value="${userId}">
             </div>
         </div>
     </div>
-</div>
-<script>
-    function submitInvitationButton() {
-        var submitInvitationButtonTextarea = document.getElementById("submitInvitationButtonTextarea").value;
-        if(submitInvitationButtonTextarea != '' && submitInvitationButtonTextarea.length>0){
-            $.ajax({
-                url:"/oneTest/saveLogsBean",
-                method:'post',
-                data:{"userUuid":"1","comment":submitInvitationButtonTextarea,"checkContentId":"1"},
-                dataType:JSON,
-                async:false,
-                success : function (data) {
-                }
+    <script>
+        function submitInvitationButton() {
+            //评论内容
+            var submitInvitationButtonTextarea = document.getElementById("submitInvitationButtonTextarea").value;
+            //用户id
+            var userId = document.getElementById("userId").value;
+            //场景uuid
+            var checkContentId = document.getElementById("checkContentId").value;
+            if(submitInvitationButtonTextarea != '' && submitInvitationButtonTextarea.length>0){
+                $.ajax({
+                    url:"/oneTest/saveLogsBean",
+                    method:'post',
+                    data:{"userUuid":userId,"comment":submitInvitationButtonTextarea,"checkContentId":checkContentId},
+                    dataType:JSON,
+                    async:false,
+                    success : function (data) {
+                    }
 
-            })
-            location.reload();
+                })
+                location.reload();
+            }
         }
-    }
 
 
-</script>
+    </script>
+</div>
 </body>
 </html>
