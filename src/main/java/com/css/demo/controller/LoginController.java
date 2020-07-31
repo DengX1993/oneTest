@@ -40,6 +40,13 @@ public class LoginController {
     }
 
     //填写用户code弹窗
+    @RequestMapping(value = "/begin",method = RequestMethod.POST)
+    public String begin(@RequestParam("userNumber") String userNumber){
+        String uuid = UUidUtil.getUUid();
+        Date lastLoginTime = new Date();
+        accountService.insert(uuid,userNumber,lastLoginTime);
+        return "choice";
+    }
 
     //初始化测评页面
 
@@ -159,19 +166,16 @@ public class LoginController {
 
 
 
-    @RequestMapping(value = "/begin",method = RequestMethod.POST)
-    public int begin(@RequestParam("userNumber") String userNumber){
-        String uuid = UUidUtil.getUUid();
-        Date lastLoginTime = new Date();
-        return accountService.insert(uuid,userNumber,lastLoginTime);
-    }
-
-
 
     @RequestMapping(value = "/beg12in")
     public void contentDesign(){
         ContentDesignBean contentDesignzs = contentDesign.selectObjByUUid("1");
         System.out.println(contentDesignzs.getContents());
+    }
+
+    @RequestMapping("/test")
+    public String test(){
+        return "choice";
     }
 
 }
