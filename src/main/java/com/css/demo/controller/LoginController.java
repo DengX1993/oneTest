@@ -40,13 +40,23 @@ public class LoginController {
     }
 
     //填写用户code弹窗
+    @RequestMapping(value = "/begin",method = RequestMethod.POST)
+    public String begin(@RequestParam("userNumber") String userNumber){
+        String uuid = UUidUtil.getUUid();
+        Date lastLoginTime = new Date();
+        int insert = accountService.insert(uuid, userNumber, lastLoginTime);
+        System.out.println(insert);
+        return "choice";
+    }
+
+
+    //填写用户code弹窗
     //初始化测评页面
 
-    @Autowired
-    ContentDesignService contentDesign;
-    //需求社区场景示例 http://localhost:8080/oneTest/xuQiuShequDemo?scene=1
-    @RequestMapping(value = "/xuQiuShequDemo",method = RequestMethod.GET)
-    public ModelAndView xuQiuShequDemo(@RequestParam("scene") String scene){
+    //需求社区场景示例
+    @RequestMapping("/xuQiuShequDemo")
+    public ModelAndView xuQiuShequDemo(){
+        String a = "1";
         ModelAndView view = new ModelAndView("xuqiushequdemo");
         //内容
         List<String> contentList = new ArrayList<>();
@@ -156,13 +166,9 @@ public class LoginController {
     //问卷页
     //结束页
 
-
-
-    @RequestMapping(value = "/begin",method = RequestMethod.POST)
-    public int begin(@RequestParam("userNumber") String userNumber){
-        String uuid = UUidUtil.getUUid();
-        Date lastLoginTime = new Date();
-        return accountService.insert(uuid,userNumber,lastLoginTime);
+    @RequestMapping("/test")
+    public String test(){
+        return "choice";
     }
 
 
