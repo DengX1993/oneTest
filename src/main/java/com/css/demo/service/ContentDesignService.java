@@ -7,4 +7,5 @@ import java.util.List;
 public interface ContentDesignService {
     ContentDesignBean selectObjByUUid (String uuid);
     List<ContentDesignBean> selectAllByScene(String scene);
+    List<ContentDesignBean> selectAllInvitationByScene(String scene);
 }

@@ -8,6 +8,7 @@
         <result column="TITLE" property="title" jdbcType="VARCHAR"/>
         <result column="CONTENTTYPE" property="contentType" jdbcType="VARCHAR"/>
         <result column="CONTENTS" property="contents" jdbcType="VARCHAR"/>
+        <result column="IMAGES" property="images" jdbcType="VARCHAR"/>
     </resultMap>
 
 
@@ -15,9 +16,17 @@
         SELECT * FROM CONTENT_DESIGN WHERE UUID = #{uuid}
     </select>
 
+    <select id="selectAllByScenetest" parameterType="String" resultType="com.css.demo.bean.ContentDesignBean">
+        SELECT * FROM CONTENT_DESIGN WHERE SCENE = #{scene}
+    </select>
+
 
     <select id="selectAllByScene" parameterType="String" resultType="hashmap">
         SELECT * FROM CONTENT_DESIGN WHERE SCENE = #{scene}
+    </select>
+
+    <select id="selectAllInvitationByScene" parameterType="String" resultType="hashmap">
+        SELECT * FROM CONTENT_DESIGN WHERE SCENE = #{scene} AND CONTENTTYPE = '3'
     </select>
 
 

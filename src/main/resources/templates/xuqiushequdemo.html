@@ -1533,7 +1533,7 @@
         <div id="layout" data-v-6fccbc50="">
             <div id="header-wrap" data-v-6fccbc50="">
 
-
+                <input type="hidden" id = "scene" th:value="${scene}">
                 <script src="/js/xuqiushequdemo_files/jquery-1.11.1.js"></script>
                 <link rel="icon" type="image/x-icon" href="#">
                 <link rel="stylesheet" href="/js/xuqiushequdemo_files/base_5f7afde.css">
@@ -1548,8 +1548,8 @@
                             <li><a href="#">首页</a></li>
                             <li><a href="#">需求社区</a></li>
                         </ul>
-                        <div class="topNav-right" id="headerInfoPage">
-                            <a href="javascript:void(0);" class="topNav-signIn">开始参与</a>
+                        <div class="topNav-right" id="headerInfoPage" >
+                            <a href="#" class="topNav-signIn" onclick="headerInfoPageOnclick()">开始参与</a>
                         </div>
                     </div>
                 </div>
@@ -1785,5 +1785,25 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    
+    function headerInfoPageOnclick() {
+        debugger;
+        var scene = document.getElementById("scene").value;
+        window.location.href="/oneTest/xuqiushequmain?scene="+scene+"&userId=1";
+
+        /*$.ajax({
+            url:"/oneTest/xuqiushequmain",
+            method:'post',
+            data:{"scene":scene},
+            dataType:JSON,
+            onsuccess : function () {
+
+            }
+
+        })*/
+    }
+
+</script>
 </body>
 </html>

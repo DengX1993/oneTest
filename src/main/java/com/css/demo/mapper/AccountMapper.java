@@ -1,5 +1,6 @@
 package com.css.demo.mapper;
 
+import com.css.demo.bean.AccountBean;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
@@ -12,4 +13,5 @@ public interface AccountMapper {
     @Insert("insert into account(UUID,USER_NUMBER,LAST_LOGIN_TIME) values(#{uuid},#{userNumber},#{lastLoginTime})")
     int insert(@Param("uuid") String uuid,@Param("userNumber") String userNumber,@Param("lastLoginTime") Date lastLoginTime);
 
+    AccountBean selectBeanByUuid(String uuid);
 }

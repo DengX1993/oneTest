@@ -13,7 +13,16 @@ public class ContentDesignBean {
     public String contentType;
     //内容
     public String contents;
+    //图片
+    public String images;
 
+    public String getImages() {
+        return images;
+    }
+
+    public void setImages(String images) {
+        this.images = images;
+    }
 
     public String getUuid() {
         return uuid;
@@ -54,4 +63,5 @@ public class ContentDesignBean {
     public void setContents(String contents) {
         this.contents = contents;
     }
+
 }

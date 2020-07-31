@@ -6,4 +6,8 @@
         SELECT * FROM account
     </select>
 
+    <select id="selectBeanByUuid" parameterType="String" resultType="com.css.demo.bean.AccountBean">
+        SELECT * FROM account where uuid = #{uuid}
+    </select>
+
 </mapper>

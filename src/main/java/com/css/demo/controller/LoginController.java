@@ -1,20 +1,25 @@
 package com.css.demo.controller;
 
+import com.css.demo.bean.AccountBean;
 import com.css.demo.bean.ContentDesignBean;
+import com.css.demo.bean.LogsBean;
 import com.css.demo.common.UUidUtil;
+import com.css.demo.mapper.LogsBeanMapper;
 import com.css.demo.service.AccountService;
 import com.css.demo.service.ContentDesignService;
+import com.css.demo.service.LogsBeanService;
 import com.css.demo.service.UserService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.Date;
+import java.util.*;
 import java.util.List;
 
 @Controller
@@ -57,7 +62,7 @@ public class LoginController {
                 //根据场景，查1主要内容。
                 if("1".equals(contentDesignBean.getContentType())){
                     String contents = contentDesignBean.getContents();
-                    String[] split = contents.split("[？，。]");
+                    String[] split = contents.split("[？，。：；]");
                     for (String s : split) {
                         contentList.add(s);
                     }
@@ -71,6 +76,7 @@ public class LoginController {
                     invitationList.add(contentDesignBean);
 
             }
+            view.getModel().put("scene",scene);
             view.getModel().put("contentList",contentList);
             view.getModel().put("commentList",commentList);
             view.getModel().put("invitationList",invitationList);
@@ -85,13 +91,68 @@ public class LoginController {
         return "";
     }
 
-    //需求社区主页
+    //需求社区主页http://localhost:8080/oneTest/xuqiushequmain?scene=1&userId=1
     @RequestMapping("/xuqiushequmain")
-    public String xuqiushequmain(){
-        return "xuqiushequmain";
+    public ModelAndView xuqiushequmain(@RequestParam("scene") String scene,@RequestParam("userId") String userId){
+        ModelAndView view = new ModelAndView("xuqiushequmain");
+        List<ContentDesignBean> contentDesignList = contentDesign.selectAllInvitationByScene(scene);
+        view.getModel().put("invitationList",contentDesignList);
+        view.getModel().put("userId","userId");
+        view.getModel().put("nextUrl","/oneTest/checkinvItation");
+        return view;
     }
 
-    //帖子内容页面
+    @Autowired
+    public LogsBeanService logsBeanService;
+
+    //帖子内容页面http://localhost:8080/oneTest/checkinvItation?invitationId=10&userId=1
+    @RequestMapping("/checkinvItation")
+    public ModelAndView checkinvItation(@RequestParam("invitationId") String invitationId,@RequestParam("userId") String userId){
+        ModelAndView view = new ModelAndView("checkinvitation");
+        ContentDesignBean contentDesignBean = contentDesign.selectObjByUUid(invitationId);
+        view.getModel().put("contentDesignBean",contentDesignBean);
+        //帖子内容
+        List<String> contentList = new ArrayList<>();
+        String contents = contentDesignBean.getContents();
+        String[] split = contents.split("[？，。：；]");
+        for (String s : split) {
+            contentList.add(s);
+        }
+        //帖子评论
+        List<ContentDesignBean> commentList = new ArrayList<>();
+        if(userId != null){
+            AccountBean accountBean = accountService.selectBeanByUuid(userId);
+            List<LogsBean> logsBeans = logsBeanService.selectLogsByUserId(userId);
+            for (LogsBean logsBean : logsBeans) {
+                //根据日志，查出是否评论
+                if(1 == logsBean.getCommentFlag()){
+                    view.getModel().put("commentFlag","1");
+                    ContentDesignBean viewBean = new ContentDesignBean();
+                    //标题为用户code
+                    viewBean.setTitle(accountBean.getUserNumber());
+                    viewBean.setContents(logsBean.getComment());
+                    commentList.add(viewBean);
+                }
+            }
+        }
+        view.getModel().put("contentList",contentList);
+        view.getModel().put("commentList",commentList);
+        view.getModel().put("backUrl","/oneTest/xuqiushequmain?scene="+contentDesignBean.getScene()+"&userId="+userId);
+
+        return view;
+    }
+    //新增一条logs记录
+    @RequestMapping(value = "/saveLogsBean",method = RequestMethod.POST)
+    @ResponseBody
+    public void saveLogsBean(LogsBean logsBean){
+        logsBean.setUuid(UUidUtil.getUUid());
+        logsBean.setCommentFlag(1);
+        logsBean.setCreateTime(new Date());
+        logsBeanService.insert(logsBean);
+    }
+
+
+
     //问卷页
     //结束页
 

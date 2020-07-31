@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- saved from url=(0031)http://diy.haier.com/community/ -->
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>创意社区</title>
@@ -1551,7 +1551,7 @@
                             <li><a href="#">需求社区</a></li>
                         </ul>
                         <div class="topNav-right" id="headerInfoPage">
-                            <a href="/" class="topNav-signIn">结束浏览</a>
+                            <a href="" class="topNav-signIn">结束浏览</a>
                         </div>
                     </div>
                 </div>
@@ -1573,25 +1573,27 @@
                                 <div class="topic bg" data-v-15ad7817="" style="margin-left: 20%;">
                                     <div class="title" data-v-15ad7817="">
                                         <span data-v-15ad7817="">话题精选</span></div>
-                                    <div data-v-15ad7817="" class="item">
+                                    <div data-v-15ad7817="" class="item" th:each="invitation,invitationListStar:${invitationList}">
                                         <!--图片-->
                                         <a data-v-15ad7817=""
-                                           href="http://diy.haier.com/community/topicDetail?id=2361742"
+                                           th:href="'/oneTest/checkinvItation?invitationId='+${invitation.getUuid()}+'&userId='+${userId}"
                                            target="_blank" class="img-wrap">
-                                            <img data-v-15ad7817="" src="/js/xuqiushequmain_files/Cp8lIl5geM-AdEeeAAE-uCKfXN4757.jpg" alt="">
+                                            <img data-v-15ad7817="" th:src="${invitation.getImages()}"  th:title="${invitation.getTitle()}">
                                         </a>
-                                        <!--内容-->
+
                                         <div data-v-15ad7817="" class="info">
+                                            <!--上面内容-->
                                             <a data-v-15ad7817=""
-                                               href="http://diy.haier.com/community/topicDetail?id=2361742"
-                                               title="多人复工后突发高热、呼吸困难，..."
-                                               target="_blank" class="info-title link">
-                                                多人复工后突发高热、呼吸困难，111111112m...
+                                               href="#"
+                                               th:title="${invitation.getTitle()}"
+                                               target="_blank" class="info-title link"
+                                                th:text="${invitation.getTitle()}"
+                                            >
                                             </a>
 
-                                            <a data-v-15ad7817="" href="http://diy.haier.com/community/topicDetail?id=2361742"
-                                                title="日常消毒、杀菌需要注意这一点" target="_blank" class="desc link">
-                                                日常消毒、杀菌需要注意这一点
+                                            <a data-v-15ad7817="" href="#"
+                                                target="_blank" class="desc link" th:title="${invitation.getTitle()}"
+                                                            th:text="${invitation.getContents().substring(0,30)}+'.......'">
                                             </a>
                                             <!--点赞数-->
                                             <div data-v-15ad7817="" class="data">
@@ -1606,7 +1608,6 @@
                                                 </span>
                                             </div>
                                         </div>
-
 
                                     </div>
 

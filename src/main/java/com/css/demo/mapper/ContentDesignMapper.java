@@ -11,4 +11,6 @@ public interface ContentDesignMapper {
     ContentDesignBean selectObjByUUid (String uuid);
 
     List<Map<String,ContentDesignBean>> selectAllByScene(String scene);
+
+    List<Map<String,ContentDesignBean>> selectAllInvitationByScene(String scene);
 }

@@ -36,4 +36,20 @@ public class ContentDesignServiceImpl implements ContentDesignService {
         }
         return list;
     }
+
+    @Override
+    public List<ContentDesignBean> selectAllInvitationByScene(String scene) {
+        {
+            List<ContentDesignBean> list = new ArrayList<>();
+            try {
+                List<Map<String, ContentDesignBean>> maps = mapper.selectAllInvitationByScene(scene);
+                for (Map<String, ContentDesignBean> map : maps) {
+                    list.add(JSON.parseObject(JSON.toJSONString(map), ContentDesignBean.class));
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+            return list;
+        }
+    }
 }
