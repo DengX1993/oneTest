@@ -1672,8 +1672,12 @@
                             <li><a href="#">首页</a></li>
                             <li><a href="#">需求社区</a></li>
                         </ul>
-                        <div class="topNav-right" id="headerInfoPage"><a href="javascript:void(0);"
-                                                                         class="topNav-signIn">登录/注册</a></div>
+                        <div class="topNav-right" id="headerInfoPage">
+                            <a href="javascript:void(0);"
+                               class="topNav-signIn">登录/注册</a>
+                            <a style="width:auto;" href="#" onclick="document.getElementById('begin').style.display='block'">开始</a>
+
+                        </div>
                     </div>
                 </div>
 
@@ -1732,9 +1736,9 @@
                         我们的在线定制社区包含了家电产品需求征集、产品分享等多种话题，我们希望您在浏览相关话题后积极参与话题讨论，留下您对产品需求、生活体验等方面的见解，您的见解将为我们进一步开发定制产品提供宝贵的信息。
                         </h3>
                     </div>
-                    <div style=" align-content: center">
+                    <!--<div style=" align-content: center">
                         <button style="width:auto;"  onclick="document.getElementById('begin').style.display='block'">开始</button>
-                    </div>
+                    </div>-->
                     <div id="begin" class="modal" >
                         <form class="modal-content animate"  action="/oneTest/begin" METHOD="post">
                                 <div class="imgcontainer">
