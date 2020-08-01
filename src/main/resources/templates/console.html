@@ -1646,6 +1646,42 @@
         }
     }
 
+
+
+
+
+
+
+    /* 标签选择器 */
+    p {
+        text-align: center;
+        font-size: 25px;
+        color: cadetblue;
+        font-family: fantasy;
+    }
+
+    /* id选择器 */
+    #hr1 {
+        background-color: cadetblue;
+        height: 2px;
+        width: 75%;
+    }
+
+    /* 类选择器 */
+    .imgbox {
+        border-top: 5px solid cadetblue;
+        /* 避免因窗口变化影响图片效果 */
+        width: 60%;
+        height: 40%;
+        margin: 0 auto;
+    }
+
+    .img {
+        width: 60%;
+        height: 40%;
+        margin: 0 auto;
+        display: none;
+    }
     </style>
     <!--<script src="/js/hm.js"></script>-->
 </head>
@@ -1675,7 +1711,7 @@
                         <div class="topNav-right" id="headerInfoPage">
                             <a href="javascript:void(0);"
                                class="topNav-signIn">登录/注册</a>
-                            <a style="width:auto;" href="#" onclick="document.getElementById('begin').style.display='block'">开始</a>
+                            <a style="width:auto;" href="javascript:" onclick="document.getElementById('begin').style.display='block'">开始</a>
 
                         </div>
                     </div>
@@ -1694,6 +1730,7 @@
                                  class="swiper-container swiper-container-initialized swiper-container-horizontal">
                                 <div data-v-15ad7817="" class="swiper-wrapper"
                                      style="transition-duration: 0ms; transform: translate3d(-2400px, 0px, 0px);">
+
                                     <div data-v-15ad7817=""
                                          class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active"
                                          data-swiper-slide-index="1" style="width: 1200px;"><a data-v-15ad7817=""
@@ -1723,6 +1760,15 @@
                                                                                                href="#"><img
                                             data-v-15ad7817="" src="/image/Cp8l5V6pDhCACgZZAAsTiqZ__8I496.png"
                                             class="swiper-lazy swiper-lazy-loaded"></a></div>
+
+                                    <!--<div class="imgBox">
+                                        &lt;!&ndash; alt：图片路径失败时替换显示内容 &ndash;&gt;
+                                        <img class="img-slide img" src="/image/Cp8l5V4EddGAPyonAAG280i4HsY169.jpg" alt="Cp8l5V4EddGAPyonAAG280i4HsY169">
+                                        <img class="img-slide img" src="/image/Cp8l5V4EddGAPyonAAG280i4HsY169.jpg" alt="Cp8l5V4EddGAPyonAAG280i4HsY169">
+                                        <img class="img-slide img" src="/image/Cp8l5V4EddGAPyonAAG280i4HsY169.jpg" alt="Cp8l5V4EddGAPyonAAG280i4HsY169">
+                                        <img class="img-slide img" src="/image/Cp8l5V4EddGAPyonAAG280i4HsY169.jpg" alt="Cp8l5V4EddGAPyonAAG280i4HsY169">
+                                        <img class="img-slide img" src="/image/Cp8l5V6pDhCACgZZAAsTiqZ__8I496.png" alt="Cp8l5V4EddGAPyonAAG280i4HsY169">
+                                    </div>-->
                                 </div>
                                 <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
                             </div>
@@ -1730,7 +1776,6 @@
                     </div>
                     <div>
                         <h3>
-                        首页介绍文字
                         欢迎您来到Me家电定制社区！
                         我们正开展一项关于在线定制的体验研究。在线定制社区是企业与顾客的信息互动平台，通过社区活动企业将全方位理解顾客对产品的需求和创意，尽可能开发满足顾客需求的可定制化产品。
                         我们的在线定制社区包含了家电产品需求征集、产品分享等多种话题，我们希望您在浏览相关话题后积极参与话题讨论，留下您对产品需求、生活体验等方面的见解，您的见解将为我们进一步开发定制产品提供宝贵的信息。
@@ -1766,7 +1811,7 @@
 </div>
 </body>
 </html>
-<script>
+<script type="text/javascript">
     // 获取模型
     var modal = document.getElementById('begin');
 
@@ -1776,4 +1821,28 @@
             modal.style.display = "none";
         }
     }
+
+
+    // index：索引， len：长度
+    var index = 0, len;
+    // 类似获取一个元素数组
+    var imgBox = document.getElementsByClassName("img-slide");
+    len = imgBox.length;
+    imgBox[index].style.display = 'block';
+    // 逻辑控制函数
+    function slideShow() {
+        index ++;
+        // 防止数组溢出
+        if(index >= len) index = 0;
+        // 遍历每一个元素
+        for(var i=0; i<len; i++) {
+            imgBox[i].style.display = 'none';
+        }
+        // 每次只有一张图片显示
+        imgBox[index].style.display = 'block';
+    }
+
+    // 定时器，间隔3s切换图片
+    setInterval(slideShow, 3000);
+
 </script>
