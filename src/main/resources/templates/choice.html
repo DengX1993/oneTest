@@ -1646,11 +1646,45 @@
         }
     }
 
+    .mytable {
+        width: 80px;
+        height: 40px;
+
+    }
+    .mytable1 {
+        background-color: #9de0f6;
+
+    }
+    .mytable2 {
+        background-color: darkseagreen;
+
+    }
+    .mytable3 {
+        background-color: #53a4f4;
+
+    }
+    .xiayizudiv{
+        height: 100px;
+        border-top-width: 8px;
+        margin-top: 19px;
+    }
+    .xiayizudiv input{
+        width: 100px;
+        height: 59px;
+        border-radius:8px;
+        background: #3fc3ee;
+    }
+    .zudiv input{
+        font-size:32px;
+
+    }
+
     </style>
     <!--<script src="/js/hm.js"></script>-->
 </head>
 
-<body>
+<body background="/image/bj.png" style=" background-repeat:no-repeat ;background-size:100% 100%;
+background-attachment: fixed;">
 <div id="__nuxt"><!---->
     <div id="__layout">
         <div id="layout" data-v-6fccbc50="">
@@ -1695,286 +1729,296 @@
             <input type="hidden" id="Y6" value="">
             <input type="hidden" id="O6" value="">
             <input type="hidden" id = "userNumber" th:value="${userNumber}">
+            <div style="margin-top: 10%;">
+                <h4 style="text-align: center; ">
+                    &nbsp;&nbsp; 在正式开始任务之前，我们想了解您的一些基本信息，本研究以匿名形式展开，<br/>
+                    所有回答只用于统计分析，请根据您真实情况进行回答。
+                    <br/>
+                    &nbsp;&nbsp;假设在资源分配过程中，存在以下9种您被分配到的资源及他人同时被分配到的资源的组合<br/>
+                    （如您得到85，他人得到85；或者您得到85，他人得到15）
+                </h4>
+
+            </div>
 
             <div id = "table1">
-                <div align="center">
-                    <input value=" 第一组"  style=" border: #f0f0f0 " align="center" >
+                <div align="center" class="zudiv">
+                    <input value=" 第一组"  style=" border: #f0f0f0 ;text-align:center "  align="center" >
                 </div>
-                <table border="3"  align="center">
+                <table border="3"  style="text-align: center " align="center">
                     <tr>
-                        <th align="center">You receive</th>
-                        <td id="tdu11">85</td>
-                        <td id="tdu12">85</td>
-                        <td id="tdu13">85</td>
-                        <td id="tdu14">85</td>
-                        <td id="tdu15">85</td>
-                        <td id="tdu16">85</td>
-                        <td id="tdu17">85</td>
-                        <td id="tdu18">85</td>
-                        <td id="tdu19">85</td>
+                        <th align="center" class="mytable3 ">You receive：</th>
+                        <td id="tdu11" class="mytable1 mytable">85</td>
+                        <td id="tdu12" class="mytable2 mytable">85</td>
+                        <td id="tdu13" class="mytable1 mytable">85</td>
+                        <td id="tdu14" class="mytable2 mytable">85</td>
+                        <td id="tdu15" class="mytable1 mytable">85</td>
+                        <td id="tdu16" class="mytable2 mytable">85</td>
+                        <td id="tdu17" class="mytable1 mytable">85</td>
+                        <td id="tdu18" class="mytable2 mytable">85</td>
+                        <td id="tdu19" class="mytable1 mytable">85</td>
                     </tr>
                     <tr>
-                        <th align="center">Other receives</th>
-                        <td id="tdw11">85</td>
-                        <td id="tdw12">76</td>
-                        <td id="tdw13">68</td>
-                        <td id="tdw14">59</td>
-                        <td id="tdw15">50</td>
-                        <td id="tdw16">41</td>
-                        <td id="tdw17">33</td>
-                        <td id="tdw18">24</td>
-                        <td id="tdw19">15</td>
+                        <th align="center" class="mytable3">Other receives：</th>
+                        <td id="tdw11" class="mytable1 mytable">85</td>
+                        <td id="tdw12" class="mytable2 mytable">76</td>
+                        <td id="tdw13" class="mytable1 mytable">68</td>
+                        <td id="tdw14" class="mytable2 mytable">59</td>
+                        <td id="tdw15" class="mytable1 mytable">50</td>
+                        <td id="tdw16" class="mytable2 mytable">41</td>
+                        <td id="tdw17" class="mytable1 mytable">33</td>
+                        <td id="tdw18" class="mytable2 mytable">24</td>
+                        <td id="tdw19" class="mytable1 mytable">15</td>
                     </tr>
                     <tr>
-                        <th align="center">Choice：</th>
-                        <td><input type="radio" name="choice1" value=""></td>
-                        <td><input type="radio" name="choice1" value=""></td>
-                        <td><input type="radio" name="choice1" value=""></td>
-                        <td><input type="radio" name="choice1" value=""></td>
-                        <td><input type="radio" name="choice1" value=""></td>
-                        <td><input type="radio" name="choice1" value=""></td>
-                        <td><input type="radio" name="choice1" value=""></td>
-                        <td><input type="radio" name="choice1" value=""></td>
-                        <td><input type="radio" name="choice1" value=""></td>
+                        <th align="center" class="mytable3">Choice：</th>
+                        <td class="mytable1 mytable"><input type="radio" name="choice1" value=""></td>
+                        <td class="mytable2 mytable"><input type="radio" name="choice1" value=""></td>
+                        <td class="mytable1 mytable"><input type="radio" name="choice1" value=""></td>
+                        <td class="mytable2 mytable"><input type="radio" name="choice1" value=""></td>
+                        <td class="mytable1 mytable"><input type="radio" name="choice1" value=""></td>
+                        <td class="mytable2 mytable"><input type="radio" name="choice1" value=""></td>
+                        <td class="mytable1 mytable"><input type="radio" name="choice1" value=""></td>
+                        <td class="mytable2 mytable"><input type="radio" name="choice1" value=""></td>
+                        <td class="mytable1 mytable"><input type="radio" name="choice1" value=""></td>
                     </tr>
 
                 </table>
-                <div align="center">
+                <div align="center" class="xiayizudiv">
                     <input type="button" onclick="next(1)" align="center" style="background-color: #4CAF50" value="下一组">
                 </div>
             </div>
             <div id = "table2" style="display: none">
-                <div align="center">
-                    <input value=" 第二组"  style=" border: #f0f0f0 " align="center" >
+                <div align="center" class="zudiv">
+                    <input value=" 第二组"  style=" border: #f0f0f0  ;text-align:center" align="center" >
                 </div>
                 <table border="3"  align="center">
                     <tr>
-                        <th align="center">You receive</th>
-                        <td id="tdu21">85</td>
-                        <td id="tdu22">87</td>
-                        <td id="tdu23">89</td>
-                        <td id="tdu24">91</td>
-                        <td id="tdu25">93</td>
-                        <td id="tdu26">94</td>
-                        <td id="tdu27">96</td>
-                        <td id="tdu28">98</td>
-                        <td id="tdu29">100</td>
+                        <th align="center"  class="mytable3">You receive：</th>
+                        <td id="tdu21" class="mytable1 mytable">85</td>
+                        <td id="tdu22" class="mytable2 mytable">87</td>
+                        <td id="tdu23" class="mytable1 mytable">89</td>
+                        <td id="tdu24" class="mytable2 mytable">91</td>
+                        <td id="tdu25" class="mytable1 mytable">93</td>
+                        <td id="tdu26" class="mytable2 mytable">94</td>
+                        <td id="tdu27" class="mytable1 mytable">96</td>
+                        <td id="tdu28" class="mytable2 mytable">98</td>
+                        <td id="tdu29" class="mytable1 mytable">100</td>
                     </tr>
                     <tr>
-                        <th align="center">Other receives</th>
-                        <td id="tdw21">15</td>
-                        <td id="tdw22">19</td>
-                        <td id="tdw23">24</td>
-                        <td id="tdw24">28</td>
-                        <td id="tdw25">33</td>
-                        <td id="tdw26">37</td>
-                        <td id="tdw27">41</td>
-                        <td id="tdw28">46</td>
-                        <td id="tdw29">50</td>
+                        <th align="center" class="mytable3">Other receives：</th>
+                        <td id="tdw21" class="mytable1 mytable">15</td>
+                        <td id="tdw22" class="mytable2 mytable">19</td>
+                        <td id="tdw23" class="mytable1 mytable">24</td>
+                        <td id="tdw24" class="mytable2 mytable">28</td>
+                        <td id="tdw25" class="mytable1 mytable">33</td>
+                        <td id="tdw26" class="mytable2 mytable">37</td>
+                        <td id="tdw27" class="mytable1 mytable">41</td>
+                        <td id="tdw28" class="mytable2 mytable">46</td>
+                        <td id="tdw29" class="mytable1 mytable">50</td>
                     </tr>
                     <tr>
-                        <th align="center">Choice：</th>
-                        <td><input type="radio" name="choice2" value=""></td>
-                        <td><input type="radio" name="choice2" value=""></td>
-                        <td><input type="radio" name="choice2" value=""></td>
-                        <td><input type="radio" name="choice2" value=""></td>
-                        <td><input type="radio" name="choice2" value=""></td>
-                        <td><input type="radio" name="choice2" value=""></td>
-                        <td><input type="radio" name="choice2" value=""></td>
-                        <td><input type="radio" name="choice2" value=""></td>
-                        <td><input type="radio" name="choice2" value=""></td>
+                        <th align="center"  class="mytable3">Choice：</th>
+                        <td class="mytable1 mytable"><input type="radio" name="choice2" value=""></td>
+                        <td class="mytable2 mytable"><input type="radio" name="choice2" value=""></td>
+                        <td class="mytable1 mytable"><input type="radio" name="choice2" value=""></td>
+                        <td class="mytable2 mytable"><input type="radio" name="choice2" value=""></td>
+                        <td class="mytable1 mytable"><input type="radio" name="choice2" value=""></td>
+                        <td class="mytable2 mytable"><input type="radio" name="choice2" value=""></td>
+                        <td class="mytable1 mytable"><input type="radio" name="choice2" value=""></td>
+                        <td class="mytable2 mytable"><input type="radio" name="choice2" value=""></td>
+                        <td class="mytable1 mytable"><input type="radio" name="choice2" value=""></td>
                     </tr>
 
                 </table>
-                <div align="center">
+                <div align="center" class="xiayizudiv">
                     <input type="button"  onclick="next(2)" align="center" style="background-color: #4CAF50" value="下一组">
                 </div>
             </div>
             <div id = "table3" style="display: none">
-                <div align="center">
-                    <input value=" 第三组"  style=" border: #f0f0f0 " align="center" >
+                <div align="center" class="zudiv">
+                    <input value=" 第三组"  style=" border: #f0f0f0  ;text-align:center" align="center" >
                 </div>
                 <table border="3"  align="center">
                     <tr>
-                        <th align="center">You receive</th>
-                        <td id="tdu31">50</td>
-                        <td id="tdu32">54</td>
-                        <td id="tdu33">59</td>
-                        <td id="tdu34">63</td>
-                        <td id="tdu35">68</td>
-                        <td id="tdu36">72</td>
-                        <td id="tdu37">76</td>
-                        <td id="tdu38">81</td>
-                        <td id="tdu39">85</td>
+                        <th align="center" class="mytable3 ">You receive：</th>
+                        <td id="tdu31" class="mytable1 mytable">50</td>
+                        <td id="tdu32" class="mytable2 mytable">54</td>
+                        <td id="tdu33" class="mytable1 mytable">59</td>
+                        <td id="tdu34" class="mytable2 mytable">63</td>
+                        <td id="tdu35" class="mytable1 mytable">68</td>
+                        <td id="tdu36" class="mytable2 mytable">72</td>
+                        <td id="tdu37" class="mytable1 mytable">76</td>
+                        <td id="tdu38" class="mytable2 mytable">81</td>
+                        <td id="tdu39" class="mytable1 mytable">85</td>
                     </tr>
                     <tr>
-                        <th align="center">Other receives</th>
-                        <td id="tdw31">100</td>
-                        <td id="tdw32">98</td>
-                        <td id="tdw33">96</td>
-                        <td id="tdw34">94</td>
-                        <td id="tdw35">93</td>
-                        <td id="tdw36">91</td>
-                        <td id="tdw37">89</td>
-                        <td id="tdw38">87</td>
-                        <td id="tdw39">85</td>
+                        <th align="center"  class="mytable3">Other receives：</th>
+                        <td id="tdw31" class="mytable1 mytable">100</td>
+                        <td id="tdw32" class="mytable2 mytable">98</td>
+                        <td id="tdw33" class="mytable1 mytable">96</td>
+                        <td id="tdw34" class="mytable2 mytable">94</td>
+                        <td id="tdw35" class="mytable1 mytable">93</td>
+                        <td id="tdw36" class="mytable2 mytable">91</td>
+                        <td id="tdw37" class="mytable1 mytable">89</td>
+                        <td id="tdw38" class="mytable2 mytable">87</td>
+                        <td id="tdw39" class="mytable1 mytable">85</td>
                     </tr>
                     <tr>
-                        <th align="center">Choice：</th>
-                        <td><input type="radio" name="choice3" value=""></td>
-                        <td><input type="radio" name="choice3" value=""></td>
-                        <td><input type="radio" name="choice3" value=""></td>
-                        <td><input type="radio" name="choice3" value=""></td>
-                        <td><input type="radio" name="choice3" value=""></td>
-                        <td><input type="radio" name="choice3" value=""></td>
-                        <td><input type="radio" name="choice3" value=""></td>
-                        <td><input type="radio" name="choice3" value=""></td>
-                        <td><input type="radio" name="choice3" value=""></td>
+                        <th align="center"  class="mytable3">Choice：</th>
+                        <td class="mytable1 mytable"><input type="radio" name="choice3" value=""></td>
+                        <td class="mytable2 mytable"><input type="radio" name="choice3" value=""></td>
+                        <td class="mytable1 mytable"><input type="radio" name="choice3" value=""></td>
+                        <td class="mytable2 mytable"><input type="radio" name="choice3" value=""></td>
+                        <td class="mytable1 mytable"><input type="radio" name="choice3" value=""></td>
+                        <td class="mytable2 mytable"><input type="radio" name="choice3" value=""></td>
+                        <td class="mytable1 mytable"><input type="radio" name="choice3" value=""></td>
+                        <td class="mytable2 mytable"><input type="radio" name="choice3" value=""></td>
+                        <td class="mytable1 mytable"><input type="radio" name="choice3" value=""></td>
                     </tr>
 
                 </table>
-                <div align="center">
+                <div align="center" class="xiayizudiv">
                     <input type="button" onclick="next(3)" align="center" style="background-color: #4CAF50" value="下一组">
                 </div>
             </div>
             <div id = "table4" style="display: none">
-                <div align="center">
-                    <input value=" 第四组"  style=" border: #f0f0f0 " align="center" >
+                <div align="center" class="zudiv">
+                    <input value=" 第四组"  style=" border: #f0f0f0 ;text-align:center " align="center" >
                 </div>
                 <table border="3"  align="center">
                     <tr>
-                        <th align="center">You receive</th>
-                        <td id="tdu41">50</td>
-                        <td id="tdu42">54</td>
-                        <td id="tdu43">59</td>
-                        <td id="tdu44">63</td>
-                        <td id="tdu45">68</td>
-                        <td id="tdu46">72</td>
-                        <td id="tdu47">76</td>
-                        <td id="tdu48">81</td>
-                        <td id="tdu49">85</td>
+                        <th align="center" class="mytable3 ">You receive：</th>
+                        <td id="tdu41" class="mytable1 mytable">50</td>
+                        <td id="tdu42" class="mytable2 mytable">54</td>
+                        <td id="tdu43" class="mytable1 mytable">59</td>
+                        <td id="tdu44" class="mytable2 mytable">63</td>
+                        <td id="tdu45" class="mytable1 mytable">68</td>
+                        <td id="tdu46" class="mytable2 mytable">72</td>
+                        <td id="tdu47" class="mytable1 mytable">76</td>
+                        <td id="tdu48" class="mytable2 mytable">81</td>
+                        <td id="tdu49" class="mytable1 mytable">85</td>
                     </tr>
                     <tr>
-                        <th align="center">Other receives</th>
-                        <td id="tdw41">100</td>
-                        <td id="tdw42">89</td>
-                        <td id="tdw43">79</td>
-                        <td id="tdw44">68</td>
-                        <td id="tdw45">58</td>
-                        <td id="tdw46">47</td>
-                        <td id="tdw47">36</td>
-                        <td id="tdw48">26</td>
-                        <td id="tdw49">15</td>
+                        <th align="center" class="mytable3">Other receives：</th>
+                        <td id="tdw41" class="mytable1 mytable">100</td>
+                        <td id="tdw42" class="mytable2 mytable">89</td>
+                        <td id="tdw43" class="mytable1 mytable">79</td>
+                        <td id="tdw44" class="mytable2 mytable">68</td>
+                        <td id="tdw45" class="mytable1 mytable">58</td>
+                        <td id="tdw46" class="mytable2 mytable">47</td>
+                        <td id="tdw47" class="mytable1 mytable">36</td>
+                        <td id="tdw48" class="mytable2 mytable">26</td>
+                        <td id="tdw49" class="mytable1 mytable">15</td>
                     </tr>
                     <tr>
-                        <th align="center">Choice：</th>
-                        <td><input type="radio" name="choice4" value=""></td>
-                        <td><input type="radio" name="choice4" value=""></td>
-                        <td><input type="radio" name="choice4" value=""></td>
-                        <td><input type="radio" name="choice4" value=""></td>
-                        <td><input type="radio" name="choice4" value=""></td>
-                        <td><input type="radio" name="choice4" value=""></td>
-                        <td><input type="radio" name="choice4" value=""></td>
-                        <td><input type="radio" name="choice4" value=""></td>
-                        <td><input type="radio" name="choice4" value=""></td>
+                        <th align="center" class="mytable3">Choice：</th>
+                        <td class="mytable1 mytable"><input type="radio" name="choice4" value=""></td>
+                        <td class="mytable2 mytable"><input type="radio" name="choice4" value=""></td>
+                        <td class="mytable1 mytable"><input type="radio" name="choice4" value=""></td>
+                        <td class="mytable2 mytable"><input type="radio" name="choice4" value=""></td>
+                        <td class="mytable1 mytable"><input type="radio" name="choice4" value=""></td>
+                        <td class="mytable2 mytable"><input type="radio" name="choice4" value=""></td>
+                        <td class="mytable1 mytable"><input type="radio" name="choice4" value=""></td>
+                        <td class="mytable2 mytable"><input type="radio" name="choice4" value=""></td>
+                        <td class="mytable1 mytable"><input type="radio" name="choice4" value=""></td>
                     </tr>
 
                 </table>
-                <div align="center">
+                <div align="center" class="xiayizudiv">
                     <input type="button" onclick="next(4)" align="center" style="background-color: #4CAF50" value="下一组">
                 </div>
             </div>
             <div id = "table5" style="display: none">
-                <div align="center">
-                    <input value=" 第五组"  style=" border: #f0f0f0 " align="center" >
+                <div align="center" class="zudiv">
+                    <input value=" 第五组"  style=" border: #f0f0f0  ;text-align:center" align="center" >
                 </div>
                 <table border="3"  align="center">
                     <tr>
-                        <th align="center">You receive</th>
-                        <td id="tdu51">100</td>
-                        <td id="tdu52">94</td>
-                        <td id="tdu53">88</td>
-                        <td id="tdu54">81</td>
-                        <td id="tdu55">75</td>
-                        <td id="tdu56">69</td>
-                        <td id="tdu57">63</td>
-                        <td id="tdu58">56</td>
-                        <td id="tdu59">50</td>
+                        <th align="center" class="mytable3">You receive：</th>
+                        <td id="tdu51" class="mytable1 mytable">100</td>
+                        <td id="tdu52" class="mytable2 mytable">94</td>
+                        <td id="tdu53" class="mytable1 mytable">88</td>
+                        <td id="tdu54" class="mytable2 mytable">81</td>
+                        <td id="tdu55" class="mytable1 mytable">75</td>
+                        <td id="tdu56" class="mytable2 mytable">69</td>
+                        <td id="tdu57" class="mytable1 mytable">63</td>
+                        <td id="tdu58" class="mytable2 mytable">56</td>
+                        <td id="tdu59" class="mytable1 mytable">50</td>
                     </tr>
                     <tr>
-                        <th align="center">Other receives</th>
-                        <td id="tdw51">50</td>
-                        <td id="tdw52">56</td>
-                        <td id="tdw53">63</td>
-                        <td id="tdw54">69</td>
-                        <td id="tdw55">75</td>
-                        <td id="tdw56">81</td>
-                        <td id="tdw57">88</td>
-                        <td id="tdw58">94</td>
-                        <td id="tdw59">100</td>
+                        <th align="center" class="mytable3">Other receives：</th>
+                        <td id="tdw51" class="mytable1 mytable">50</td>
+                        <td id="tdw52" class="mytable2 mytable">56</td>
+                        <td id="tdw53" class="mytable1 mytable">63</td>
+                        <td id="tdw54" class="mytable2 mytable">69</td>
+                        <td id="tdw55" class="mytable1 mytable">75</td>
+                        <td id="tdw56" class="mytable2 mytable">81</td>
+                        <td id="tdw57" class="mytable1 mytable">88</td>
+                        <td id="tdw58" class="mytable2 mytable">94</td>
+                        <td id="tdw59" class="mytable1 mytable">100</td>
                     </tr>
                     <tr>
-                        <th align="center">Choice：</th>
-                        <td><input type="radio" name="choice5" value=""></td>
-                        <td><input type="radio" name="choice5" value=""></td>
-                        <td><input type="radio" name="choice5" value=""></td>
-                        <td><input type="radio" name="choice5" value=""></td>
-                        <td><input type="radio" name="choice5" value=""></td>
-                        <td><input type="radio" name="choice5" value=""></td>
-                        <td><input type="radio" name="choice5" value=""></td>
-                        <td><input type="radio" name="choice5" value=""></td>
-                        <td><input type="radio" name="choice5" value=""></td>
+                        <th align="center" class="mytable3">Choice：</th>
+                        <td class="mytable1 mytable"><input type="radio" name="choice5" value=""></td>
+                        <td class="mytable2 mytable"><input type="radio" name="choice5" value=""></td>
+                        <td class="mytable1 mytable"><input type="radio" name="choice5" value=""></td>
+                        <td class="mytable2 mytable"><input type="radio" name="choice5" value=""></td>
+                        <td class="mytable1 mytable"><input type="radio" name="choice5" value=""></td>
+                        <td class="mytable2 mytable"><input type="radio" name="choice5" value=""></td>
+                        <td class="mytable1 mytable"><input type="radio" name="choice5" value=""></td>
+                        <td class="mytable2 mytable"><input type="radio" name="choice5" value=""></td>
+                        <td class="mytable1 mytable"><input type="radio" name="choice5" value=""></td>
                     </tr>
 
                 </table>
-                <div align="center">
+                <div align="center" class="xiayizudiv">
                     <input type="button" onclick="next(5)" align="center" style="background-color: #4CAF50" value="下一组">
                 </div>
             </div>
             <div id = "table6" style="display: none">
-                <div align="center">
-                    <input value=" 第六组"  style=" border: #f0f0f0 " align="center" >
+                <div align="center" class="zudiv">
+                    <input value=" 第六组"  style=" border: #f0f0f0  ;text-align:center" align="center" >
                 </div>
                 <table border="3"  align="center">
                     <tr>
-                        <th align="center">You receive</th>
-                        <td id="tdu61">100</td>
-                        <td id="tdu62">98</td>
-                        <td id="tdu63">96</td>
-                        <td id="tdu64">94</td>
-                        <td id="tdu65">93</td>
-                        <td id="tdu66">91</td>
-                        <td id="tdu67">89</td>
-                        <td id="tdu68">87</td>
-                        <td id="tdu69">85</td>
+                        <th align="center" class="mytable3">You receive：</th>
+                        <td id="tdu61" class="mytable1 mytable">100</td>
+                        <td id="tdu62" class="mytable2 mytable">98</td>
+                        <td id="tdu63" class="mytable1 mytable">96</td>
+                        <td id="tdu64" class="mytable2 mytable">94</td>
+                        <td id="tdu65" class="mytable1 mytable">93</td>
+                        <td id="tdu66" class="mytable2 mytable">91</td>
+                        <td id="tdu67" class="mytable1 mytable">89</td>
+                        <td id="tdu68" class="mytable2 mytable">87</td>
+                        <td id="tdu69" class="mytable1 mytable">85</td>
                     </tr>
                     <tr>
-                        <th align="center">Other receives</th>
-                        <td id="tdw61">50</td>
-                        <td id="tdw62">54</td>
-                        <td id="tdw63">59</td>
-                        <td id="tdw64">63</td>
-                        <td id="tdw65">68</td>
-                        <td id="tdw66">72</td>
-                        <td id="tdw67">76</td>
-                        <td id="tdw68">81</td>
-                        <td id="tdw69">85</td>
+                        <th align="center" class="mytable3">Other receives：</th>
+                        <td id="tdw61" class="mytable1 mytable">50</td>
+                        <td id="tdw62" class="mytable2 mytable">54</td>
+                        <td id="tdw63" class="mytable1 mytable">59</td>
+                        <td id="tdw64" class="mytable2 mytable">63</td>
+                        <td id="tdw65" class="mytable1 mytable">68</td>
+                        <td id="tdw66" class="mytable2 mytable">72</td>
+                        <td id="tdw67" class="mytable1 mytable">76</td>
+                        <td id="tdw68" class="mytable2 mytable">81</td>
+                        <td id="tdw69" class="mytable1 mytable">85</td>
                     </tr>
                     <tr>
-                        <th align="center">Choice：</th>
-                        <td><input type="radio" name="choice6" value=""></td>
-                        <td><input type="radio" name="choice6" value=""></td>
-                        <td><input type="radio" name="choice6" value=""></td>
-                        <td><input type="radio" name="choice6" value=""></td>
-                        <td><input type="radio" name="choice6" value=""></td>
-                        <td><input type="radio" name="choice6" value=""></td>
-                        <td><input type="radio" name="choice6" value=""></td>
-                        <td><input type="radio" name="choice6" value=""></td>
-                        <td><input type="radio" name="choice6" value=""></td>
+                        <th align="center" class="mytable3">Choice：</th>
+                        <td class="mytable1 mytable"><input type="radio" name="choice6" value=""></td>
+                        <td class="mytable2 mytable"><input type="radio" name="choice6" value=""></td>
+                        <td class="mytable1 mytable"><input type="radio" name="choice6" value=""></td>
+                        <td class="mytable2 mytable"><input type="radio" name="choice6" value=""></td>
+                        <td class="mytable1 mytable"><input type="radio" name="choice6" value=""></td>
+                        <td class="mytable2 mytable"><input type="radio" name="choice6" value=""></td>
+                        <td class="mytable1 mytable"><input type="radio" name="choice6" value=""></td>
+                        <td class="mytable2 mytable"><input type="radio" name="choice6" value=""></td>
+                        <td class="mytable1 mytable"><input type="radio" name="choice6" value=""></td>
                     </tr>
 
                 </table>
-                <div align="center">
+                <div align="center" class="xiayizudiv">
                     <input type="button" onclick="next(6)" align="center" style="background-color: #4CAF50" value="提交">
                 </div>
             </div>
