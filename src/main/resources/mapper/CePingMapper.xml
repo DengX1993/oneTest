@@ -10,4 +10,20 @@
         SELECT * FROM account where uuid = #{uuid}
     </select>
 
+    <update id="updCepingCheckTime" parameterType="com.css.demo.bean.CePingBean">
+        update CePing
+        <set>
+            <if test="beginCheckInvItationTime != null">
+                Begin_check_invItation_time = #{beginCheckInvItationTime}
+            </if>
+        </set>
+        <set>
+          <if test="endCheckInvItationTime != null">
+              End_check_invItation_time = #{endCheckInvItationTime}
+          </if>
+        </set>
+
+        where UUID= #{uuid}
+    </update>
+
 </mapper>

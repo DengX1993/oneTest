@@ -1,9 +1,6 @@
 package com.css.demo.controller;
 
-import com.css.demo.bean.AccountBean;
-import com.css.demo.bean.ContentDesignBean;
-import com.css.demo.bean.LogsBean;
-import com.css.demo.bean.RecordBean;
+import com.css.demo.bean.*;
 import com.css.demo.common.UUidUtil;
 import com.css.demo.mapper.LogsBeanMapper;
 import com.css.demo.service.*;
@@ -111,7 +108,10 @@ public class LoginController {
             view.getModel().put("invitationList",invitationList);
         }
 
-
+        //记录一下访问时间
+        CePingBean cePingBean = cePingService.selectBeanByUuid(userId);
+        cePingBean.setBeginCheckInvItationTime(new Date());
+        int i = cePingService.updCepingCheckTime(cePingBean);
         return view;
     }
     //记录一下访问时间

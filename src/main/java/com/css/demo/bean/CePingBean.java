@@ -20,23 +20,23 @@ public class CePingBean {
     private String o5;
     private String y6;
     private String o6;
-    private Date EndCheckInvItationTime;
-    private Date BeginCheckInvItationTime;
+    private Date endCheckInvItationTime;
+    private Date beginCheckInvItationTime;
 
     public Date getEndCheckInvItationTime() {
-        return EndCheckInvItationTime;
+        return endCheckInvItationTime;
     }
 
     public void setEndCheckInvItationTime(Date endCheckInvItationTime) {
-        EndCheckInvItationTime = endCheckInvItationTime;
+        this.endCheckInvItationTime = endCheckInvItationTime;
     }
 
     public Date getBeginCheckInvItationTime() {
-        return BeginCheckInvItationTime;
+        return beginCheckInvItationTime;
     }
 
     public void setBeginCheckInvItationTime(Date beginCheckInvItationTime) {
-        BeginCheckInvItationTime = beginCheckInvItationTime;
+        this.beginCheckInvItationTime = beginCheckInvItationTime;
     }
 
     public String getUuid() {

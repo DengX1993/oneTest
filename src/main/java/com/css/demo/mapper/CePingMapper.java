@@ -1,5 +1,6 @@
 package com.css.demo.mapper;
 
+import com.css.demo.bean.CePingBean;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
@@ -13,4 +14,8 @@ public interface CePingMapper {
             , @Param("y1") String y1, @Param("o1") String o1, @Param("y2") String y2, @Param("o2") String o2
             , @Param("y3") String y3, @Param("o3") String o3, @Param("y4") String y4, @Param("o4") String o4
             , @Param("y5") String y5, @Param("o5") String o5, @Param("y6") String y6, @Param("o6") String o6);
+
+    int updCepingCheckTime(CePingBean cePingBean);
+
+    CePingBean selectBeanByUuid(@Param("uuid") String uuid);
 }
