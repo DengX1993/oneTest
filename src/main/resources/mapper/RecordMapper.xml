@@ -68,7 +68,7 @@
     delete from record
     where UUID = #{uuid,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.css.demo.testbean.RecordBean" >
+  <insert id="insert" parameterType="com.css.demo.bean.RecordBean" >
     insert into record (UUID, USER_NUMBER, GENDER, 
       AGE, EDUCATION, USE1, 
       USE2, LISTEN, Y1, O1, 
@@ -98,7 +98,7 @@
       #{CE2,jdbcType=VARCHAR}, #{CE3,jdbcType=VARCHAR}, #{K1,jdbcType=VARCHAR}, #{K2,jdbcType=VARCHAR}, 
       #{K3,jdbcType=VARCHAR}, #{Open,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.css.demo.testbean.RecordBean" >
+  <insert id="insertSelective" parameterType="com.css.demo.bean.RecordBean" >
     insert into record
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="uuid != null" >
@@ -399,7 +399,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.css.demo.testbean.RecordBean" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.css.demo.bean.RecordBean" >
     update record
     <set >
       <if test="userNumber != null" >
@@ -549,7 +549,7 @@
     </set>
     where UUID = #{uuid,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.css.demo.testbean.RecordBean" >
+  <update id="updateByPrimaryKey" parameterType="com.css.demo.bean.RecordBean" >
     update record
     set USER_NUMBER = #{userNumber,jdbcType=VARCHAR},
       GENDER = #{gender,jdbcType=VARCHAR},

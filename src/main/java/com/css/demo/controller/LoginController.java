@@ -31,6 +31,9 @@ public class LoginController {
     @Autowired
     CePingService cePingService;
 
+    @Autowired
+    RecordService recordService;
+
     //首页
     @RequestMapping("/index")
     public String show(){
@@ -203,21 +206,26 @@ public class LoginController {
     public void saveRecordBean(RecordBean recordBean,String userId){
 
         CePingBean cePingBean = cePingService.selectBeanByUuid(userId);
-        recordBean.setO1(cePingBean.getO1());
-        recordBean.setY1(cePingBean.getY1());
-        recordBean.setY2(cePingBean.getY2());
-        recordBean.setO2(cePingBean.getO2());
-        recordBean.setY3(cePingBean.getY3());
-        recordBean.setO3(cePingBean.getO3());
-        recordBean.setY4(cePingBean.getY4());
-        recordBean.setO4(cePingBean.getO4());
-        recordBean.setY5(cePingBean.getY5());
-        recordBean.setO5(cePingBean.getO5());
-        recordBean.setY6(cePingBean.getY6());
-        recordBean.setO6(cePingBean.getO6());
-        recordBean.setUserNumber(cePingBean.getUserNumber());
+        if(cePingBean!=null) {
+            recordBean.setO1(cePingBean.getO1());
+            recordBean.setY1(cePingBean.getY1());
+            recordBean.setY2(cePingBean.getY2());
+            recordBean.setO2(cePingBean.getO2());
+            recordBean.setY3(cePingBean.getY3());
+            recordBean.setO3(cePingBean.getO3());
+            recordBean.setY4(cePingBean.getY4());
+            recordBean.setO4(cePingBean.getO4());
+            recordBean.setY5(cePingBean.getY5());
+            recordBean.setO5(cePingBean.getO5());
+            recordBean.setY6(cePingBean.getY6());
+            recordBean.setO6(cePingBean.getO6());
+            recordBean.setUserNumber(cePingBean.getUserNumber());
+            cePingBean.setEndCheckInvItationTime(new Date());
+            cePingService.updCepingCheckTime(cePingBean);
+        }
+        recordService.insert(recordBean);
 
-        // logsBeanService.insert(logsBean);
+
     }
 
     //结束页
