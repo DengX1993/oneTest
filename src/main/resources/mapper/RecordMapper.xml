@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.css.demo.mapper.RecordMapper" >
+  <resultMap id="BaseResultMap" type="com.css.demo.bean.RecordBean" >
+    <id column="UUID" property="uuid" jdbcType="VARCHAR" />
+    <result column="USER_NUMBER" property="userNumber" jdbcType="VARCHAR" />
+    <result column="GENDER" property="gender" jdbcType="VARCHAR" />
+    <result column="AGE" property="age" jdbcType="VARCHAR" />
+    <result column="EDUCATION" property="education" jdbcType="VARCHAR" />
+    <result column="USE1" property="use1" jdbcType="VARCHAR" />
+    <result column="USE2" property="use2" jdbcType="VARCHAR" />
+    <result column="LISTEN" property="listen" jdbcType="VARCHAR" />
+    <result column="Y1" property="Y1" jdbcType="VARCHAR" />
+    <result column="O1" property="O1" jdbcType="VARCHAR" />
+    <result column="Y2" property="Y2" jdbcType="VARCHAR" />
+    <result column="O2" property="O2" jdbcType="VARCHAR" />
+    <result column="Y3" property="Y3" jdbcType="VARCHAR" />
+    <result column="O3" property="O3" jdbcType="VARCHAR" />
+    <result column="Y4" property="Y4" jdbcType="VARCHAR" />
+    <result column="O4" property="O4" jdbcType="VARCHAR" />
+    <result column="Y5" property="Y5" jdbcType="VARCHAR" />
+    <result column="O5" property="O5" jdbcType="VARCHAR" />
+    <result column="Y6" property="Y6" jdbcType="VARCHAR" />
+    <result column="O6" property="O6" jdbcType="VARCHAR" />
+    <result column="VIEW" property="view" jdbcType="VARCHAR" />
+    <result column="TIME" property="time" jdbcType="VARCHAR" />
+    <result column="QUANTITY" property="quantity" jdbcType="VARCHAR" />
+    <result column="COMMENT1" property="comment1" jdbcType="VARCHAR" />
+    <result column="COMMENT2" property="comment2" jdbcType="VARCHAR" />
+    <result column="COMMENT3" property="comment3" jdbcType="VARCHAR" />
+    <result column="COMMENT4" property="comment4" jdbcType="VARCHAR" />
+    <result column="COMMENT5" property="comment5" jdbcType="VARCHAR" />
+    <result column="GOAL" property="goal" jdbcType="VARCHAR" />
+    <result column="PRODUCT" property="product" jdbcType="VARCHAR" />
+    <result column="U1" property="U1" jdbcType="VARCHAR" />
+    <result column="U2" property="U2" jdbcType="VARCHAR" />
+    <result column="U3" property="U3" jdbcType="VARCHAR" />
+    <result column="H1" property="H1" jdbcType="VARCHAR" />
+    <result column="H2" property="H2" jdbcType="VARCHAR" />
+    <result column="H3" property="H3" jdbcType="VARCHAR" />
+    <result column="C1" property="C1" jdbcType="VARCHAR" />
+    <result column="C2" property="C2" jdbcType="VARCHAR" />
+    <result column="C3" property="C3" jdbcType="VARCHAR" />
+    <result column="L1" property="l1" jdbcType="VARCHAR" />
+    <result column="L2" property="l2" jdbcType="VARCHAR" />
+    <result column="L3" property="l3" jdbcType="VARCHAR" />
+    <result column="CE1" property="CE1" jdbcType="VARCHAR" />
+    <result column="CE2" property="CE2" jdbcType="VARCHAR" />
+    <result column="CE3" property="CE3" jdbcType="VARCHAR" />
+    <result column="K1" property="K1" jdbcType="VARCHAR" />
+    <result column="K2" property="K2" jdbcType="VARCHAR" />
+    <result column="K3" property="K3" jdbcType="VARCHAR" />
+    <result column="Open" property="Open" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    UUID, USER_NUMBER, GENDER, AGE, EDUCATION, USE1, USE2, LISTEN, Y1, O1, Y2, O2, Y3, 
+    O3, Y4, O4, Y5, O5, Y6, O6, VIEW, TIME, QUANTITY, COMMENT1, COMMENT2, COMMENT3, COMMENT4, 
+    COMMENT5, GOAL, PRODUCT, U1, U2, U3, H1, H2, H3, C1, C2, C3, L1, L2, L3, CE1, CE2, 
+    CE3, K1, K2, K3, Open
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from record
+    where UUID = #{uuid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from record
+    where UUID = #{uuid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.css.demo.testbean.RecordBean" >
+    insert into record (UUID, USER_NUMBER, GENDER, 
+      AGE, EDUCATION, USE1, 
+      USE2, LISTEN, Y1, O1, 
+      Y2, O2, Y3, O3, 
+      Y4, O4, Y5, O5, 
+      Y6, O6, VIEW, TIME, 
+      QUANTITY, COMMENT1, COMMENT2, 
+      COMMENT3, COMMENT4, COMMENT5, 
+      GOAL, PRODUCT, U1, 
+      U2, U3, H1, H2, 
+      H3, C1, C2, C3, 
+      L1, L2, L3, CE1, 
+      CE2, CE3, K1, K2, 
+      K3, Open)
+    values (#{uuid,jdbcType=VARCHAR}, #{userNumber,jdbcType=VARCHAR}, #{gender,jdbcType=VARCHAR}, 
+      #{age,jdbcType=VARCHAR}, #{education,jdbcType=VARCHAR}, #{use1,jdbcType=VARCHAR}, 
+      #{use2,jdbcType=VARCHAR}, #{listen,jdbcType=VARCHAR}, #{Y1,jdbcType=VARCHAR}, #{O1,jdbcType=VARCHAR}, 
+      #{Y2,jdbcType=VARCHAR}, #{O2,jdbcType=VARCHAR}, #{Y3,jdbcType=VARCHAR}, #{O3,jdbcType=VARCHAR}, 
+      #{Y4,jdbcType=VARCHAR}, #{O4,jdbcType=VARCHAR}, #{Y5,jdbcType=VARCHAR}, #{O5,jdbcType=VARCHAR}, 
+      #{Y6,jdbcType=VARCHAR}, #{O6,jdbcType=VARCHAR}, #{view,jdbcType=VARCHAR}, #{time,jdbcType=VARCHAR}, 
+      #{quantity,jdbcType=VARCHAR}, #{comment1,jdbcType=VARCHAR}, #{comment2,jdbcType=VARCHAR}, 
+      #{comment3,jdbcType=VARCHAR}, #{comment4,jdbcType=VARCHAR}, #{comment5,jdbcType=VARCHAR}, 
+      #{goal,jdbcType=VARCHAR}, #{product,jdbcType=VARCHAR}, #{U1,jdbcType=VARCHAR}, 
+      #{U2,jdbcType=VARCHAR}, #{U3,jdbcType=VARCHAR}, #{H1,jdbcType=VARCHAR}, #{H2,jdbcType=VARCHAR}, 
+      #{H3,jdbcType=VARCHAR}, #{C1,jdbcType=VARCHAR}, #{C2,jdbcType=VARCHAR}, #{C3,jdbcType=VARCHAR}, 
+      #{l1,jdbcType=VARCHAR}, #{l2,jdbcType=VARCHAR}, #{l3,jdbcType=VARCHAR}, #{CE1,jdbcType=VARCHAR}, 
+      #{CE2,jdbcType=VARCHAR}, #{CE3,jdbcType=VARCHAR}, #{K1,jdbcType=VARCHAR}, #{K2,jdbcType=VARCHAR}, 
+      #{K3,jdbcType=VARCHAR}, #{Open,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.css.demo.testbean.RecordBean" >
+    insert into record
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="uuid != null" >
+        UUID,
+      </if>
+      <if test="userNumber != null" >
+        USER_NUMBER,
+      </if>
+      <if test="gender != null" >
+        GENDER,
+      </if>
+      <if test="age != null" >
+        AGE,
+      </if>
+      <if test="education != null" >
+        EDUCATION,
+      </if>
+      <if test="use1 != null" >
+        USE1,
+      </if>
+      <if test="use2 != null" >
+        USE2,
+      </if>
+      <if test="listen != null" >
+        LISTEN,
+      </if>
+      <if test="Y1 != null" >
+        Y1,
+      </if>
+      <if test="O1 != null" >
+        O1,
+      </if>
+      <if test="Y2 != null" >
+        Y2,
+      </if>
+      <if test="O2 != null" >
+        O2,
+      </if>
+      <if test="Y3 != null" >
+        Y3,
+      </if>
+      <if test="O3 != null" >
+        O3,
+      </if>
+      <if test="Y4 != null" >
+        Y4,
+      </if>
+      <if test="O4 != null" >
+        O4,
+      </if>
+      <if test="Y5 != null" >
+        Y5,
+      </if>
+      <if test="O5 != null" >
+        O5,
+      </if>
+      <if test="Y6 != null" >
+        Y6,
+      </if>
+      <if test="O6 != null" >
+        O6,
+      </if>
+      <if test="view != null" >
+        VIEW,
+      </if>
+      <if test="time != null" >
+        TIME,
+      </if>
+      <if test="quantity != null" >
+        QUANTITY,
+      </if>
+      <if test="comment1 != null" >
+        COMMENT1,
+      </if>
+      <if test="comment2 != null" >
+        COMMENT2,
+      </if>
+      <if test="comment3 != null" >
+        COMMENT3,
+      </if>
+      <if test="comment4 != null" >
+        COMMENT4,
+      </if>
+      <if test="comment5 != null" >
+        COMMENT5,
+      </if>
+      <if test="goal != null" >
+        GOAL,
+      </if>
+      <if test="product != null" >
+        PRODUCT,
+      </if>
+      <if test="U1 != null" >
+        U1,
+      </if>
+      <if test="U2 != null" >
+        U2,
+      </if>
+      <if test="U3 != null" >
+        U3,
+      </if>
+      <if test="H1 != null" >
+        H1,
+      </if>
+      <if test="H2 != null" >
+        H2,
+      </if>
+      <if test="H3 != null" >
+        H3,
+      </if>
+      <if test="C1 != null" >
+        C1,
+      </if>
+      <if test="C2 != null" >
+        C2,
+      </if>
+      <if test="C3 != null" >
+        C3,
+      </if>
+      <if test="l1 != null" >
+        L1,
+      </if>
+      <if test="l2 != null" >
+        L2,
+      </if>
+      <if test="l3 != null" >
+        L3,
+      </if>
+      <if test="CE1 != null" >
+        CE1,
+      </if>
+      <if test="CE2 != null" >
+        CE2,
+      </if>
+      <if test="CE3 != null" >
+        CE3,
+      </if>
+      <if test="K1 != null" >
+        K1,
+      </if>
+      <if test="K2 != null" >
+        K2,
+      </if>
+      <if test="K3 != null" >
+        K3,
+      </if>
+      <if test="Open != null" >
+        Open,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="uuid != null" >
+        #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="userNumber != null" >
+        #{userNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null" >
+        #{age,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null" >
+        #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="use1 != null" >
+        #{use1,jdbcType=VARCHAR},
+      </if>
+      <if test="use2 != null" >
+        #{use2,jdbcType=VARCHAR},
+      </if>
+      <if test="listen != null" >
+        #{listen,jdbcType=VARCHAR},
+      </if>
+      <if test="Y1 != null" >
+        #{Y1,jdbcType=VARCHAR},
+      </if>
+      <if test="O1 != null" >
+        #{O1,jdbcType=VARCHAR},
+      </if>
+      <if test="Y2 != null" >
+        #{Y2,jdbcType=VARCHAR},
+      </if>
+      <if test="O2 != null" >
+        #{O2,jdbcType=VARCHAR},
+      </if>
+      <if test="Y3 != null" >
+        #{Y3,jdbcType=VARCHAR},
+      </if>
+      <if test="O3 != null" >
+        #{O3,jdbcType=VARCHAR},
+      </if>
+      <if test="Y4 != null" >
+        #{Y4,jdbcType=VARCHAR},
+      </if>
+      <if test="O4 != null" >
+        #{O4,jdbcType=VARCHAR},
+      </if>
+      <if test="Y5 != null" >
+        #{Y5,jdbcType=VARCHAR},
+      </if>
+      <if test="O5 != null" >
+        #{O5,jdbcType=VARCHAR},
+      </if>
+      <if test="Y6 != null" >
+        #{Y6,jdbcType=VARCHAR},
+      </if>
+      <if test="O6 != null" >
+        #{O6,jdbcType=VARCHAR},
+      </if>
+      <if test="view != null" >
+        #{view,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null" >
+        #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="quantity != null" >
+        #{quantity,jdbcType=VARCHAR},
+      </if>
+      <if test="comment1 != null" >
+        #{comment1,jdbcType=VARCHAR},
+      </if>
+      <if test="comment2 != null" >
+        #{comment2,jdbcType=VARCHAR},
+      </if>
+      <if test="comment3 != null" >
+        #{comment3,jdbcType=VARCHAR},
+      </if>
+      <if test="comment4 != null" >
+        #{comment4,jdbcType=VARCHAR},
+      </if>
+      <if test="comment5 != null" >
+        #{comment5,jdbcType=VARCHAR},
+      </if>
+      <if test="goal != null" >
+        #{goal,jdbcType=VARCHAR},
+      </if>
+      <if test="product != null" >
+        #{product,jdbcType=VARCHAR},
+      </if>
+      <if test="U1 != null" >
+        #{U1,jdbcType=VARCHAR},
+      </if>
+      <if test="U2 != null" >
+        #{U2,jdbcType=VARCHAR},
+      </if>
+      <if test="U3 != null" >
+        #{U3,jdbcType=VARCHAR},
+      </if>
+      <if test="H1 != null" >
+        #{H1,jdbcType=VARCHAR},
+      </if>
+      <if test="H2 != null" >
+        #{H2,jdbcType=VARCHAR},
+      </if>
+      <if test="H3 != null" >
+        #{H3,jdbcType=VARCHAR},
+      </if>
+      <if test="C1 != null" >
+        #{C1,jdbcType=VARCHAR},
+      </if>
+      <if test="C2 != null" >
+        #{C2,jdbcType=VARCHAR},
+      </if>
+      <if test="C3 != null" >
+        #{C3,jdbcType=VARCHAR},
+      </if>
+      <if test="l1 != null" >
+        #{l1,jdbcType=VARCHAR},
+      </if>
+      <if test="l2 != null" >
+        #{l2,jdbcType=VARCHAR},
+      </if>
+      <if test="l3 != null" >
+        #{l3,jdbcType=VARCHAR},
+      </if>
+      <if test="CE1 != null" >
+        #{CE1,jdbcType=VARCHAR},
+      </if>
+      <if test="CE2 != null" >
+        #{CE2,jdbcType=VARCHAR},
+      </if>
+      <if test="CE3 != null" >
+        #{CE3,jdbcType=VARCHAR},
+      </if>
+      <if test="K1 != null" >
+        #{K1,jdbcType=VARCHAR},
+      </if>
+      <if test="K2 != null" >
+        #{K2,jdbcType=VARCHAR},
+      </if>
+      <if test="K3 != null" >
+        #{K3,jdbcType=VARCHAR},
+      </if>
+      <if test="Open != null" >
+        #{Open,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.css.demo.testbean.RecordBean" >
+    update record
+    <set >
+      <if test="userNumber != null" >
+        USER_NUMBER = #{userNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        GENDER = #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null" >
+        AGE = #{age,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null" >
+        EDUCATION = #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="use1 != null" >
+        USE1 = #{use1,jdbcType=VARCHAR},
+      </if>
+      <if test="use2 != null" >
+        USE2 = #{use2,jdbcType=VARCHAR},
+      </if>
+      <if test="listen != null" >
+        LISTEN = #{listen,jdbcType=VARCHAR},
+      </if>
+      <if test="Y1 != null" >
+        Y1 = #{Y1,jdbcType=VARCHAR},
+      </if>
+      <if test="O1 != null" >
+        O1 = #{O1,jdbcType=VARCHAR},
+      </if>
+      <if test="Y2 != null" >
+        Y2 = #{Y2,jdbcType=VARCHAR},
+      </if>
+      <if test="O2 != null" >
+        O2 = #{O2,jdbcType=VARCHAR},
+      </if>
+      <if test="Y3 != null" >
+        Y3 = #{Y3,jdbcType=VARCHAR},
+      </if>
+      <if test="O3 != null" >
+        O3 = #{O3,jdbcType=VARCHAR},
+      </if>
+      <if test="Y4 != null" >
+        Y4 = #{Y4,jdbcType=VARCHAR},
+      </if>
+      <if test="O4 != null" >
+        O4 = #{O4,jdbcType=VARCHAR},
+      </if>
+      <if test="Y5 != null" >
+        Y5 = #{Y5,jdbcType=VARCHAR},
+      </if>
+      <if test="O5 != null" >
+        O5 = #{O5,jdbcType=VARCHAR},
+      </if>
+      <if test="Y6 != null" >
+        Y6 = #{Y6,jdbcType=VARCHAR},
+      </if>
+      <if test="O6 != null" >
+        O6 = #{O6,jdbcType=VARCHAR},
+      </if>
+      <if test="view != null" >
+        VIEW = #{view,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null" >
+        TIME = #{time,jdbcType=VARCHAR},
+      </if>
+      <if test="quantity != null" >
+        QUANTITY = #{quantity,jdbcType=VARCHAR},
+      </if>
+      <if test="comment1 != null" >
+        COMMENT1 = #{comment1,jdbcType=VARCHAR},
+      </if>
+      <if test="comment2 != null" >
+        COMMENT2 = #{comment2,jdbcType=VARCHAR},
+      </if>
+      <if test="comment3 != null" >
+        COMMENT3 = #{comment3,jdbcType=VARCHAR},
+      </if>
+      <if test="comment4 != null" >
+        COMMENT4 = #{comment4,jdbcType=VARCHAR},
+      </if>
+      <if test="comment5 != null" >
+        COMMENT5 = #{comment5,jdbcType=VARCHAR},
+      </if>
+      <if test="goal != null" >
+        GOAL = #{goal,jdbcType=VARCHAR},
+      </if>
+      <if test="product != null" >
+        PRODUCT = #{product,jdbcType=VARCHAR},
+      </if>
+      <if test="U1 != null" >
+        U1 = #{U1,jdbcType=VARCHAR},
+      </if>
+      <if test="U2 != null" >
+        U2 = #{U2,jdbcType=VARCHAR},
+      </if>
+      <if test="U3 != null" >
+        U3 = #{U3,jdbcType=VARCHAR},
+      </if>
+      <if test="H1 != null" >
+        H1 = #{H1,jdbcType=VARCHAR},
+      </if>
+      <if test="H2 != null" >
+        H2 = #{H2,jdbcType=VARCHAR},
+      </if>
+      <if test="H3 != null" >
+        H3 = #{H3,jdbcType=VARCHAR},
+      </if>
+      <if test="C1 != null" >
+        C1 = #{C1,jdbcType=VARCHAR},
+      </if>
+      <if test="C2 != null" >
+        C2 = #{C2,jdbcType=VARCHAR},
+      </if>
+      <if test="C3 != null" >
+        C3 = #{C3,jdbcType=VARCHAR},
+      </if>
+      <if test="l1 != null" >
+        L1 = #{l1,jdbcType=VARCHAR},
+      </if>
+      <if test="l2 != null" >
+        L2 = #{l2,jdbcType=VARCHAR},
+      </if>
+      <if test="l3 != null" >
+        L3 = #{l3,jdbcType=VARCHAR},
+      </if>
+      <if test="CE1 != null" >
+        CE1 = #{CE1,jdbcType=VARCHAR},
+      </if>
+      <if test="CE2 != null" >
+        CE2 = #{CE2,jdbcType=VARCHAR},
+      </if>
+      <if test="CE3 != null" >
+        CE3 = #{CE3,jdbcType=VARCHAR},
+      </if>
+      <if test="K1 != null" >
+        K1 = #{K1,jdbcType=VARCHAR},
+      </if>
+      <if test="K2 != null" >
+        K2 = #{K2,jdbcType=VARCHAR},
+      </if>
+      <if test="K3 != null" >
+        K3 = #{K3,jdbcType=VARCHAR},
+      </if>
+      <if test="Open != null" >
+        Open = #{Open,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where UUID = #{uuid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.css.demo.testbean.RecordBean" >
+    update record
+    set USER_NUMBER = #{userNumber,jdbcType=VARCHAR},
+      GENDER = #{gender,jdbcType=VARCHAR},
+      AGE = #{age,jdbcType=VARCHAR},
+      EDUCATION = #{education,jdbcType=VARCHAR},
+      USE1 = #{use1,jdbcType=VARCHAR},
+      USE2 = #{use2,jdbcType=VARCHAR},
+      LISTEN = #{listen,jdbcType=VARCHAR},
+      Y1 = #{Y1,jdbcType=VARCHAR},
+      O1 = #{O1,jdbcType=VARCHAR},
+      Y2 = #{Y2,jdbcType=VARCHAR},
+      O2 = #{O2,jdbcType=VARCHAR},
+      Y3 = #{Y3,jdbcType=VARCHAR},
+      O3 = #{O3,jdbcType=VARCHAR},
+      Y4 = #{Y4,jdbcType=VARCHAR},
+      O4 = #{O4,jdbcType=VARCHAR},
+      Y5 = #{Y5,jdbcType=VARCHAR},
+      O5 = #{O5,jdbcType=VARCHAR},
+      Y6 = #{Y6,jdbcType=VARCHAR},
+      O6 = #{O6,jdbcType=VARCHAR},
+      VIEW = #{view,jdbcType=VARCHAR},
+      TIME = #{time,jdbcType=VARCHAR},
+      QUANTITY = #{quantity,jdbcType=VARCHAR},
+      COMMENT1 = #{comment1,jdbcType=VARCHAR},
+      COMMENT2 = #{comment2,jdbcType=VARCHAR},
+      COMMENT3 = #{comment3,jdbcType=VARCHAR},
+      COMMENT4 = #{comment4,jdbcType=VARCHAR},
+      COMMENT5 = #{comment5,jdbcType=VARCHAR},
+      GOAL = #{goal,jdbcType=VARCHAR},
+      PRODUCT = #{product,jdbcType=VARCHAR},
+      U1 = #{U1,jdbcType=VARCHAR},
+      U2 = #{U2,jdbcType=VARCHAR},
+      U3 = #{U3,jdbcType=VARCHAR},
+      H1 = #{H1,jdbcType=VARCHAR},
+      H2 = #{H2,jdbcType=VARCHAR},
+      H3 = #{H3,jdbcType=VARCHAR},
+      C1 = #{C1,jdbcType=VARCHAR},
+      C2 = #{C2,jdbcType=VARCHAR},
+      C3 = #{C3,jdbcType=VARCHAR},
+      L1 = #{l1,jdbcType=VARCHAR},
+      L2 = #{l2,jdbcType=VARCHAR},
+      L3 = #{l3,jdbcType=VARCHAR},
+      CE1 = #{CE1,jdbcType=VARCHAR},
+      CE2 = #{CE2,jdbcType=VARCHAR},
+      CE3 = #{CE3,jdbcType=VARCHAR},
+      K1 = #{K1,jdbcType=VARCHAR},
+      K2 = #{K2,jdbcType=VARCHAR},
+      K3 = #{K3,jdbcType=VARCHAR},
+      Open = #{Open,jdbcType=VARCHAR}
+    where UUID = #{uuid,jdbcType=VARCHAR}
+  </update>
+</mapper>

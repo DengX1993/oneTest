@@ -192,17 +192,30 @@ public class LoginController {
 
     //问卷页
     @RequestMapping("/questionnaire")
-    public ModelAndView questionnaire( String userNumber){
+    public ModelAndView questionnaire(@RequestParam("userId") String userId){
         ModelAndView view = new ModelAndView("questionnaire");
-        view.getModel().put("userNumber",userNumber);
+        view.getModel().put("userId",userId);
         return view;
     }
     //问卷提交
     @RequestMapping(value = "/wenjuan",method = RequestMethod.POST)
     @ResponseBody
-    public void saveRecordBean(RecordBean recordBean){
-        String age = recordBean.getAge();
-        System.out.println(age);
+    public void saveRecordBean(RecordBean recordBean,String userId){
+
+        CePingBean cePingBean = cePingService.selectBeanByUuid(userId);
+        recordBean.setO1(cePingBean.getO1());
+        recordBean.setY1(cePingBean.getY1());
+        recordBean.setY2(cePingBean.getY2());
+        recordBean.setO2(cePingBean.getO2());
+        recordBean.setY3(cePingBean.getY3());
+        recordBean.setO3(cePingBean.getO3());
+        recordBean.setY4(cePingBean.getY4());
+        recordBean.setO4(cePingBean.getO4());
+        recordBean.setY5(cePingBean.getY5());
+        recordBean.setO5(cePingBean.getO5());
+        recordBean.setY6(cePingBean.getY6());
+        recordBean.setO6(cePingBean.getO6());
+        recordBean.setUserNumber(cePingBean.getUserNumber());
 
         // logsBeanService.insert(logsBean);
     }

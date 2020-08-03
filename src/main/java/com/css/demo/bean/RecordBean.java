@@ -13,15 +13,15 @@ public class RecordBean {
     private String Y1;
     private String O1;
     private String Y2;
-    private String Q2;
+    private String O2;
     private String Y3;
-    private String Q3;
+    private String O3;
     private String Y4;
-    private String Q4;
+    private String O4;
     private String Y5;
-    private String Q5;
+    private String O5;
     private String Y6;
-    private String Q6;
+    private String O6;
     private String view;
     private String time;
     private String quantity;
@@ -51,7 +51,6 @@ public class RecordBean {
     private String K2;
     private String K3;
     private String Open;
-
 
     public String getUuid() {
         return uuid;
@@ -141,12 +140,12 @@ public class RecordBean {
         Y2 = y2;
     }
 
-    public String getQ2() {
-        return Q2;
+    public String getO2() {
+        return O2;
     }
 
-    public void setQ2(String q2) {
-        Q2 = q2;
+    public void setO2(String o2) {
+        O2 = o2;
     }
 
     public String getY3() {
@@ -157,12 +156,12 @@ public class RecordBean {
         Y3 = y3;
     }
 
-    public String getQ3() {
-        return Q3;
+    public String getO3() {
+        return O3;
     }
 
-    public void setQ3(String q3) {
-        Q3 = q3;
+    public void setO3(String o3) {
+        O3 = o3;
     }
 
     public String getY4() {
@@ -173,12 +172,12 @@ public class RecordBean {
         Y4 = y4;
     }
 
-    public String getQ4() {
-        return Q4;
+    public String getO4() {
+        return O4;
     }
 
-    public void setQ4(String q4) {
-        Q4 = q4;
+    public void setO4(String o4) {
+        O4 = o4;
     }
 
     public String getY5() {
@@ -189,12 +188,12 @@ public class RecordBean {
         Y5 = y5;
     }
 
-    public String getQ5() {
-        return Q5;
+    public String getO5() {
+        return O5;
     }
 
-    public void setQ5(String q5) {
-        Q5 = q5;
+    public void setO5(String o5) {
+        O5 = o5;
     }
 
     public String getY6() {
@@ -205,12 +204,12 @@ public class RecordBean {
         Y6 = y6;
     }
 
-    public String getQ6() {
-        return Q6;
+    public String getO6() {
+        return O6;
     }
 
-    public void setQ6(String q6) {
-        Q6 = q6;
+    public void setO6(String o6) {
+        O6 = o6;
     }
 
     public String getView() {

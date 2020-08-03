@@ -7,7 +7,7 @@
     </select>
 
     <select id="selectBeanByUuid" parameterType="String" resultType="com.css.demo.bean.CePingBean">
-        SELECT * FROM account where uuid = #{uuid}
+        SELECT * FROM ceping where uuid = #{uuid}
     </select>
 
     <update id="updCepingCheckTime" parameterType="com.css.demo.bean.CePingBean">
@@ -25,5 +25,97 @@
 
         where UUID= #{uuid}
     </update>
+
+    <insert id="insertSelective" parameterType="com.css.demo.bean.CePingBean" >
+        insert into ceping
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="uuid != null" >
+                UUID,
+            </if>
+            <if test="userNumber != null" >
+                USER_NUMBER,
+            </if>
+            <if test="y1 != null" >
+                Y1,
+            </if>
+            <if test="o1 != null" >
+                O1,
+            </if>
+            <if test="y2 != null" >
+                Y2,
+            </if>
+            <if test="o2 != null" >
+                O2,
+            </if>
+            <if test="y3 != null" >
+                Y3,
+            </if>
+            <if test="o3 != null" >
+                O3,
+            </if>
+            <if test="y4 != null" >
+                Y4,
+            </if>
+            <if test="o4 != null" >
+                O4,
+            </if>
+            <if test="y5 != null" >
+                Y5,
+            </if>
+            <if test="o5 != null" >
+                O5,
+            </if>
+            <if test="y6 != null" >
+                Y6,
+            </if>
+            <if test="o6 != null" >
+                O6,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="uuid != null" >
+                #{uuid,jdbcType=VARCHAR},
+            </if>
+            <if test="userNumber != null" >
+                #{userNumber,jdbcType=VARCHAR},
+            </if>
+            <if test="y1 != null" >
+                #{y1,jdbcType=VARCHAR},
+            </if>
+            <if test="o1 != null" >
+                #{o1,jdbcType=VARCHAR},
+            </if>
+            <if test="y2 != null" >
+                #{y2,jdbcType=VARCHAR},
+            </if>
+            <if test="o2 != null" >
+                #{o2,jdbcType=VARCHAR},
+            </if>
+            <if test="y3 != null" >
+                #{y3,jdbcType=VARCHAR},
+            </if>
+            <if test="o3 != null" >
+                #{o3,jdbcType=VARCHAR},
+            </if>
+            <if test="y4 != null" >
+                #{y4,jdbcType=VARCHAR},
+            </if>
+            <if test="o4 != null" >
+                #{o4,jdbcType=VARCHAR},
+            </if>
+            <if test="y5 != null" >
+                #{y5,jdbcType=VARCHAR},
+            </if>
+            <if test="o5 != null" >
+                #{o5,jdbcType=VARCHAR},
+            </if>
+            <if test="y6 != null" >
+                #{y6,jdbcType=VARCHAR},
+            </if>
+            <if test="o6 != null" >
+                #{o6,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
 
 </mapper>

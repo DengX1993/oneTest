@@ -12,5 +12,4 @@ public interface CePingService {
                 ,String y4,String o4,String y5,String o5,String y6,String o6);
     int updCepingCheckTime(CePingBean cePingBean);
     CePingBean selectBeanByUuid(String uuid);
-
 }
