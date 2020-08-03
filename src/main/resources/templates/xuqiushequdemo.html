@@ -1775,6 +1775,7 @@
                         </div>
                     </div>
                 </div>
+                <input type="hidden" id="userId" th:value="${userId}">
             </div>
             <div id="footer-wrap" data-v-6fccbc50="" style="position:fixed; bottom:0;width: 100%">
                 <div class=" eve-component" data-comp-path="pc/footer"></div>
@@ -1790,7 +1791,8 @@
     function headerInfoPageOnclick() {
         debugger;
         var scene = document.getElementById("scene").value;
-        window.location.href="/oneTest/xuqiushequmain?scene="+scene+"&userId=1";
+        var userId = document.getElementById("userId").value;
+        window.location.href="/oneTest/xuqiushequmain?scene="+scene+"&userId="+userId;
 
         /*$.ajax({
             url:"/oneTest/xuqiushequmain",
