@@ -27,9 +27,5 @@ public class CePingServiceImpl implements CePingService {
     public CePingBean selectBeanByUuid(String uuid) {
         return cePingMapper.selectBeanByUuid(uuid);
     }
-    @Override
-    public CePingBean selectBeanByUuid(String uuid) {
-        return cePingMapper.selectBeanByUuid(uuid);
-    }
 
 }
