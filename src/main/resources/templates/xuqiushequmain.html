@@ -1748,7 +1748,7 @@
                                                 </span>
                                             </div>
                                         </div>
-
+                                        <input type="hidden" id="userId" th:value="${userId}">
                                     </div>
 
                                 </div>
@@ -1770,8 +1770,9 @@
 <script>
     function endCheck() {
         var commentFlag = document.getElementById("commentFlag").value;
+        var userId = document.getElementById("userId").value;
         if(1 == commentFlag)
-            window.location.href='/oneTest/questionnaire;
+            window.location.href='/oneTest/questionnaire?userId='+userId;
         else{
             document.getElementById("begin").style.display = "block";
         }
