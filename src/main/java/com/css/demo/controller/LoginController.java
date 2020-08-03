@@ -203,9 +203,11 @@ public class LoginController {
     //问卷提交
     @RequestMapping(value = "/wenjuan",method = RequestMethod.POST)
     @ResponseBody
-    public void saveRecordBean(RecordBean recordBean,String userId){
-
+    public ModelAndView saveRecordBean(RecordBean recordBean,String userId){
+        ModelAndView view = new ModelAndView("endpage");
         CePingBean cePingBean = cePingService.selectBeanByUuid(userId);
+        String uuid = UUidUtil.getUUid();
+        recordBean.setUuid(uuid);
         if(cePingBean!=null) {
             recordBean.setO1(cePingBean.getO1());
             recordBean.setY1(cePingBean.getY1());
@@ -225,7 +227,7 @@ public class LoginController {
         }
         recordService.insert(recordBean);
 
-
+        return view;
     }
 
     //结束页

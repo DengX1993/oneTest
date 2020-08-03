@@ -374,7 +374,7 @@
         <h1 class="htitle" id="htitle">
             调查问卷</h1>
     </div>
-    <form action="/oneTest/wenjuan" method="post" >
+    <form action="/oneTest/wenjuan" method="post" id="questionaireFrom">
         <input type="hidden" id = "userId" th:value="${userId}" name="userId">
         <div class="topic__type">
             <div class="topic__inner">
@@ -950,9 +950,6 @@
                     </fieldset>
 
                     <fieldset>
-                        <legend class="normalcut">个人基本信息</legend>
-                    </fieldset>
-                    <fieldset>
                         <legend class="topic__type-title">1.您的性别：</legend>
                         <div class="topic__type-dry">
                         <span class="topic__type-items">
@@ -1017,8 +1014,7 @@
         </div>
 
     <div id="divV3" class="bottom_btn_wrap">
-        <button type="submit" style="text-align: center " class="bottom_btn" >提交1</button>
-        <a href="javascript:" id="hrefRefer" style="text-align: center " class="bottom_btn" rel="nofollow">提交</a>
+        <button type="button" id="submit1" style="text-align: center " class="bottom_btn" >提交</button>
     </div>
     </form>
 </div>
@@ -1030,3 +1026,156 @@
 
 </body>
 </html>
+<script language="javascript">
+
+    $("#submit1").click(function(){
+        if(toVaild()==true){
+            $("#questionaireFrom").submit();
+        }
+    });
+
+    function toVaild(){
+            debugger;
+            var goal = $("input[name='goal']:checked").val();
+            if(goal==undefined){
+                alert("第一部分第1题未勾选，请确定全部问题勾选完毕再进行提交");
+                return false;
+            }
+            var product = $("input[name='product']:checked").val();
+            if(product==null){
+                alert("第一部分第2题未勾选，请确定全部问题勾选完毕再进行提交");
+                return false;
+            }
+            var U1 = $("input[name='U1']:checked").val();
+            if(U1==null){
+                alert("第二部分第1题未勾选，请确定全部问题勾选完毕再进行提交");
+                return false;
+            }
+            var U2 = $("input[name='U2']:checked").val();
+            if(U2==null){
+                alert("第二部分第2题未勾选，请确定全部问题勾选完毕再进行提交");
+                return false;
+            }
+            var U3 = $("input[name='U3']:checked").val();
+            if(U3==null){
+                alert("第二部分第3题未勾选，请确定全部问题勾选完毕再进行提交");
+                return false;
+            }
+            var H1 = $("input[name='H1']:checked").val();
+            if(H1==null){
+                alert("第二部分第4题未勾选，请确定全部问题勾选完毕再进行提交");
+                return false;
+            }
+            var H2 = $("input[name='H2']:checked").val();
+            if(H2==null){
+                alert("第二部分第5题未勾选，请确定全部问题勾选完毕再进行提交");
+                return false;
+            }
+            var H3 = $("input[name='H3']:checked").val();
+            if(H3==null){
+                alert("第二部分第6题未勾选，请确定全部问题勾选完毕再进行提交");
+                return false;
+            }
+            var C1 = $("input[name='C1']:checked").val();
+            if(C1==null){
+                alert("第二部分第7题未勾选，请确定全部问题勾选完毕再进行提交");
+                return false;
+            }
+            var C2 = $("input[name='C2']:checked").val();
+            if(C2==null){
+                alert("第二部分第8题未勾选，请确定全部问题勾选完毕再进行提交");
+                return false;
+            }
+            var C3 = $("input[name='C3']:checked").val();
+            if(C3==null){
+                alert("第二部分第9题未勾选，请确定全部问题勾选完毕再进行提交");
+                return false;
+            }
+            var L1 = $("input[name='L1']:checked").val();
+            if(L1==null){
+                alert("第二部分第10题未勾选，请确定全部问题勾选完毕再进行提交");
+                return false;
+            }
+            var L2 = $("input[name='L2']:checked").val();
+            if(L2==null){
+                alert("第二部分第11题未勾选，请确定全部问题勾选完毕再进行提交");
+                return false;
+            }
+            var L3 = $("input[name='L3']:checked").val();
+            if(L3==null){
+                alert("第二部分第12题未勾选，请确定全部问题勾选完毕再进行提交");
+                return false;
+            }
+            var CE1 = $("input[name='CE1']:checked").val();
+            if(CE1==null){
+                alert("第二部分第13题未勾选，请确定全部问题勾选完毕再进行提交");
+                return false;
+            }
+            var CE2 = $("input[name='CE2']:checked").val();
+            if(CE2==null){
+                alert("第二部分第14题未勾选，请确定全部问题勾选完毕再进行提交");
+                return false;
+            }
+            var CE3 = $("input[name='CE3']:checked").val();
+            if(CE3==null){
+                alert("第二部分第15题未勾选，请确定全部问题勾选完毕再进行提交");
+                return false;
+            }
+            var K1 = $("input[name='K1']:checked").val();
+            if(K1==null){
+                alert("第二部分第16题未勾选，请确定全部问题勾选完毕再进行提交");
+                return false;
+            }
+            var K2 = $("input[name='K2']:checked").val();
+            if(K2==null){
+                alert("第二部分第17题未勾选，请确定全部问题勾选完毕再进行提交");
+                return false;
+            }
+            var K3 = $("input[name='K3']:checked").val();
+            if(K3==null){
+                alert("第二部分第18题未勾选，请确定全部问题勾选完毕再进行提交");
+                return false;
+            }
+            if(U1==U2==U3==H1==H2==H3==C1==C2==C3==L1==L2==L3==CE1==CE2==CE3==K1==K2==K3==1||
+                U1==U2==U3==H1==H2==H3==C1==C2==C3==L1==L2==L3==CE1==CE2==CE3==K1==K2==K3==7){
+                alert("第二部分请勿全选完全不同意或完全同意");
+                return false;
+            }
+            var goal = $("input[name='goal']:checked").val();
+            if(goal==null){
+                alert("第一部分第1题未勾选，请确定全部问题勾选完毕再进行提交");
+                return false;
+            }
+            var gender = $("input[name='gender']:checked").val();
+            if(gender==null){
+                alert("第三部分第1题未勾选，请确定全部问题勾选完毕再进行提交");
+                return false;
+            }
+            var age = $("input[name='age']:checked").val();
+            if(age==null){
+                alert("第三部分第2题未勾选，请确定全部问题勾选完毕再进行提交");
+                return false;
+            }
+            var education = $("input[name='education']:checked").val();
+            if(education==null){
+                alert("第三部分第3题未勾选，请确定全部问题勾选完毕再进行提交");
+                return false;
+            }
+            var use1 = $("input[name='use1']:checked").val();
+            if(use1==null){
+                alert("第三部分第4题未勾选，请确定全部问题勾选完毕再进行提交");
+                return false;
+            }
+            var use2 = $("input[name='use2']:checked").val();
+            if(use2==null){
+                alert("第三部分第5题未勾选，请确定全部问题勾选完毕再进行提交");
+                return false;
+            }
+            var listen = $("input[name='listen']:checked").val();
+            if(listen==null){
+                alert("第三部分第6题未勾选，请确定全部问题勾选完毕再进行提交");
+                return false;
+            }
+            return true;
+        }
+</script>
