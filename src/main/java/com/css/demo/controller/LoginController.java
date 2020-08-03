@@ -110,8 +110,10 @@ public class LoginController {
 
         //记录一下访问时间
         CePingBean cePingBean = cePingService.selectBeanByUuid(userId);
-        cePingBean.setBeginCheckInvItationTime(new Date());
-        int i = cePingService.updCepingCheckTime(cePingBean);
+        if(cePingBean != null){
+            cePingBean.setBeginCheckInvItationTime(new Date());
+            int i = cePingService.updCepingCheckTime(cePingBean);
+        }
         return view;
     }
     //记录一下访问时间
