@@ -1,5 +1,7 @@
 package com.css.demo.bean;
 
+import java.util.Date;
+
 public class CePingBean {
     //主键ID
     private String uuid;
@@ -18,7 +20,24 @@ public class CePingBean {
     private String o5;
     private String y6;
     private String o6;
+    private Date EndCheckInvItationTime;
+    private Date BeginCheckInvItationTime;
 
+    public Date getEndCheckInvItationTime() {
+        return EndCheckInvItationTime;
+    }
+
+    public void setEndCheckInvItationTime(Date endCheckInvItationTime) {
+        EndCheckInvItationTime = endCheckInvItationTime;
+    }
+
+    public Date getBeginCheckInvItationTime() {
+        return BeginCheckInvItationTime;
+    }
+
+    public void setBeginCheckInvItationTime(Date beginCheckInvItationTime) {
+        BeginCheckInvItationTime = beginCheckInvItationTime;
+    }
 
     public String getUuid() {
         return uuid;
