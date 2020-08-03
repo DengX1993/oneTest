@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- saved from url=(0031)http://diy.haier.com/community/ -->
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -1678,6 +1677,7 @@
 
 
 
+
                         <div id="begin" class="modal" >
                             <form class="modal-content animate"  action="/oneTest/questionnaire" METHOD="post">
                                 <div class="imgcontainer">
@@ -1737,7 +1737,7 @@
                                             </a>
                                             <!--点赞数-->
                                             <div data-v-15ad7817="" class="data">
-                                                <span data-v-15ad7817="">
+                                                <span data-v-15ad7817="" >
                                                     <i data-v-15ad7817="" class="cosmo-icon-eye"></i>809
                                                 </span>
                                                 <span data-v-15ad7817="">
@@ -1771,7 +1771,7 @@
     function endCheck() {
         var commentFlag = document.getElementById("commentFlag").value;
         if(1 == commentFlag)
-            window.location.href='/oneTest/questionnaire';
+            window.location.href='/oneTest/questionnaire;
         else{
             document.getElementById("begin").style.display = "block";
         }

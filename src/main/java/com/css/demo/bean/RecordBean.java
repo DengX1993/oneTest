@@ -3,6 +3,7 @@ package com.css.demo.bean;
 public class RecordBean {
 
     private String uuid;
+    private String userNumber;
     private String gender;
     private String age;
     private String education;
@@ -58,6 +59,14 @@ public class RecordBean {
 
     public void setUuid(String uuid) {
         this.uuid = uuid;
+    }
+
+    public String getUserNumber() {
+        return userNumber;
+    }
+
+    public void setUserNumber(String userNumber) {
+        this.userNumber = userNumber;
     }
 
     public String getGender() {

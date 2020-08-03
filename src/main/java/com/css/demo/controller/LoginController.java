@@ -3,6 +3,7 @@ package com.css.demo.controller;
 import com.css.demo.bean.AccountBean;
 import com.css.demo.bean.ContentDesignBean;
 import com.css.demo.bean.LogsBean;
+import com.css.demo.bean.RecordBean;
 import com.css.demo.common.UUidUtil;
 import com.css.demo.mapper.LogsBeanMapper;
 import com.css.demo.service.*;
@@ -47,6 +48,7 @@ public class LoginController {
         Date lastLoginTime = new Date();
         accountService.insert(uuid,userNumber,lastLoginTime);
         view.getModel().put("userNumber",userNumber);
+        view.getModel().put("userId",uuid);
 
         return view;
     }
@@ -57,15 +59,13 @@ public class LoginController {
             @RequestParam("y1") String y1,@RequestParam("o1") String o1,@RequestParam("y2") String y2,@RequestParam("o2") String o2,
             @RequestParam("y3") String y3,@RequestParam("o3") String o3,@RequestParam("y4") String y4,@RequestParam("o4") String o4,
             @RequestParam("y5") String y5,@RequestParam("o5") String o5,@RequestParam("y6") String y6,@RequestParam("o6") String o6,
-            @RequestParam("userNumber") String userNumber){
+            @RequestParam("userNumber") String userNumber,@RequestParam("userId") String userId){
 
 
         System.out.println("y1"+y1+"o1"+o1+"y2"+y2+"o2"+o2+"y3"+y3+"o3"+o3+"y4"+y4+"o4"+o4+"y5"+y5+"o5"+o5+"y6"+y6+"o6"+o6);
-        String uuid = UUidUtil.getUUid();
-        cePingService.insert(uuid,userNumber,y1,o1,y2,o2,y3,o3,y4,o4,y5,o5,y6,o6);
-        int x = (int)Math.random() * 4 + 1;
+        cePingService.insert(userId,userNumber,y1,o1,y2,o2,y3,o3,y4,o4,y5,o5,y6,o6);
         //return  "redirect:xuqiushequmain?scene="+x+"&userId="+userNumber;
-        return  "index";
+        return  "console";
     }
 
     @Autowired
@@ -187,10 +187,19 @@ public class LoginController {
 
     //问卷页
     @RequestMapping("/questionnaire")
-    public ModelAndView questionnaire(){
+    public ModelAndView questionnaire( String userNumber){
         ModelAndView view = new ModelAndView("questionnaire");
-
+        view.getModel().put("userNumber",userNumber);
         return view;
+    }
+    //问卷提交
+    @RequestMapping(value = "/wenjuan",method = RequestMethod.POST)
+    @ResponseBody
+    public void saveRecordBean(RecordBean recordBean){
+        String age = recordBean.getAge();
+        System.out.println(age);
+
+        // logsBeanService.insert(logsBean);
     }
 
     //结束页

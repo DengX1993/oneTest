@@ -1678,6 +1678,13 @@
         font-size:32px;
 
     }
+    .touming{
+        background-color:rgba(0,0,0,0);
+        background:rgba(0,0,0,0);
+        border-color: transparent;
+        border: 1px solid rgba(0,0,0, 0);
+
+    }
 
     </style>
     <!--<script src="/js/hm.js"></script>-->
@@ -1729,7 +1736,7 @@ background-attachment: fixed;">
             <input type="hidden" id="Y6" value="">
             <input type="hidden" id="O6" value="">
             <input type="hidden" id = "userNumber" th:value="${userNumber}">
-            <div style="margin-top: 10%;">
+            <input type="hidden" id = "userId" th:value="${userId}">
                 <h4 style="text-align: center; ">
                     &nbsp;&nbsp; 在正式开始任务之前，我们想了解您的一些基本信息，本研究以匿名形式展开，<br/>
                     所有回答只用于统计分析，请根据您真实情况进行回答。
@@ -1742,7 +1749,7 @@ background-attachment: fixed;">
 
             <div id = "table1">
                 <div align="center" class="zudiv">
-                    <input value=" 第一组"  style=" border: #f0f0f0 ;text-align:center "  align="center" >
+                    <input class="touming" value=" 第一组"  style=" text-align:center "  align="center" >
                 </div>
                 <table border="3"  style="text-align: center " align="center">
                     <tr>
@@ -1789,7 +1796,7 @@ background-attachment: fixed;">
             </div>
             <div id = "table2" style="display: none">
                 <div align="center" class="zudiv">
-                    <input value=" 第二组"  style=" border: #f0f0f0  ;text-align:center" align="center" >
+                    <input value=" 第二组"  class="touming" style="text-align:center" align="center" >
                 </div>
                 <table border="3" style="text-align: center " align="center">
                     <tr>
@@ -1836,7 +1843,7 @@ background-attachment: fixed;">
             </div>
             <div id = "table3" style="display: none">
                 <div align="center" class="zudiv">
-                    <input value=" 第三组"  style=" border: #f0f0f0  ;text-align:center" align="center" >
+                    <input value=" 第三组"  class="touming" style=" text-align:center" align="center" >
                 </div>
                 <table border="3" style="text-align: center " align="center">
                     <tr>
@@ -1883,7 +1890,7 @@ background-attachment: fixed;">
             </div>
             <div id = "table4" style="display: none">
                 <div align="center" class="zudiv">
-                    <input value=" 第四组"  style=" border: #f0f0f0 ;text-align:center " align="center" >
+                    <input value=" 第四组"   class="touming" style="text-align:center " align="center" >
                 </div>
                 <table border="3" style="text-align: center " align="center">
                     <tr>
@@ -1930,7 +1937,7 @@ background-attachment: fixed;">
             </div>
             <div id = "table5" style="display: none">
                 <div align="center" class="zudiv">
-                    <input value=" 第五组"  style=" border: #f0f0f0  ;text-align:center" align="center" >
+                    <input value=" 第五组"  class="touming" style="text-align:center" align="center" >
                 </div>
                 <table border="3" style="text-align: center " align="center">
                     <tr>
@@ -1977,7 +1984,7 @@ background-attachment: fixed;">
             </div>
             <div id = "table6" style="display: none">
                 <div align="center" class="zudiv">
-                    <input value=" 第六组"  style=" border: #f0f0f0  ;text-align:center" align="center" >
+                    <input value=" 第六组"  class="touming" style="text-align:center" align="center" >
                 </div>
                 <table border="3" style="text-align: center " align="center">
                     <tr>
@@ -2061,11 +2068,12 @@ background-attachment: fixed;">
         var Y6 = $("#Y6").val();
         var O6 = $("#O6").val();
         var userNumber = $("#userNumber").val();
+        var userId = $("#userId").val();
         var sence = (Math.floor(Math.random()*4+ 1)) ;
         $.ajax({
             url:"/oneTest/chushihuaceping",
             method:'post',
-            data:{"y1":Y1,"o1":O1,"y2":Y2,"o2":O2,"y3":Y3,"o3":O3,"y4":Y4,"o4":O4,"y5":Y5,"o5":O5,"y6":Y6,"o6":O6,"userNumber":userNumber},
+            data:{"y1":Y1,"o1":O1,"y2":Y2,"o2":O2,"y3":Y3,"o3":O3,"y4":Y4,"o4":O4,"y5":Y5,"o5":O5,"y6":Y6,"o6":O6,"userNumber":userNumber,"userId":userId},
             dataType:JSON,
             async:false,
             success : function (data) {
@@ -2085,7 +2093,7 @@ background-attachment: fixed;">
             }
 
         })
-        window.location.href='/oneTest/xuqiushequmain?scene='+sence+'&userId='+userNumber;
+        window.location.href='/oneTest/xuQiuShequDemo?scene='+sence+'&userId='+userId;
 
     }
     function next(n) {
