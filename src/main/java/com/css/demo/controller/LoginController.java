@@ -72,7 +72,7 @@ public class LoginController {
     ContentDesignService contentDesign;
     //需求社区场景示例 http://localhost:8080/oneTest/xuQiuShequDemo?scene=1
     @RequestMapping(value = "/xuQiuShequDemo",method = RequestMethod.GET)
-    public ModelAndView xuQiuShequDemo(@RequestParam("scene") String scene){
+    public ModelAndView xuQiuShequDemo(@RequestParam("scene") String scene,@RequestParam("userId") String userId){
         ModelAndView view = new ModelAndView("xuqiushequdemo");
         //内容
         List<String> contentList = new ArrayList<>();
@@ -103,6 +103,9 @@ public class LoginController {
 
             }
             view.getModel().put("scene",scene);
+            if(userId == null)
+                userId = "1";
+            view.getModel().put("userId",userId);
             view.getModel().put("contentList",contentList);
             view.getModel().put("commentList",commentList);
             view.getModel().put("invitationList",invitationList);
