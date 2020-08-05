@@ -1690,8 +1690,7 @@
     <!--<script src="/js/hm.js"></script>-->
 </head>
 
-<body background="/image/bj.png" style=" background-repeat:no-repeat ;background-size:100% 100%;
-background-attachment: fixed;">
+<body>
 <div id="__nuxt"><!---->
     <div id="__layout">
         <div id="layout" data-v-6fccbc50="">
@@ -1706,15 +1705,14 @@ background-attachment: fixed;">
                 <div class="topNavBar js-comp  eve-component " data-comp-path="pc/headerframe"
                      style="background:#000; color:#FFF">
                     <div class="header-warp">
-                        <a href="#" class="topNav-logo">
-                            <h1></h1>
-                        </a>
+                        <div class="topNav-logo" style="margin: auto">
+                            <h2 >Me家电定制社区</h2>
+                        </div>
                         <ul class="topNav-lists">
                             <li><a href="#">首页</a></li>
                             <li><a href="#">需求社区</a></li>
                         </ul>
-                        <div class="topNav-right" id="headerInfoPage"><a href="javascript:void(0);"
-                                                                         class="topNav-signIn">登录/注册</a></div>
+
                     </div>
                 </div>
 
@@ -1737,14 +1735,17 @@ background-attachment: fixed;">
             <input type="hidden" id="O6" value="">
             <input type="hidden" id = "userNumber" th:value="${userNumber}">
             <input type="hidden" id = "userId" th:value="${userId}">
-                <h4 style="text-align: center; ">
-                    &nbsp;&nbsp; 在正式开始任务之前，我们想了解您的一些基本信息，本研究以匿名形式展开，<br/>
-                    所有回答只用于统计分析，请根据您真实情况进行回答。
+                <div style="width: 42% ;margin-left: 29%">
+                    <p style="text-align: left ;text-indent: 2em;color: red" >
+                        在正式开始任务之前，我们想了解您的一些基本信息，本研究以匿名形式展开,
+                        所有回答只用于统计分析，请根据您真实情况进行回答。
+                    </p>
                     <br/>
-                    &nbsp;&nbsp;假设在资源分配过程中，存在以下9种您被分配到的资源及他人同时被分配到的资源的组合<br/>
-                    （如您得到85，他人得到85；或者您得到85，他人得到15）
-                </h4>
-
+                    <p style="text-align: left;text-indent: 2em;color: red">
+                        假设有一笔钱要进行分配，存在以下9种可能的组合，即您得到金额及他人同时得到的金额
+                        （如：您得到85，他人得到85；或者您得到85，他人得到15），请选择会让您最开心的分配组合
+                    </p>
+                </div>
             </div>
 
             <div id = "table1">
@@ -1753,7 +1754,7 @@ background-attachment: fixed;">
                 </div>
                 <table border="3"  style="text-align: center " align="center">
                     <tr>
-                        <th align="center" class="mytable3 ">You receive：</th>
+                        <th align="center" class="mytable3 ">你得到：</th>
                         <td id="tdu11" class="mytable1 mytable">85</td>
                         <td id="tdu12" class="mytable2 mytable">85</td>
                         <td id="tdu13" class="mytable1 mytable">85</td>
@@ -1765,7 +1766,7 @@ background-attachment: fixed;">
                         <td id="tdu19" class="mytable1 mytable">85</td>
                     </tr>
                     <tr>
-                        <th align="center" class="mytable3">Other receives：</th>
+                        <th align="center" class="mytable3">他人得到：</th>
                         <td id="tdw11" class="mytable1 mytable">85</td>
                         <td id="tdw12" class="mytable2 mytable">76</td>
                         <td id="tdw13" class="mytable1 mytable">68</td>
@@ -1777,7 +1778,7 @@ background-attachment: fixed;">
                         <td id="tdw19" class="mytable1 mytable">15</td>
                     </tr>
                     <tr>
-                        <th align="center" class="mytable3">Choice：</th>
+                        <th align="center" class="mytable3">选择：</th>
                         <td class="mytable1 mytable"><input type="radio" name="choice1" value=""></td>
                         <td class="mytable2 mytable"><input type="radio" name="choice1" value=""></td>
                         <td class="mytable1 mytable"><input type="radio" name="choice1" value=""></td>
@@ -1800,7 +1801,7 @@ background-attachment: fixed;">
                 </div>
                 <table border="3" style="text-align: center " align="center">
                     <tr>
-                        <th align="center"  class="mytable3">You receive：</th>
+                        <th align="center"  class="mytable3">你得到：</th>
                         <td id="tdu21" class="mytable1 mytable">85</td>
                         <td id="tdu22" class="mytable2 mytable">87</td>
                         <td id="tdu23" class="mytable1 mytable">89</td>
@@ -1812,7 +1813,7 @@ background-attachment: fixed;">
                         <td id="tdu29" class="mytable1 mytable">100</td>
                     </tr>
                     <tr>
-                        <th align="center" class="mytable3">Other receives：</th>
+                        <th align="center" class="mytable3">他人得到：</th>
                         <td id="tdw21" class="mytable1 mytable">15</td>
                         <td id="tdw22" class="mytable2 mytable">19</td>
                         <td id="tdw23" class="mytable1 mytable">24</td>
@@ -1824,7 +1825,7 @@ background-attachment: fixed;">
                         <td id="tdw29" class="mytable1 mytable">50</td>
                     </tr>
                     <tr>
-                        <th align="center"  class="mytable3">Choice：</th>
+                        <th align="center"  class="mytable3">选择：</th>
                         <td class="mytable1 mytable"><input type="radio" name="choice2" value=""></td>
                         <td class="mytable2 mytable"><input type="radio" name="choice2" value=""></td>
                         <td class="mytable1 mytable"><input type="radio" name="choice2" value=""></td>
@@ -1847,7 +1848,7 @@ background-attachment: fixed;">
                 </div>
                 <table border="3" style="text-align: center " align="center">
                     <tr>
-                        <th align="center" class="mytable3 ">You receive：</th>
+                        <th align="center" class="mytable3 ">你得到：</th>
                         <td id="tdu31" class="mytable1 mytable">50</td>
                         <td id="tdu32" class="mytable2 mytable">54</td>
                         <td id="tdu33" class="mytable1 mytable">59</td>
@@ -1859,7 +1860,7 @@ background-attachment: fixed;">
                         <td id="tdu39" class="mytable1 mytable">85</td>
                     </tr>
                     <tr>
-                        <th align="center"  class="mytable3">Other receives：</th>
+                        <th align="center"  class="mytable3">他人得到：</th>
                         <td id="tdw31" class="mytable1 mytable">100</td>
                         <td id="tdw32" class="mytable2 mytable">98</td>
                         <td id="tdw33" class="mytable1 mytable">96</td>
@@ -1871,7 +1872,7 @@ background-attachment: fixed;">
                         <td id="tdw39" class="mytable1 mytable">85</td>
                     </tr>
                     <tr>
-                        <th align="center"  class="mytable3">Choice：</th>
+                        <th align="center"  class="mytable3">选择：</th>
                         <td class="mytable1 mytable"><input type="radio" name="choice3" value=""></td>
                         <td class="mytable2 mytable"><input type="radio" name="choice3" value=""></td>
                         <td class="mytable1 mytable"><input type="radio" name="choice3" value=""></td>
@@ -1894,7 +1895,7 @@ background-attachment: fixed;">
                 </div>
                 <table border="3" style="text-align: center " align="center">
                     <tr>
-                        <th align="center" class="mytable3 ">You receive：</th>
+                        <th align="center" class="mytable3 ">你得到：</th>
                         <td id="tdu41" class="mytable1 mytable">50</td>
                         <td id="tdu42" class="mytable2 mytable">54</td>
                         <td id="tdu43" class="mytable1 mytable">59</td>
@@ -1906,7 +1907,7 @@ background-attachment: fixed;">
                         <td id="tdu49" class="mytable1 mytable">85</td>
                     </tr>
                     <tr>
-                        <th align="center" class="mytable3">Other receives：</th>
+                        <th align="center" class="mytable3">他人得到：</th>
                         <td id="tdw41" class="mytable1 mytable">100</td>
                         <td id="tdw42" class="mytable2 mytable">89</td>
                         <td id="tdw43" class="mytable1 mytable">79</td>
@@ -1918,7 +1919,7 @@ background-attachment: fixed;">
                         <td id="tdw49" class="mytable1 mytable">15</td>
                     </tr>
                     <tr>
-                        <th align="center" class="mytable3">Choice：</th>
+                        <th align="center" class="mytable3">选择：</th>
                         <td class="mytable1 mytable"><input type="radio" name="choice4" value=""></td>
                         <td class="mytable2 mytable"><input type="radio" name="choice4" value=""></td>
                         <td class="mytable1 mytable"><input type="radio" name="choice4" value=""></td>
@@ -1941,7 +1942,7 @@ background-attachment: fixed;">
                 </div>
                 <table border="3" style="text-align: center " align="center">
                     <tr>
-                        <th align="center" class="mytable3">You receive：</th>
+                        <th align="center" class="mytable3">你得到：</th>
                         <td id="tdu51" class="mytable1 mytable">100</td>
                         <td id="tdu52" class="mytable2 mytable">94</td>
                         <td id="tdu53" class="mytable1 mytable">88</td>
@@ -1953,7 +1954,7 @@ background-attachment: fixed;">
                         <td id="tdu59" class="mytable1 mytable">50</td>
                     </tr>
                     <tr>
-                        <th align="center" class="mytable3">Other receives：</th>
+                        <th align="center" class="mytable3">他人得到：</th>
                         <td id="tdw51" class="mytable1 mytable">50</td>
                         <td id="tdw52" class="mytable2 mytable">56</td>
                         <td id="tdw53" class="mytable1 mytable">63</td>
@@ -1965,7 +1966,7 @@ background-attachment: fixed;">
                         <td id="tdw59" class="mytable1 mytable">100</td>
                     </tr>
                     <tr>
-                        <th align="center" class="mytable3">Choice：</th>
+                        <th align="center" class="mytable3">选择：</th>
                         <td class="mytable1 mytable"><input type="radio" name="choice5" value=""></td>
                         <td class="mytable2 mytable"><input type="radio" name="choice5" value=""></td>
                         <td class="mytable1 mytable"><input type="radio" name="choice5" value=""></td>
@@ -1988,7 +1989,7 @@ background-attachment: fixed;">
                 </div>
                 <table border="3" style="text-align: center " align="center">
                     <tr>
-                        <th align="center" class="mytable3">You receive：</th>
+                        <th align="center" class="mytable3">你得到：</th>
                         <td id="tdu61" class="mytable1 mytable">100</td>
                         <td id="tdu62" class="mytable2 mytable">98</td>
                         <td id="tdu63" class="mytable1 mytable">96</td>
@@ -2000,7 +2001,7 @@ background-attachment: fixed;">
                         <td id="tdu69" class="mytable1 mytable">85</td>
                     </tr>
                     <tr>
-                        <th align="center" class="mytable3">Other receives：</th>
+                        <th align="center" class="mytable3">他人得到：</th>
                         <td id="tdw61" class="mytable1 mytable">50</td>
                         <td id="tdw62" class="mytable2 mytable">54</td>
                         <td id="tdw63" class="mytable1 mytable">59</td>
@@ -2012,7 +2013,7 @@ background-attachment: fixed;">
                         <td id="tdw69" class="mytable1 mytable">85</td>
                     </tr>
                     <tr>
-                        <th align="center" class="mytable3">Choice：</th>
+                        <th align="center" class="mytable3">选择：</th>
                         <td class="mytable1 mytable"><input type="radio" name="choice6" value=""></td>
                         <td class="mytable2 mytable"><input type="radio" name="choice6" value=""></td>
                         <td class="mytable1 mytable"><input type="radio" name="choice6" value=""></td>
