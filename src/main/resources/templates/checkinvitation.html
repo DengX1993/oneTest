@@ -1548,7 +1548,7 @@
                 <input type="hidden" id = "scene" th:value="${contentDesignBean.getScene()}">
                 <script src="/js/xuqiushequdemo_files/jquery-1.11.1.js"></script>
                 <link rel="icon" type="image/x-icon" href="#">
-                <link rel="stylesheet" href="/js/xuqiushequdemo_files/base_5f7afde.css">
+                <link rel="stylesheet" href="/css//base_5f7afde.css">
                 <div style="height: 60px;"></div>
                 <div class="topNavBar js-comp  eve-component " data-comp-path="pc/headerframe"
                      style="background:#000; color:#FFF">
@@ -1689,9 +1689,9 @@
                                             </p>
                                         </div>
                                         <div data-v-63d25e3c="" class="topic-reply">
-                                            <span data-v-63d25e3c="" style="margin-right: 20px;">
+                                            <!--<span data-v-63d25e3c="" style="margin-right: 20px;">
                                                 <i data-v-63d25e3c="" class="cosmo-icon-edit"></i>发布
-                                            </span>
+                                            </span>-->
                                         </div>
                                     </div>
                                 </div>
@@ -1718,6 +1718,7 @@
                             <div data-v-63d25e3c="">
                                 <div data-v-63d25e3c="" class="topic-comment main-reply el-row"
                                      style="margin-left: -5px; margin-right: -5px;">
+                                    <p style="text-indent: 1em;font-weight: bold;font-size: 25px;color: #4CAF50;margin-bottom: 8px;margin-top: -5px" >参与讨论</p>
                                     <div data-v-63d25e3c="" class="hidden-md-and-down el-col el-col-3"
                                          style="padding-left: 5px; padding-right: 5px;">
                                         <div data-v-63d25e3c="" class="list-img">
@@ -1733,7 +1734,7 @@
                                         </div>
                                         <button onclick="submitInvitationButton()" data-v-63d25e3c="" type="button" class="el-button btn-reply el-button--primary">
                                             <span>
-                                                回复
+                                                发布
                                             </span>
                                         </button>
                                     </div>
@@ -1788,13 +1789,13 @@
             <!--<div class="topNav-right" id="headerInfoPage" >
                 <a th:href="${backUrl}" class="topNav-signIn" >返回主页</a>
             </div>-->
+        <input type="hidden" id="checkContentId" th:value="${contentDesignBean.getUuid()}">
+        <input type="hidden" id="userId" th:value="${userId}">
             <!--<div id="footer-wrap" data-v-6fccbc50="" style="position:fixed; bottom:0;width: 100%">
                 <div class=" eve-component" data-comp-path="pc/footer"></div>
                 <div id="footer">
                     <p class="footer-copyright"> | Me家电定制社区</p>
                 </div>
-                <input type="hidden" id="checkContentId" th:value="${contentDesignBean.getUuid()}">
-                <input type="hidden" id="userId" th:value="${userId}">
             </div>-->
         </div>
     </div>
