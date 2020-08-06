@@ -1717,7 +1717,7 @@
                                         <!--图片-->
                                         <a data-v-15ad7817=""
                                            th:href="'/oneTest/checkinvItation?invitationId='+${invitation.getUuid()}+'&userId='+${userId}"
-                                           target="_blank" class="img-wrap">
+                                            class="img-wrap">
                                             <img data-v-15ad7817="" th:src="${invitation.getImages()}"  th:title="${invitation.getTitle()}">
                                         </a>
 
@@ -1726,13 +1726,13 @@
                                             <a data-v-15ad7817=""
                                                th:href="'/oneTest/checkinvItation?invitationId='+${invitation.getUuid()}+'&userId='+${userId}"
                                                th:title="${invitation.getTitle()}"
-                                               target="_blank" class="info-title link"
+                                                class="info-title link"
                                                 th:text="${invitation.getTitle()}"
                                             >
                                             </a>
 
                                             <a data-v-15ad7817="" th:href="'/oneTest/checkinvItation?invitationId='+${invitation.getUuid()}+'&userId='+${userId}"
-                                                target="_blank" class="desc link" th:title="${invitation.getTitle()}"
+                                                 class="desc link" th:title="${invitation.getTitle()}"
                                                             th:text="${invitation.getContents().substring(0,30)}+'.......'">
                                             </a>
                                             <!--点赞数-->

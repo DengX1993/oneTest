@@ -3,12 +3,11 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>需求社区</title>
+    <title>浏览示例</title>
     <meta data-n-head="ssr" data-hid="description" name="description" content="My posh Nuxt.js project">
     <link data-n-head="ssr" rel="icon" type="image/x-icon" href="#">
     <link data-n-head="ssr" rel="stylesheet" href="/js/xuqiushequdemo_files/font_1093673_uzfktmycabn.css">
     <link rel="preload" href="/js/xuqiushequdemo_files/727154f338258645adfd.css" as="style">
-    <link rel="preload" href="/js/xuqiushequdemo_files/8acdd3b37630b5fb5f73.css" as="style">
     <link rel="preload" href="/js/xuqiushequdemo_files/d560cb2862667938eec6.css" as="style">
     <link rel="stylesheet" href="/js/xuqiushequdemo_files/727154f338258645adfd.css">
     <link rel="stylesheet" href="/js/xuqiushequdemo_files/8acdd3b37630b5fb5f73.css">
@@ -1523,7 +1522,19 @@
 
     body.swal2-toast-column .swal2-toast .swal2-validation-message {
         font-size: 1em
-    }</style>
+    }
+    .xiayizudiv{
+        height: 100px;
+        border-top-width: 8px;
+        margin-top: 19px;
+    }
+    .xiayizudiv input{
+        width: 100px;
+        height: 59px;
+        border-radius:8px;
+        background: #3fc3ee;
+    }
+    </style>
     <meta data-n-head="ssr" name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
@@ -1536,28 +1547,31 @@
                 <input type="hidden" id = "scene" th:value="${scene}">
                 <script src="/js/xuqiushequdemo_files/jquery-1.11.1.js"></script>
                 <link rel="icon" type="image/x-icon" href="#">
-                <link rel="stylesheet" href="/js/xuqiushequdemo_files/base_5f7afde.css">
+                <link rel="stylesheet" href="/css/base_5f7afde.css">
                 <div style="height: 60px;"></div>
                 <div class="topNavBar js-comp  eve-component " data-comp-path="pc/headerframe"
                      style="background:#000; color:#FFF">
-                    <div class="header-warp">
-                        <a href="#" class="topNav-logo">
-                            <h1></h1>
-                        </a>
+                    <div class="header-warp" style="margin-right: auto;">
+                        <div class="topNav-logo" style="margin: auto">
+                            <h2 >Me家电定制社区</h2>
+                        </div>
                         <ul class="topNav-lists">
                             <li><a href="#">首页</a></li>
                             <li><a href="#">需求社区</a></li>
                         </ul>
-                        <div class="topNav-right" id="headerInfoPage" >
+                        <!--<div class="topNav-right" id="headerInfoPage" >
                             <a href="#" class="topNav-signIn" onclick="headerInfoPageOnclick()">开始参与</a>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
 
             </div>
+            <p style="text-align: center;text-indent: 2em;color: red ;">
+                这个是话题内容及讨论示例展示，请您先浏览一个往期精选话题帖子及他人的讨论内容。浏览完成后点击开始参与，则进入到其他待讨论话题。
+            </p>
 
             <div id="content-wrap" data-v-6fccbc50="">
-                <div data-v-63d25e3c="" data-v-6fccbc50="" class="topicdetail">
+                <div data-v-63d25e3c="" data-v-6fccbc50="" class="topicdetail" >
                     <div data-v-63d25e3c="" class="topic-top hidden-lg-and-up">
                     </div>
                     <div data-v-63d25e3c="" class="el-row" style="margin-left: -15px; margin-right: -15px;">
@@ -1583,7 +1597,7 @@
                         </div>
                         <div data-v-63d25e3c=""
                              class="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-18 el-col-xl-18"
-                             style="padding-left: 15px; padding-right: 15px;">
+                             style="padding-left: 15px; padding-right: 15px;width: 100%">
                             <div data-v-63d25e3c="" class="el-card topic-card is-never-shadow">
                                 <div class="el-card__header">
                                     <div data-v-63d25e3c="" class="clearfix">
@@ -1679,11 +1693,11 @@
 
                                             </p>
                                         </div>
-                                        <div data-v-63d25e3c="" class="topic-reply">
+                                        <!--<div data-v-63d25e3c="" class="topic-reply">
                                             <span data-v-63d25e3c="" style="margin-right: 20px;">
                                                 <i data-v-63d25e3c="" class="cosmo-icon-edit"></i>回复
                                             </span>
-                                        </div>
+                                        </div>-->
                                     </div>
                                 </div>
                                 <!--分页-->
@@ -1736,7 +1750,7 @@
                             </div>-->
                         </div>
                         <!--右上角头像-->
-                        <div data-v-63d25e3c=""
+                        <!--<div data-v-63d25e3c=""
                              class="el-col el-col-24 el-col-xs-24 el-col-sm-24 el-col-md-24 el-col-lg-6 el-col-xl-6"
                              style="padding-left: 15px; padding-right: 15px;">
                             <div data-v-63d25e3c="" class="topic-right-top hidden-md-and-down">
@@ -1758,9 +1772,9 @@
                                         </div>
                                     </div>
                                 </a>
-                            </div>
+                            </div>-->
                             <!--精选帖-->
-                            <div data-v-63d25e3c="" class="el-card topic-list is-never-shadow">
+                            <!--<div data-v-63d25e3c="" class="el-card topic-list is-never-shadow">
                                 <div class="el-card__header">
                                     <div data-v-63d25e3c="" class="clearfix">
                                         <span data-v-63d25e3c="" class="title">精选推荐</span>
@@ -1772,18 +1786,22 @@
                                            th:text="${invitationListStar.index+1+'、'+invitation.title}"/>
                                     </div>
                                 </div>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                 </div>
                 <input type="hidden" id="userId" th:value="${userId}">
             </div>
-            <div id="footer-wrap" data-v-6fccbc50="" style="position:fixed; bottom:0;width: 100%">
+            <div align="center" class="xiayizudiv" style="margin-bottom: 20px">
+                <input  type="button" onclick="headerInfoPageOnclick()" style="align-content: center ;background-color: #4CAF50  "  value="开始">
+            </div>
+
+            <!--<div id="footer-wrap" data-v-6fccbc50="" style="position:fixed; bottom:0;width: 100%">
                 <div class=" eve-component" data-comp-path="pc/footer"></div>
                 <div id="footer">
                     <p class="footer-copyright"> | Me家电定制社区</p>
                 </div>
-            </div>
+            </div>-->
         </div>
     </div>
 </div>
