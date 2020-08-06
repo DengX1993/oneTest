@@ -194,7 +194,8 @@ public class LoginController {
     }
 
     //问卷页
-    @RequestMapping("/questionnaire")
+    @ResponseBody
+    @RequestMapping(value = "/questionnaire",method = RequestMethod.POST)
     public ModelAndView questionnaire(@RequestParam("userId") String userId){
         ModelAndView view = new ModelAndView("questionnaire");
         view.getModel().put("userId",userId);
