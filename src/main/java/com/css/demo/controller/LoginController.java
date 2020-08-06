@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.awt.*;
 import java.util.*;
 import java.util.List;
@@ -36,7 +37,9 @@ public class LoginController {
 
     //首页
     @RequestMapping("/index")
-    public String show(){
+    public String show(HttpServletRequest request){
+        String test = request.getRequestURI();
+        System.err.println(test);
         return "console";
     }
 
@@ -49,29 +52,31 @@ public class LoginController {
         accountService.insert(uuid,userNumber,lastLoginTime);
         view.getModel().put("userNumber",userNumber);
         view.getModel().put("userId",uuid);
-
         return view;
     }
 
     //初始化测评页面
+    @ResponseBody
     @RequestMapping(value = "/chushihuaceping",method = RequestMethod.POST)
-    public String chushihuaceping(
+    public Map<String, Object> chushihuaceping(
             @RequestParam("y1") String y1,@RequestParam("o1") String o1,@RequestParam("y2") String y2,@RequestParam("o2") String o2,
             @RequestParam("y3") String y3,@RequestParam("o3") String o3,@RequestParam("y4") String y4,@RequestParam("o4") String o4,
             @RequestParam("y5") String y5,@RequestParam("o5") String o5,@RequestParam("y6") String y6,@RequestParam("o6") String o6,
-            @RequestParam("userNumber") String userNumber,@RequestParam("userId") String userId){
+            @RequestParam("userNumber") String userNumber,@RequestParam("userId") String userId,HttpServletRequest request){
 
 
-        System.out.println("y1"+y1+"o1"+o1+"y2"+y2+"o2"+o2+"y3"+y3+"o3"+o3+"y4"+y4+"o4"+o4+"y5"+y5+"o5"+o5+"y6"+y6+"o6"+o6);
         cePingService.insert(userId,userNumber,y1,o1,y2,o2,y3,o3,y4,o4,y5,o5,y6,o6);
-        //return  "redirect:xuqiushequmain?scene="+x+"&userId="+userNumber;
-        return  "console";
+
+        Map<String, Object> result = new HashMap<String, Object>();
+        result.put("statusCode", "200");
+        result.put("message", "提交成功!");
+        return  result;
     }
 
     @Autowired
     ContentDesignService contentDesign;
     //需求社区场景示例 http://localhost:8080/oneTest/xuQiuShequDemo?scene=1
-    @RequestMapping(value = "/xuQiuShequDemo",method = RequestMethod.GET)
+    @RequestMapping(value = "/xuQiuShequDemo",method = RequestMethod.POST)
     public ModelAndView xuQiuShequDemo(@RequestParam("scene") String scene,@RequestParam("userId") String userId){
         ModelAndView view = new ModelAndView("xuqiushequdemo");
         //内容
@@ -119,14 +124,9 @@ public class LoginController {
         }
         return view;
     }
-    //记录一下访问时间
-    @RequestMapping(value = "/recordingStartTime" ,method = RequestMethod.POST )
-    public String recordingStartTime(String uuid){
-        return "";
-    }
 
     //需求社区主页http://localhost:8080/oneTest/xuqiushequmain?scene=1&userId=1
-    @RequestMapping("/xuqiushequmain")
+    @RequestMapping(value = "/xuqiushequmain",method = RequestMethod.POST)
     public ModelAndView xuqiushequmain(@RequestParam("scene") String scene,@RequestParam("userId") String userId){
         ModelAndView view = new ModelAndView("xuqiushequmain");
         List<ContentDesignBean> contentDesignList = contentDesign.selectAllInvitationByScene(scene);
@@ -147,7 +147,7 @@ public class LoginController {
     public LogsBeanService logsBeanService;
 
     //帖子内容页面http://localhost:8080/oneTest/checkinvItation?invitationId=10&userId=1
-    @RequestMapping("/checkinvItation")
+    @RequestMapping( value = "/checkinvItation",method = RequestMethod.POST)
     public ModelAndView checkinvItation(@RequestParam("invitationId") String invitationId,@RequestParam("userId") String userId){
         ModelAndView view = new ModelAndView("checkinvitation");
         ContentDesignBean contentDesignBean = contentDesign.selectObjByUUid(invitationId);
@@ -194,7 +194,8 @@ public class LoginController {
     }
 
     //问卷页
-    @RequestMapping("/questionnaire")
+    @ResponseBody
+    @RequestMapping(value = "/questionnaire",method = RequestMethod.POST)
     public ModelAndView questionnaire(@RequestParam("userId") String userId){
         ModelAndView view = new ModelAndView("questionnaire");
         view.getModel().put("userId",userId);
@@ -243,7 +244,18 @@ public class LoginController {
 
     @RequestMapping("/test")
     public String test(){
-        return "choice";
+
+        return "test";
+    }
+    @ResponseBody
+    @RequestMapping("/parseExcel")
+    public ModelAndView parseExcel(HttpServletRequest request) {
+     Map<String, Object> result = new HashMap<String, Object>();
+        result.put("statusCode", "200");
+        result.put("message", "成功!");
+        ModelAndView modelAndView = new ModelAndView("test");
+        modelAndView.getModel().put("message","cg");
+        return modelAndView;
     }
 
 }

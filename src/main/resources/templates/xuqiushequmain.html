@@ -1680,11 +1680,13 @@
 
                         <div id="begin" class="modal" >
                             <form class="modal-content animate"  action="/oneTest/questionnaire" METHOD="post">
+
                                 <div class="imgcontainer">
                                     <!-- 点击×号，隐藏模态框-->
                                     <span onclick="document.getElementById('begin').style.display='none'" class="close" title="关闭">&times;</span>
                                 </div>
                                 <input type="hidden" name="userNumber" />
+                                <input type="hidden" name="userId" id="userId" th:value="${userId}">
                                 <div class="container" style="width: 80% ">
                                     <h2 style="color: #2B2E37">您还没有参与讨论，您确定结束吗？</h2>
                                     <button   type="button" onclick="document.getElementById('begin').style.display='none'">继续浏览</button>
@@ -1714,24 +1716,30 @@
                                     <div class="title" data-v-15ad7817="">
                                         <span data-v-15ad7817="">话题精选</span></div>
                                     <div data-v-15ad7817="" class="item" th:each="invitation,invitationListStar:${invitationList}">
-                                        <!--图片-->
-                                        <a data-v-15ad7817=""
-                                           th:href="'/oneTest/checkinvItation?invitationId='+${invitation.getUuid()}+'&userId='+${userId}"
-                                            class="img-wrap">
+                                        <!--图片
+                                       th:href="'/oneTest/checkinvItation?invitationId='+${invitation.getUuid()}+'&userId='+${userId}"
+                                        -->
+                                        <a data-v-15ad7817="" class="img-wrap"
+                                           th:onclick="doPost('/oneTest/checkinvItation',{'invitationId':[[${invitation.getUuid()}]],'userId':[[${userId}]]});"
+                                           href="javascript:;"
+                                        >
                                             <img data-v-15ad7817="" th:src="${invitation.getImages()}"  th:title="${invitation.getTitle()}">
                                         </a>
 
                                         <div data-v-15ad7817="" class="info">
                                             <!--上面内容-->
                                             <a data-v-15ad7817=""
-                                               th:href="'/oneTest/checkinvItation?invitationId='+${invitation.getUuid()}+'&userId='+${userId}"
+                                               th:onclick="doPost('/oneTest/checkinvItation',{'invitationId':[[${invitation.getUuid()}]],'userId':[[${userId}]]});"
+                                               href="javascript:;"
                                                th:title="${invitation.getTitle()}"
                                                 class="info-title link"
                                                 th:text="${invitation.getTitle()}"
                                             >
                                             </a>
 
-                                            <a data-v-15ad7817="" th:href="'/oneTest/checkinvItation?invitationId='+${invitation.getUuid()}+'&userId='+${userId}"
+                                            <a data-v-15ad7817=""
+                                               th:onclick="doPost('/oneTest/checkinvItation',{'invitationId':[[${invitation.getUuid()}]],'userId':[[${userId}]]});"
+                                               href="javascript:;"
                                                  class="desc link" th:title="${invitation.getTitle()}"
                                                             th:text="${invitation.getContents().substring(0,30)}+'.......'">
                                             </a>
@@ -1748,7 +1756,6 @@
                                                 </span>
                                             </div>
                                         </div>
-                                        <input type="hidden" id="userId" th:value="${userId}">
                                     </div>
 
                                 </div>
@@ -1767,13 +1774,18 @@
         </div>
     </div>
 </div>
+<script src="/js/doPost.js"></script>
 <script>
     function endCheck() {
+        debugger;
         var commentFlag = document.getElementById("commentFlag").value;
         var userId = document.getElementById("userId").value;
-        if(1 == commentFlag)
-            window.location.href='/oneTest/questionnaire?userId='+userId;
-        else{
+        //window.location.href='/oneTest/questionnaire?userId='+userId;
+        if(1 == commentFlag){
+            alert(userId);
+            doPost("/oneTest/questionnaire",{"userId":userId});
+
+        } else{
             document.getElementById("begin").style.display = "block";
         }
     }

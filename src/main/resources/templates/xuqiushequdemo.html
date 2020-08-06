@@ -1805,24 +1805,16 @@
         </div>
     </div>
 </div>
+<script src="/js/doPost.js"></script>
+
 <script type="text/javascript">
     
     function headerInfoPageOnclick() {
         debugger;
         var scene = document.getElementById("scene").value;
         var userId = document.getElementById("userId").value;
-        window.location.href="/oneTest/xuqiushequmain?scene="+scene+"&userId="+userId;
-
-        /*$.ajax({
-            url:"/oneTest/xuqiushequmain",
-            method:'post',
-            data:{"scene":scene},
-            dataType:JSON,
-            onsuccess : function () {
-
-            }
-
-        })*/
+        //window.location.href="/oneTest/xuqiushequmain?scene="+scene+"&userId="+userId;
+        doPost("/oneTest/xuqiushequmain",{"scene":scene,"userId":userId});
     }
 
 </script>

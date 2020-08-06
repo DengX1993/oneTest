@@ -2054,8 +2054,25 @@
             modal.style.display = "none";
         }
     }
-    function commit() {
+    function doPost(to, p) { // to:提交动作（action）,p:参数
         debugger;
+        var myForm = document.createElement("form");
+        myForm.method = "post";
+        myForm.action = to;
+        for (var i in p){
+            var myInput = document.createElement("input");
+            myInput.setAttribute("name", i); // 为input对象设置name
+            myInput.setAttribute("value", p[i]); // 为input对象设置value
+            myForm.appendChild(myInput);
+        }
+        document.body.appendChild(myForm);
+        myForm.submit();
+        document.body.removeChild(myForm); // 提交后移除创建的form
+    }
+
+
+    function commit(){
+        var url = "/oneTest/chushihuaceping";
         var Y1 = $("#Y1").val();
         var O1 = $("#O1").val();
         var Y2 = $("#Y2").val();
@@ -2070,35 +2087,25 @@
         var O6 = $("#O6").val();
         var userNumber = $("#userNumber").val();
         var userId = $("#userId").val();
-        var sence = (Math.floor(Math.random()*4+ 1)) ;
+
         $.ajax({
-            url:"/oneTest/chushihuaceping",
-            method:'post',
+            type: 'POST',
+            url: url,
             data:{"y1":Y1,"o1":O1,"y2":Y2,"o2":O2,"y3":Y3,"o3":O3,"y4":Y4,"o4":O4,"y5":Y5,"o5":O5,"y6":Y6,"o6":O6,"userNumber":userNumber,"userId":userId},
-            dataType:JSON,
-            async:false,
-            success : function (data) {
-                debugger;
-                /*$.ajax({
-                    url:"/oneTest/xuqiushequmain",
-                    method:'post',
-                    data:{"scene":sence,"userId":userNumber},
-                    dataType:JSON,
-                    async:false,
-                    success : function (data) {
+            dataType: "json",
+            success: function (result) {
+                alert(result.message);
+                var sence = (Math.floor(Math.random()*4+ 1)) ;
+                doPost("/oneTest/xuQiuShequDemo",{'scene':sence,'userId':userId});
 
-                    }
 
-                })*/
-
+                //window.location.href='/oneTest/xuQiuShequDemo?scene='+sence+'&userId='+userId;
             }
-
         })
-        window.location.href='/oneTest/xuQiuShequDemo?scene='+sence+'&userId='+userId;
-
+        return false;
     }
+
     function next(n) {
-        debugger;
         var name = "choice"+n;
         var col = -1;
         var bank=document.getElementsByName(name);
