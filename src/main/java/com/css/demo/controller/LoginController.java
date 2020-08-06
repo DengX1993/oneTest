@@ -147,7 +147,7 @@ public class LoginController {
     public LogsBeanService logsBeanService;
 
     //帖子内容页面http://localhost:8080/oneTest/checkinvItation?invitationId=10&userId=1
-    @RequestMapping("/checkinvItation")
+    @RequestMapping( value = "/checkinvItation",method = RequestMethod.POST)
     public ModelAndView checkinvItation(@RequestParam("invitationId") String invitationId,@RequestParam("userId") String userId){
         ModelAndView view = new ModelAndView("checkinvitation");
         ContentDesignBean contentDesignBean = contentDesign.selectObjByUUid(invitationId);
