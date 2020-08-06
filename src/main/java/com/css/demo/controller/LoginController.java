@@ -124,14 +124,9 @@ public class LoginController {
         }
         return view;
     }
-    //记录一下访问时间
-    @RequestMapping(value = "/recordingStartTime" ,method = RequestMethod.POST )
-    public String recordingStartTime(String uuid){
-        return "";
-    }
 
     //需求社区主页http://localhost:8080/oneTest/xuqiushequmain?scene=1&userId=1
-    @RequestMapping("/xuqiushequmain")
+    @RequestMapping(value = "/xuqiushequmain",method = RequestMethod.POST)
     public ModelAndView xuqiushequmain(@RequestParam("scene") String scene,@RequestParam("userId") String userId){
         ModelAndView view = new ModelAndView("xuqiushequmain");
         List<ContentDesignBean> contentDesignList = contentDesign.selectAllInvitationByScene(scene);
