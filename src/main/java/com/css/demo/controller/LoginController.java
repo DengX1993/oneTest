@@ -128,13 +128,14 @@ public class LoginController {
 
     //需求社区主页http://localhost:8080/oneTest/xuqiushequmain?scene=1&userId=1
     @RequestMapping(value = "/xuqiushequmain",method = RequestMethod.POST)
-    public ModelAndView xuqiushequmain(@RequestParam("scene") String scene,@RequestParam("userId") String userId){
+    public ModelAndView xuqiushequmain(@RequestParam("scene") String scene,@RequestParam("userId") String userId,@RequestParam("viewFlag") String viewFlag){
         ModelAndView view = new ModelAndView("xuqiushequmain");
         List<ContentDesignBean> contentDesignList = contentDesign.selectAllInvitationByScene(scene);
         view.getModel().put("invitationList",contentDesignList);
         view.getModel().put("userId",userId);
         view.getModel().put("nextUrl","/oneTest/checkinvItation");
         view.getModel().put("commentFlag","0");
+        view.getModel().put("viewFlag",viewFlag);
         view.getModel().put("scene",scene);
         List<LogsBean> logsBeans = logsBeanService.selectLogsByUserId(userId);
         for (LogsBean logsBean : logsBeans) {
@@ -222,8 +223,7 @@ public class LoginController {
     public ModelAndView saveRecordBean(RecordBean recordBean,String userId){
         ModelAndView view = new ModelAndView("endpage");
         CePingBean cePingBean = cePingService.selectBeanByUuid(userId);
-        String uuid = UUidUtil.getUUid();
-        recordBean.setUuid(uuid);
+        recordBean.setUuid(userId);
         if(cePingBean!=null) {
             recordBean.setO1(cePingBean.getO1());
             recordBean.setY1(cePingBean.getY1());
@@ -242,6 +242,7 @@ public class LoginController {
             cePingService.updCepingCheckTime(cePingBean);
         }
         recordService.insert(recordBean);
+        //recordService.insertSelective(recordBean);
 
         return view;
     }

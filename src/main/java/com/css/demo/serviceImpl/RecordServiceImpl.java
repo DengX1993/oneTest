@@ -17,4 +17,10 @@ public class RecordServiceImpl implements RecordService {
     public int insert(RecordBean record) {
         return recordMapper.insert(record);
     }
+
+    @Override
+    public int insertSelective(RecordBean record) {
+        return recordMapper.insertSelective(record);
+    }
+
 }
