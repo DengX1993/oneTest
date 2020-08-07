@@ -1793,9 +1793,7 @@
         var userId = document.getElementById("userId").value;
         var scene = document.getElementById("scene").value;
         if(1 == commentFlag){
-            alert(userId);
             doPost("/oneTest/questionnaire",{"userId":userId,"scene":scene});
-
         } else{
             document.getElementById("begin").style.display = "block";
         }
