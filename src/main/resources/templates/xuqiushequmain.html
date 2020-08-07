@@ -1656,16 +1656,16 @@
 
                 <script src="/js/xuqiushequmain_files/jquery-1.11.1.js"></script>
                 <link rel="icon" type="image/x-icon" href="http://diy.haier.com/assets/others/favicon_93ec135.ico">
-                <link rel="stylesheet" href="/js/xuqiushequmain_files/base_5f7afde.css">
+                <link rel="stylesheet" href="/css/base_5f7afde.css">
 
 
 
                 <div class="topNavBar js-comp  eve-component " data-comp-path="pc/headerframe"
                      style="background:#000; color:#FFF">
                     <div class="header-warp">
-                        <a href="#" class="topNav-logo">
-                            <h1></h1>
-                        </a>
+                        <div class="topNav-logo" style="margin: auto">
+                            <h2 >Me家电定制社区</h2>
+                        </div>
                         <ul class="topNav-lists">
                             <li><a href="#">首页</a></li>
                             <li><a href="#">需求社区</a></li>
@@ -1687,6 +1687,7 @@
                                 </div>
                                 <input type="hidden" name="userNumber" />
                                 <input type="hidden" name="userId" id="userId" th:value="${userId}">
+                                <input type="hidden" name="scene" id="scene" th:value="${scene}">
                                 <div class="container" style="width: 80% ">
                                     <h2 style="color: #2B2E37">您还没有参与讨论，您确定结束吗？</h2>
                                     <button   type="button" onclick="document.getElementById('begin').style.display='none'">继续浏览</button>
@@ -1705,6 +1706,12 @@
 
             </div>
             <div id="content-wrap" data-v-6fccbc50="">
+                <div>
+                    <p th:if="'1' eq ${scene} or '2' eq ${scene}" style="text-align: center;font-size: 20px" >您可以点击浏览一条或多条帖子，并参与我们的讨论。</p>
+                    <p th:if="'3' eq ${scene} or '4' eq ${scene}" style="text-align: center;font-size: 20px" >
+                        您可以点击浏览一条或多条帖子，根据帖子分享的内容，您可以畅所欲言，发表一些您对家电的需求、您对家电使用的生活经验等的讨论。
+                    </p>
+                </div>
                 <div class="homepage" data-v-15ad7817="" data-v-6fccbc50="">
                     <div data-v-15ad7817="" class="content-top">
                         <div data-v-15ad7817="" class="swiper-banner"></div>
@@ -1764,12 +1771,13 @@
                     </div>
                 </div>
             </div>
-        <div id="footer-wrap" data-v-6fccbc50="" style="position:fixed; bottom:0;width: 100%">
+        <!--<div id="footer-wrap" data-v-6fccbc50="" style="position:fixed; bottom:0;width: 100%">
             <div class=" eve-component" data-comp-path="pc/footer"></div>
             <div id="footer">
                 <p class="footer-copyright"> | Me家电定制社区</p>
             </div>
 
+        </div>-->
         </div>
         </div>
     </div>
@@ -1777,12 +1785,13 @@
 <script src="/js/doPost.js"></script>
 <script>
     function endCheck() {
-        debugger;
         var commentFlag = document.getElementById("commentFlag").value;
         var userId = document.getElementById("userId").value;
-        //window.location.href='/oneTest/questionnaire?userId='+userId;
+        var scene = document.getElementById("scene").value;
         if(1 == commentFlag){
-            doPost("/oneTest/questionnaire",{"userId":userId});
+            alert(userId);
+            doPost("/oneTest/questionnaire",{"userId":userId,"scene":scene});
+
         } else{
             document.getElementById("begin").style.display = "block";
         }
