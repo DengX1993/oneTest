@@ -202,6 +202,16 @@ public class LoginController {
     @RequestMapping(value = "/questionnaire",method = RequestMethod.POST)
     public ModelAndView questionnaire(@RequestParam("userId") String userId,@RequestParam("scene") String scene){
         ModelAndView view = new ModelAndView("questionnaire");
+        view.getModel().put("commentFlag","0");
+
+        List<LogsBean> logsBeans = logsBeanService.selectLogsByUserId(userId);
+        for (LogsBean logsBean : logsBeans) {
+            //根据日志，查出是否评论
+            if(1 == logsBean.getCommentFlag()){
+                view.getModel().put("commentFlag","1");
+            }
+        }
+
         view.getModel().put("userId",userId);
         view.getModel().put("scene",scene);
         return view;
