@@ -4,6 +4,7 @@ import com.css.demo.bean.*;
 import com.css.demo.common.UUidUtil;
 import com.css.demo.mapper.LogsBeanMapper;
 import com.css.demo.service.*;
+import javafx.scene.input.DataFormat;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.awt.*;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.List;
 
@@ -78,7 +80,6 @@ public class LoginController {
     //需求社区场景示例 http://localhost:8080/oneTest/xuQiuShequDemo?scene=1
     @RequestMapping(value = "/xuQiuShequDemo",method = RequestMethod.POST)
     public ModelAndView xuQiuShequDemo(@RequestParam("scene") String scene,@RequestParam("userId") String userId){
-        scene = "4";
         ModelAndView view = new ModelAndView("xuqiushequdemo");
         //内容
         List<String> contentList = new ArrayList<>();
@@ -152,6 +153,14 @@ public class LoginController {
     //帖子内容页面http://localhost:8080/oneTest/checkinvItation?invitationId=10&userId=1
     @RequestMapping( value = "/checkinvItation",method = RequestMethod.POST)
     public ModelAndView checkinvItation(@RequestParam("invitationId") String invitationId,@RequestParam("userId") String userId){
+        //进入页面，也需要新增一条记录
+        LogsBean saveLogsBean = new LogsBean();
+        saveLogsBean.setUuid(UUidUtil.getUUid());
+        saveLogsBean.setUserUuid(userId);
+        saveLogsBean.setCheckContentId(invitationId);
+        saveLogsBean.setCommentFlag(3);
+        saveLogsBean.setCreateTime(new Date());
+        int insert = logsBeanService.insert(saveLogsBean);
         ModelAndView view = new ModelAndView("checkinvitation");
         ContentDesignBean contentDesignBean = contentDesign.selectObjByUUid(invitationId);
         view.getModel().put("contentDesignBean",contentDesignBean);
@@ -212,7 +221,6 @@ public class LoginController {
                 view.getModel().put("commentFlag","1");
             }
         }
-
         view.getModel().put("userId",userId);
         view.getModel().put("scene",scene);
         return view;
@@ -237,6 +245,24 @@ public class LoginController {
             recordBean.setO5(cePingBean.getO5());
             recordBean.setY6(cePingBean.getY6());
             recordBean.setO6(cePingBean.getO6());
+
+            //根据用户uuid查logs日志
+            int views = 0;
+            int Quantity = 0;
+            List<LogsBean> logsBeans = logsBeanService.selectLogsByUserId(userId);
+            for (LogsBean logsBean : logsBeans) {
+                //查看用户点击的帖子数View
+                if(3 == logsBean.getCommentFlag()){
+                    views++;
+                }
+                if(1 == logsBean.getCommentFlag())
+                    Quantity++;
+            }
+            recordBean.setView(views+"");
+            //浏览帖子时间Time
+            recordBean.setTime(new Date().getTime()-cePingBean.getBeginCheckInvItationTime().getTime()+"");
+            //评论过的帖子数Quantity
+            recordBean.setQuantity(Quantity+"");
             recordBean.setUserNumber(cePingBean.getUserNumber());
             cePingBean.setEndCheckInvItationTime(new Date());
             cePingService.updCepingCheckTime(cePingBean);

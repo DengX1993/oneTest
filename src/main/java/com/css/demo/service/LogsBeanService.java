@@ -9,6 +9,7 @@ import java.util.List;
 public interface LogsBeanService {
     int insert (LogsBean logsBean);
     List<LogsBean> selectLogsByUserId( String userUuid);
+    List<LogsBean> selectLogsByUserIdAndTime( String userUuid,Date create);
 
     List<LogsBean> selectLogsByUserIdAndCheckContentId(String userId, String invitationId);
 }

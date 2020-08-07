@@ -13,5 +13,9 @@
         select * from logs where user_Uuid = #{userUuid} and CHECK_CONTENT_ID = #{checkContentId} order by create_time
     </select>
 
+    <select id="selectLogsByUserIdAndTime"  resultType="com.css.demo.bean.LogsBean">
+        select * from logs where user_Uuid = #{userUuid} and createTime = #{createTime}
+    </select>
+
 
 </mapper>

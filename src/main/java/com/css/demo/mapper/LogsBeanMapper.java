@@ -20,4 +20,6 @@ public interface LogsBeanMapper {
     List<LogsBean> selectLogsByUserId(@Param("userUuid") String userUuid);
 
     List<LogsBean> selectLogsByUserIdAndCheckContentId(String userUuid, String checkContentId);
+
+    List<LogsBean> selectLogsByUserIdAndTime(String userUuid,Date createTime);
 }

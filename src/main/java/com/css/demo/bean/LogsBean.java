@@ -9,7 +9,7 @@ public class LogsBean {
     private String userUuid;
     //浏览内容id
     private String checkContentId;
-    //评论状态  0 未评论 1 评论了
+    //评论状态  0 未评论 1 评论了 2 点击过
     private int commentFlag;
     //评论内容
     private String comment;
