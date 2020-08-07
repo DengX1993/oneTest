@@ -1782,9 +1782,7 @@
         var userId = document.getElementById("userId").value;
         //window.location.href='/oneTest/questionnaire?userId='+userId;
         if(1 == commentFlag){
-            alert(userId);
             doPost("/oneTest/questionnaire",{"userId":userId});
-
         } else{
             document.getElementById("begin").style.display = "block";
         }
