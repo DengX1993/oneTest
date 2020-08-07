@@ -1539,6 +1539,7 @@
     <meta data-n-head="ssr" name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
+<!--<body id="checkId" onload="window.scrollTo(0,document.body.scrollHeight)">-->
 <body>
 <div id="__nuxt"><!---->
     <div id="__layout">
@@ -1613,7 +1614,7 @@
                                 <div class="el-card__body">
                                     <div data-v-63d25e3c=""th:each="contents,contentListStar:${contentList}" >
                                         <!----------内容-------------->
-                                        <p style="text-align: center;">
+                                        <p style="text-align: left;">
                                             <span style="font-size: 20px;" th:text="${contents}"></span>
                                         </p>
                                     </div>
@@ -1803,6 +1804,12 @@
     <script src="/js/doPost.js"></script>
 
     <script>
+
+  /*  $(function(){
+        $("#checkId").attr("onload","");
+    });*/
+
+
         function submitInvitationButton() {
             //评论内容
             var submitInvitationButtonTextarea = document.getElementById("submitInvitationButtonTextarea").value;

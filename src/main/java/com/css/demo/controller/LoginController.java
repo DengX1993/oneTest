@@ -78,6 +78,7 @@ public class LoginController {
     //需求社区场景示例 http://localhost:8080/oneTest/xuQiuShequDemo?scene=1
     @RequestMapping(value = "/xuQiuShequDemo",method = RequestMethod.POST)
     public ModelAndView xuQiuShequDemo(@RequestParam("scene") String scene,@RequestParam("userId") String userId){
+        scene = "4";
         ModelAndView view = new ModelAndView("xuqiushequdemo");
         //内容
         List<String> contentList = new ArrayList<>();
@@ -93,7 +94,7 @@ public class LoginController {
                 //根据场景，查1主要内容。
                 if("1".equals(contentDesignBean.getContentType())){
                     String contents = contentDesignBean.getContents();
-                    String[] split = contents.split("[？，。：；]");
+                    String[] split = contents.split("[<br/>]");
                     for (String s : split) {
                         contentList.add(s);
                     }
@@ -156,7 +157,7 @@ public class LoginController {
         //帖子内容
         List<String> contentList = new ArrayList<>();
         String contents = contentDesignBean.getContents();
-        String[] split = contents.split("[？，。：；]");
+        String[] split = contents.split("[<br/>]");
         for (String s : split) {
             contentList.add(s);
         }
@@ -178,6 +179,7 @@ public class LoginController {
             }
         }
         view.getModel().put("userId",userId);
+        view.getModel().put("contents",contents);
         view.getModel().put("contentList",contentList);
         view.getModel().put("commentList",commentList);
         view.getModel().put("scene",contentDesignBean.getScene());
