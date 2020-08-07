@@ -2094,7 +2094,6 @@
             data:{"y1":Y1,"o1":O1,"y2":Y2,"o2":O2,"y3":Y3,"o3":O3,"y4":Y4,"o4":O4,"y5":Y5,"o5":O5,"y6":Y6,"o6":O6,"userNumber":userNumber,"userId":userId},
             dataType: "json",
             success: function (result) {
-                alert(result.message);
                 var sence = (Math.floor(Math.random()*4+ 1)) ;
                 doPost("/oneTest/xuQiuShequDemo",{'scene':sence,'userId':userId});
 

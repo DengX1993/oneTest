@@ -51,12 +51,13 @@
     <result column="K2" property="K2" jdbcType="VARCHAR" />
     <result column="K3" property="K3" jdbcType="VARCHAR" />
     <result column="Open" property="Open" jdbcType="VARCHAR" />
+    <result column="group" property="group" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
     UUID, USER_NUMBER, GENDER, AGE, EDUCATION, USE1, USE2, LISTEN, Y1, O1, Y2, O2, Y3, 
     O3, Y4, O4, Y5, O5, Y6, O6, VIEW, TIME, QUANTITY, COMMENT1, COMMENT2, COMMENT3, COMMENT4, 
     COMMENT5, GOAL, PRODUCT, U1, U2, U3, H1, H2, H3, C1, C2, C3, L1, L2, L3, CE1, CE2, 
-    CE3, K1, K2, K3, Open
+    CE3, K1, K2, K3, Open,group
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
@@ -82,7 +83,7 @@
       H3, C1, C2, C3, 
       L1, L2, L3, CE1, 
       CE2, CE3, K1, K2, 
-      K3, Open)
+      K3, Open,group)
     values (#{uuid,jdbcType=VARCHAR}, #{userNumber,jdbcType=VARCHAR}, #{gender,jdbcType=VARCHAR}, 
       #{age,jdbcType=VARCHAR}, #{education,jdbcType=VARCHAR}, #{use1,jdbcType=VARCHAR}, 
       #{use2,jdbcType=VARCHAR}, #{listen,jdbcType=VARCHAR}, #{Y1,jdbcType=VARCHAR}, #{O1,jdbcType=VARCHAR}, 
@@ -96,7 +97,7 @@
       #{H3,jdbcType=VARCHAR}, #{C1,jdbcType=VARCHAR}, #{C2,jdbcType=VARCHAR}, #{C3,jdbcType=VARCHAR}, 
       #{l1,jdbcType=VARCHAR}, #{l2,jdbcType=VARCHAR}, #{l3,jdbcType=VARCHAR}, #{CE1,jdbcType=VARCHAR}, 
       #{CE2,jdbcType=VARCHAR}, #{CE3,jdbcType=VARCHAR}, #{K1,jdbcType=VARCHAR}, #{K2,jdbcType=VARCHAR}, 
-      #{K3,jdbcType=VARCHAR}, #{Open,jdbcType=VARCHAR})
+      #{K3,jdbcType=VARCHAR}, #{Open,jdbcType=VARCHAR},#{group,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.css.demo.bean.RecordBean" >
     insert into record
@@ -248,6 +249,9 @@
       <if test="Open != null" >
         Open,
       </if>
+      <if test="group != null" >
+        group,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="uuid != null" >
@@ -396,6 +400,9 @@
       </if>
       <if test="Open != null" >
         #{Open,jdbcType=VARCHAR},
+      </if>
+      <if test="group != null" >
+        #{group,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -546,6 +553,9 @@
       <if test="Open != null" >
         Open = #{Open,jdbcType=VARCHAR},
       </if>
+      <if test="group != null" >
+        Open = #{group,jdbcType=VARCHAR},
+      </if>
     </set>
     where UUID = #{uuid,jdbcType=VARCHAR}
   </update>
@@ -599,6 +609,7 @@
       K2 = #{K2,jdbcType=VARCHAR},
       K3 = #{K3,jdbcType=VARCHAR},
       Open = #{Open,jdbcType=VARCHAR}
+      group = #{group,jdbcType=VARCHAR}
     where UUID = #{uuid,jdbcType=VARCHAR}
   </update>
 </mapper>

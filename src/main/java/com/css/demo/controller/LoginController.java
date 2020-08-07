@@ -134,6 +134,7 @@ public class LoginController {
         view.getModel().put("userId",userId);
         view.getModel().put("nextUrl","/oneTest/checkinvItation");
         view.getModel().put("commentFlag","0");
+        view.getModel().put("scene",scene);
         List<LogsBean> logsBeans = logsBeanService.selectLogsByUserId(userId);
         for (LogsBean logsBean : logsBeans) {
             //根据日志，查出是否评论
@@ -179,7 +180,8 @@ public class LoginController {
         view.getModel().put("userId",userId);
         view.getModel().put("contentList",contentList);
         view.getModel().put("commentList",commentList);
-        view.getModel().put("backUrl","/oneTest/xuqiushequmain?scene="+contentDesignBean.getScene()+"&userId="+userId);
+        view.getModel().put("scene",contentDesignBean.getScene());
+        view.getModel().put("backUrl","/oneTest/xuqiushequmain");
 
         return view;
     }
@@ -196,9 +198,10 @@ public class LoginController {
     //问卷页
     @ResponseBody
     @RequestMapping(value = "/questionnaire",method = RequestMethod.POST)
-    public ModelAndView questionnaire(@RequestParam("userId") String userId){
+    public ModelAndView questionnaire(@RequestParam("userId") String userId,@RequestParam("scene") String scene){
         ModelAndView view = new ModelAndView("questionnaire");
         view.getModel().put("userId",userId);
+        view.getModel().put("scene",scene);
         return view;
     }
     //问卷提交

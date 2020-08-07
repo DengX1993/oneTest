@@ -51,6 +51,7 @@ public class RecordBean {
     private String K2;
     private String K3;
     private String Open;
+    private String group;
 
     public String getUuid() {
         return uuid;
@@ -442,5 +443,13 @@ public class RecordBean {
 
     public void setOpen(String open) {
         Open = open;
+    }
+
+    public String getGroup() {
+        return group;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
     }
 }
