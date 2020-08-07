@@ -1539,6 +1539,7 @@
     <meta data-n-head="ssr" name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
+<!--<body id="checkId" onload="window.scrollTo(0,document.body.scrollHeight)">-->
 <body>
 <div id="__nuxt"><!---->
     <div id="__layout">
@@ -1800,6 +1801,12 @@
         </div>
     </div>
     <script>
+
+  /*  $(function(){
+        $("#checkId").attr("onload","");
+    });*/
+
+
         function submitInvitationButton() {
             //评论内容
             var submitInvitationButtonTextarea = document.getElementById("submitInvitationButtonTextarea").value;
