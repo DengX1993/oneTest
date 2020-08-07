@@ -156,7 +156,7 @@ public class LoginController {
         //帖子内容
         List<String> contentList = new ArrayList<>();
         String contents = contentDesignBean.getContents();
-        String[] split = contents.split("[？，。：；]");
+        String[] split = contents.split("[<br/>]");
         for (String s : split) {
             contentList.add(s);
         }
