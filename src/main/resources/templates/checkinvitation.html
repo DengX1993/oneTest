@@ -1600,7 +1600,7 @@
                                         <div data-v-63d25e3c="" class="tit">
 
                                             <!-----------标题------------->
-                                            <p data-v-63d25e3c="" class="tit-info" th:text="${contentDesignBean.getTitle()}"/>
+                                            <p data-v-63d25e3c="" style="font-size: 23px" class="tit-info" th:text="${contentDesignBean.getTitle()}"/>
 
 
                                             <div data-v-63d25e3c="" class="tit-date">
@@ -1719,7 +1719,7 @@
                             <div data-v-63d25e3c="">
                                 <div data-v-63d25e3c="" class="topic-comment main-reply el-row"
                                      style="margin-left: -5px; margin-right: -5px;">
-                                    <p style="text-indent: 1em;font-weight: bold;font-size: 25px;color: #4CAF50;margin-bottom: 8px;margin-top: -5px" >参与讨论</p>
+                                    <p style="text-indent: 1em;font-weight: bold;font-size: 19px;margin-bottom: 8px;margin-top: -5px" >参与话题讨论</p>
                                     <div data-v-63d25e3c="" class="hidden-md-and-down el-col el-col-3"
                                          style="padding-left: 5px; padding-right: 5px;">
                                         <div data-v-63d25e3c="" class="list-img">
@@ -1818,17 +1818,21 @@
             //场景uuid
             var checkContentId = document.getElementById("checkContentId").value;
             if(submitInvitationButtonTextarea != '' && submitInvitationButtonTextarea.length>0){
+
                 $.ajax({
                     url:"/oneTest/saveLogsBean",
                     method:'post',
                     data:{"userUuid":userId,"comment":submitInvitationButtonTextarea,"checkContentId":checkContentId},
                     dataType:JSON,
                     async:false,
-                    success : function (data) {
+                    success : function (result) {
+                        debugger
+
+                        alert(result.message);
                     }
 
                 })
-                location.reload();
+                doPost("/oneTest/checkinvItation",{'invitationId':checkContentId,'insertType':'0','userId':userId});
             }
         }
 

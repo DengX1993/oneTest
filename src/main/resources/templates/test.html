@@ -13,9 +13,7 @@
 
 
 <span >
-    <a href="javascript:doPost('/oneTest/index ', {'name':'张三'})">
-        提交
-    </a>
+   <button id="parseBtn" class="btn btn-info mt-2" type="button" onclick="return parseExcel()"><i class="fa fa-reply"></i>导入</button>
 </span>
 
 </body>
@@ -24,20 +22,22 @@
 <script type="text/javascript">
 
 
-    function doPost(to, p) { // to:提交动作（action）,p:参数
-        debugger;
-        var myForm = document.createElement("form");
-        myForm.method = "post";
-        myForm.action = to;
-        for (var i in p){
-            var myInput = document.createElement("input");
-            myInput.setAttribute("name", i); // 为input对象设置name
-            myInput.setAttribute("value", p[i]); // 为input对象设置value
-            myForm.appendChild(myInput);
-        }
-        document.body.appendChild(myForm);
-        myForm.submit();
-        document.body.removeChild(myForm); // 提交后移除创建的form
+    //解析Excel操作
+    function parseExcel(){
+        var url = "/oneTest/parseExcel";
+        $.ajax({
+            type: 'POST',
+            url: url,
+            cache: false,  //禁用缓存
+            contentType: false,
+            dataType: "json",
+            processData:false,
+            success: function (result) {
+                debugger
+                alert(result.message)
+            }
+        })
+        return false;
     }
 
 

@@ -41,7 +41,6 @@ public class LoginController {
     @RequestMapping("/index")
     public String show(HttpServletRequest request){
         String test = request.getRequestURI();
-        System.err.println(test);
         return "console";
     }
 
@@ -78,7 +77,7 @@ public class LoginController {
     @Autowired
     ContentDesignService contentDesign;
     //需求社区场景示例 http://localhost:8080/oneTest/xuQiuShequDemo?scene=1
-    @RequestMapping(value = "/xuQiuShequDemo",method = RequestMethod.POST)
+    @RequestMapping(value = "/xuQiuShequDemo")
     public ModelAndView xuQiuShequDemo(@RequestParam("scene") String scene,@RequestParam("userId") String userId){
         ModelAndView view = new ModelAndView("xuqiushequdemo");
         //内容
@@ -152,15 +151,17 @@ public class LoginController {
 
     //帖子内容页面http://localhost:8080/oneTest/checkinvItation?invitationId=10&userId=1
     @RequestMapping( value = "/checkinvItation",method = RequestMethod.POST)
-    public ModelAndView checkinvItation(@RequestParam("invitationId") String invitationId,@RequestParam("userId") String userId){
+    public ModelAndView checkinvItation( @RequestParam("invitationId") String invitationId,@RequestParam("userId") String userId,String insertType){
         //进入页面，也需要新增一条记录
-        LogsBean saveLogsBean = new LogsBean();
-        saveLogsBean.setUuid(UUidUtil.getUUid());
-        saveLogsBean.setUserUuid(userId);
-        saveLogsBean.setCheckContentId(invitationId);
-        saveLogsBean.setCommentFlag(3);
-        saveLogsBean.setCreateTime(new Date());
-        int insert = logsBeanService.insert(saveLogsBean);
+        if("1".equals(insertType)){
+            LogsBean saveLogsBean = new LogsBean();
+            saveLogsBean.setUuid(UUidUtil.getUUid());
+            saveLogsBean.setUserUuid(userId);
+            saveLogsBean.setCheckContentId(invitationId);
+            saveLogsBean.setCommentFlag(3);
+            saveLogsBean.setCreateTime(new Date());
+            int insert = logsBeanService.insert(saveLogsBean);
+        }
         ModelAndView view = new ModelAndView("checkinvitation");
         ContentDesignBean contentDesignBean = contentDesign.selectObjByUUid(invitationId);
         view.getModel().put("contentDesignBean",contentDesignBean);
@@ -289,6 +290,7 @@ public class LoginController {
 
         return "test";
     }
+
     @ResponseBody
     @RequestMapping("/parseExcel")
     public ModelAndView parseExcel(HttpServletRequest request) {
