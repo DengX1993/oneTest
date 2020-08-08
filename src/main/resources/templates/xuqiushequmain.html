@@ -1673,7 +1673,6 @@
                         <div class="topNav-right" id="headerInfoPage">
                             <input type="hidden" id="commentFlag" th:value="${commentFlag}"/>
 
-                            <a th:if="'1' eq ${viewFlag}" onclick="endCheck()" class="topNav-signIn">结束浏览</a>
                         </div>
 
 
@@ -1708,13 +1707,14 @@
 
             </div>
             <div id="content-wrap" data-v-6fccbc50="">
-                <div>
-                    <p th:if="'1' eq ${scene} or '2' eq ${scene}" style="text-align: center;font-size: 20px" >
+                <div >
+                    <p th:if="'1' eq ${scene} or '2' eq ${scene}" style="text-align: center;font-size: 19px;color: red;height: 0px" >
                         您可以点击浏览一条或多条帖子，并参与我们的讨论。
                     </p>
-                    <p th:if="'3' eq ${scene} or '4' eq ${scene}" style="text-align: center;font-size: 20px" >
+                    <p th:if="'3' eq ${scene} or '4' eq ${scene}" style="text-align: center;font-size: 19px;color: red;height: 0px" >
                         您可以点击浏览一条或多条帖子，根据帖子分享的内容，您可以畅所欲言，发表一些您对家电的需求、您对家电使用的生活经验等的讨论。
                     </p>
+                    <button th:if="'1' eq ${viewFlag}" onclick="endCheck()" style="width: 9%;margin-left: 101%;">结束浏览</button>
                 </div>
                 <div class="homepage" data-v-15ad7817="" data-v-6fccbc50="">
                     <div data-v-15ad7817="" class="content-top">

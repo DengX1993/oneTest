@@ -1,5 +1,4 @@
 function doPost(to, p) { // to:提交动作（action）,p:参数
-    debugger;
     var myForm = document.createElement("form");
     myForm.method = "post";
     myForm.action = to;

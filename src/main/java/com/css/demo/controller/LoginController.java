@@ -269,7 +269,7 @@ public class LoginController {
         }
         recordService.insert(recordBean);
         //recordService.insertSelective(recordBean);
-
+        view.getModel().put("userNumber",recordBean.getUserNumber());
         return view;
     }
 

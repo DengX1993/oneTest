@@ -1735,7 +1735,7 @@
             <input type="hidden" id="O6" value="">
             <input type="hidden" id = "userNumber" th:value="${userNumber}">
             <input type="hidden" id = "userId" th:value="${userId}">
-                <div style="width: 42% ;margin-left: 29%">
+                <div style="width: 42%;margin-left: 29%;font-size: 19px;margin-top: 17px;">
                     <p style="text-align: left ;text-indent: 2em;color: red" >
                         在正式开始任务之前，我们想了解您的一些基本信息，本研究以匿名形式展开,
                         所有回答只用于统计分析，请根据您真实情况进行回答。
@@ -2055,7 +2055,6 @@
         }
     }
     function doPost(to, p) { // to:提交动作（action）,p:参数
-        debugger;
         var myForm = document.createElement("form");
         myForm.method = "post";
         myForm.action = to;
