@@ -256,8 +256,18 @@ public class LoginController {
                 if(3 == logsBean.getCommentFlag()){
                     views++;
                 }
-                if(1 == logsBean.getCommentFlag())
+                if(1 == logsBean.getCommentFlag()){
                     Quantity++;
+                    /**
+                     * 根据浏览帖子uuid，查询帖子所属类型
+                     * comment1 6,16,26,36
+                     * comment2 7,17,27,37
+                     * comment3 8,18,28,38
+                     * comment4 9,19,29,39
+                     * comment5 10,20,30,40
+                     */
+                    String id = logsBean.getCheckContentId();
+                }
             }
             recordBean.setView(views+"");
             //浏览帖子时间Time
