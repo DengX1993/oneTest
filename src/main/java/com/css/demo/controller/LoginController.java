@@ -6,6 +6,7 @@ import com.css.demo.mapper.LogsBeanMapper;
 import com.css.demo.service.*;
 import javafx.scene.input.DataFormat;
 import org.apache.ibatis.annotations.Param;
+import org.omg.CORBA.StringValueHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -267,6 +268,20 @@ public class LoginController {
                      * comment5 10,20,30,40
                      */
                     String id = logsBean.getCheckContentId();
+                    if(id!=null) {
+                        String idEndNum = id.substring(id.length() - 2, id.length() - 1);
+                        if ("6".equals(idEndNum)) {
+                            recordBean.setComment1(logsBean.getComment());
+                        } else if ("7".equals(idEndNum)) {
+                            recordBean.setComment2(logsBean.getComment());
+                        } else if ("8".equals(idEndNum)) {
+                            recordBean.setComment3(logsBean.getComment());
+                        } else if ("9".equals(idEndNum)) {
+                            recordBean.setComment4(logsBean.getComment());
+                        } else if ("0".equals(idEndNum)) {
+                            recordBean.setComment5(logsBean.getComment());
+                        }
+                    }
                 }
             }
             recordBean.setView(views+"");
