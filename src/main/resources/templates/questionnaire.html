@@ -418,15 +418,17 @@
                     <fieldset>
                         <!-- <legend class="topic__type-title">个人过度胜任感</legend>-->
                         <div class="ui-control-group ui-matrix">
-                            <ul class="ui-matrix-header">
-                                <li>完全不同意</li>
-                                <li>不同意</li>
-                                <li>比较不同意</li>
-                                <li>不能确定</li>
-                                <li>比较同意</li>
-                                <li>同意</li>
-                                <li>完全同意</li>
-                            </ul>
+                            <div id="dingbuId">
+                                <ul class="ui-matrix-header">
+                                    <li>完全不同意</li>
+                                    <li>不同意</li>
+                                    <li>比较不同意</li>
+                                    <li>不能确定</li>
+                                    <li>比较同意</li>
+                                    <li>同意</li>
+                                    <li>完全同意</li>
+                                </ul>
+                            </div>
                             <div class="ui-matrix-body">
                                 <div class="ui-matrix-bodybox">
                                     <div class="title">
@@ -1028,6 +1030,39 @@
 </body>
 </html>
 <script language="javascript">
+$(function () {
+    fixDiv("dingbuId","0");
+})
+
+
+    /*
+*滚动条滑动，位置不变的DIV层
+*div_id：DIV的ID属性值，必填参数
+*offsetTop：滚动条滑动时DIV层距顶部的高度，可选参数
+*/
+    function fixDiv(div_id,offsetTop){
+        debugger;
+        var Obj=$('#'+div_id);
+        if(Obj.length!=1){return false;}
+        var offsetTop=arguments[1]?arguments[1]:0;
+        var ObjTop=Obj.offset().top;
+        $(window).scroll(function(){
+            if($(window).scrollTop()<=ObjTop){
+                Obj.css({
+                    'position':'relative',
+                    'top':0
+                });
+            }else{
+                Obj.css({
+                    'position':'fixed',
+                    'top':0+offsetTop+'px',
+                    'z-index':1
+                });
+            }
+        });
+    }
+
+
 
     $("#submit1").click(function(){
         if(toVaild()==true){
