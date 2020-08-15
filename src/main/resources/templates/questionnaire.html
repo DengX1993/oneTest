@@ -418,15 +418,15 @@
                     <fieldset>
                         <!-- <legend class="topic__type-title">个人过度胜任感</legend>-->
                         <div class="ui-control-group ui-matrix">
-                            <div id="dingbuId" style="width: 744px;height: 50px">
+                            <div id="dingbuId" >
                                 <ul class="ui-matrix-header">
-                                    <li style="flex: 1 1 auto;text-align: center;padding: 12px 5px;line-height: 26px;">完全不同意</li>
-                                    <li style="flex: 1 1 auto;text-align: center;padding: 12px 5px;line-height: 26px;">不同意</li>
-                                    <li style="flex: 1 1 auto;text-align: center;padding: 12px 5px;line-height: 26px;">比较不同意</li>
-                                    <li style="flex: 1 1 auto;text-align: center;padding: 12px 5px;line-height: 26px;">不能确定</li>
-                                    <li style="flex: 1 1 auto;text-align: center;padding: 12px 5px;line-height: 26px;">比较同意</li>
-                                    <li style="flex: 1 1 auto;text-align: center;padding: 12px 5px;line-height: 26px;">同意</li>
-                                    <li style="flex: 1 1 auto;text-align: center;padding: 12px 5px;line-height: 26px;">完全同意</li>
+                                    <li>完全不同意</li>
+                                    <li>不同意</li>
+                                    <li>比较不同意</li>
+                                    <li>不能确定</li>
+                                    <li>比较同意</li>
+                                    <li>同意</li>
+                                    <li>完全同意</li>
                                 </ul>
                             </div>
                             <div class="ui-matrix-body">
@@ -910,7 +910,7 @@
                                     <div class="title">
                                         18.我参与的讨论有助于产品开发者获得新思路
                                     </div>
-                                    <div class="option">
+                                    <div id = "dibo" class="option">
                                         <div class="option-style">
                                             <input type="radio" name="K3" value="1">
                                         </div>
@@ -935,14 +935,14 @@
                                     </div>
                                 </div>
 
-                                <div class="ui-matrix-bodybox" th:if="${commentFlag} == 0">
+                               <!-- <div class="ui-matrix-bodybox" th:if="${commentFlag} == 0">
                                     <div class="title">
                                         19.请问您没有参与讨论的原因是什么？
                                     </div>
                                     <div class="option">
                                         <textarea name="Open" rows="5" style="width: 80%"></textarea>
                                     </div>
-                                </div>
+                                </div>-->
                             </div>
                         </div>
                     </fieldset>
@@ -1030,8 +1030,10 @@
 </body>
 </html>
 <script language="javascript">
+    var w = document.getElementById("dingbuId").clientWidth;
 $(function () {
     fixDiv("dingbuId","0");
+
 })
 
 
@@ -1053,11 +1055,21 @@ $(function () {
                     'top':0
                 });
             }else{
-                Obj.css({
-                    'position':'fixed',
-                    'top':0+offsetTop+'px',
-                    'z-index':1
-                });
+                debugger;
+                var Obj2=$('#dibo');
+                var Objbtn=Obj2.offset().top;
+                if($(window).scrollTop()>=Objbtn){
+                    Obj.css({
+                        'position':'relative'
+                    });
+                }else{
+                    Obj.css({
+                        'position':'fixed',
+                        'top':0+offsetTop+'px',
+                        'z-index':1,
+                        'width':w+'px'
+                    });
+                }
             }
         });
     }

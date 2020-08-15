@@ -14,7 +14,6 @@ import java.util.List;
 /**
  * @ClassName MybatisGenerate
  * @Description TODO
- * @Author Zhaozhixiao
  * @Date 2020/7/30 13:40
  * @Version 1.0
  */

@@ -1690,10 +1690,12 @@
                                 <input type="hidden" name="scene" id="scene" th:value="${scene}">
                                 <input type="hidden" name="viewFlag" id="viewFlag" th:value="${viewFlag}">
                                 <div class="container" style="width: 80% ">
-                                    <h2 style="color: #2B2E37">您还没有参与讨论，您确定结束吗？</h2>
+                                    <!--<h2 style="color: #2B2E37">您还没有参与讨论，您确定结束吗？</h2>
                                     <button   type="button" onclick="document.getElementById('begin').style.display='none'">继续浏览</button>
                                     <p>-</p>
-                                    <button  type="submit" id="button">确定</button>
+                                    <button  type="submit" id="button">确定</button>-->
+                                    <h2 style="color: #2B2E37">至少参与一个话题的讨论才能结束！</h2>
+                                    <button   type="button" onclick="document.getElementById('begin').style.display='none'">确定</button>
                                 </div>
                             </form>
                         </div>
@@ -1708,10 +1710,10 @@
             </div>
             <div id="content-wrap" data-v-6fccbc50="">
                 <div style="height: 21px">
-                    <p th:if="'1' eq ${scene} or '2' eq ${scene}" style="text-align: center;font-size: 14px;color: red;height: 0px" >
+                    <p th:if="'1' eq ${scene} or '2' eq ${scene}" style="text-align: center;font-size: 16px;color: red;height: 0px" >
                         您可以点击浏览一条或多条帖子，并参与我们的讨论。
                     </p>
-                    <p th:if="'3' eq ${scene} or '4' eq ${scene}" style="text-align: center;font-size: 14px;color: red;height: 0px" >
+                    <p th:if="'3' eq ${scene} or '4' eq ${scene}" style="text-align: center;font-size: 16px;color: red;height: 0px" >
                         您可以点击浏览一条或多条帖子，根据帖子分享的内容，您可以畅所欲言，发表一些您对家电的需求、您对家电使用的生活经验等的讨论。
                     </p>
                     <button th:if="'1' eq ${viewFlag}" onclick="endCheck()" style="width: 9%;margin-left: 92%;">结束浏览</button>

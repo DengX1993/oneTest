@@ -6,7 +6,6 @@ import com.css.demo.mapper.LogsBeanMapper;
 import com.css.demo.service.*;
 import javafx.scene.input.DataFormat;
 import org.apache.ibatis.annotations.Param;
-import org.omg.CORBA.StringValueHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -257,7 +256,7 @@ public class LoginController {
                 if(3 == logsBean.getCommentFlag()){
                     views++;
                 }
-                if(1 == logsBean.getCommentFlag()){
+                if(1 == logsBean.getCommentFlag()) {
                     Quantity++;
                     /**
                      * 根据浏览帖子uuid，查询帖子所属类型
@@ -266,21 +265,44 @@ public class LoginController {
                      * comment3 8,18,28,38
                      * comment4 9,19,29,39
                      * comment5 10,20,30,40
-                     *
                      */
                     String id = logsBean.getCheckContentId();
-                    if(id!=null) {
-                        String idEndNum = id.substring(id.length() - 2, id.length() - 1);
+                    if (id != null) {
+                        String idEndNum ="";
+                        if(id.length() > 1){
+                            idEndNum = id.substring(id.length() - 1);
+                        }
+                        else
+                            idEndNum = id;
                         if ("6".equals(idEndNum)) {
-                            recordBean.setComment1(logsBean.getComment());
+                            if(recordBean.getComment1() != null)
+                                recordBean.setComment1(recordBean.getComment1()+","+logsBean.getComment());
+                            else
+                                recordBean.setComment1(logsBean.getComment());
+
                         } else if ("7".equals(idEndNum)) {
-                            recordBean.setComment2(logsBean.getComment());
+                            if(recordBean.getComment2() != null)
+                                recordBean.setComment2(recordBean.getComment2()+","+logsBean.getComment());
+                            else
+                                recordBean.setComment2(logsBean.getComment());
+
                         } else if ("8".equals(idEndNum)) {
-                            recordBean.setComment3(logsBean.getComment());
+                            if(recordBean.getComment3() != null)
+                                recordBean.setComment3(recordBean.getComment3()+","+logsBean.getComment());
+                            else
+                                recordBean.setComment3(logsBean.getComment());
+
                         } else if ("9".equals(idEndNum)) {
-                            recordBean.setComment4(logsBean.getComment());
+                            if(recordBean.getComment4() != null)
+                                recordBean.setComment4(recordBean.getComment4()+","+logsBean.getComment());
+                            else
+                                recordBean.setComment4(logsBean.getComment());
+
                         } else if ("0".equals(idEndNum)) {
-                            recordBean.setComment5(logsBean.getComment());
+                            if(recordBean.getComment5() != null)
+                                recordBean.setComment5(recordBean.getComment5()+","+logsBean.getComment());
+                            else
+                                recordBean.setComment5(logsBean.getComment());
                         }
                     }
                 }
@@ -314,7 +336,7 @@ public class LoginController {
     @RequestMapping("/test")
     public String test(){
 
-        return "questionnaire";
+        return "test";
     }
 
     @ResponseBody
